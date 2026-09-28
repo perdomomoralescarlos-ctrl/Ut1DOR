@@ -1,0 +1,8 @@
+- [ ] Header
+    - [ ] Nav
+- [ ] Body
+    - [ ] Call to action
+    - [ ] Contenido 
+    - [ ] secciones de comida (osea, un plato específico
+    - [ ] tablas de comidas.
+- [ ] Footer
