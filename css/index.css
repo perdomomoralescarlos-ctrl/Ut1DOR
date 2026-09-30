@@ -10,13 +10,13 @@
    padding: 10px;
    border: 1px solid var(--amber-flame);
    max-width: 300px;
-   transition: border 0.3s ease, transform 0.3s ease;
+   transition: border 0.3s ease, ;
    border-radius: 10px;
    overflow: hidden;
 }
 
 .card-closed{
-   height: 100px;
+   height: 75px;
 }
 
 .card-open{
