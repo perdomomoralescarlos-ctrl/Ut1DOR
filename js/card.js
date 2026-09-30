@@ -1,4 +1,3 @@
-import { cardContent } from "./cssClassMap.js";
 import { cardClassMap } from "./cssClassMap.js";
 
 export class Card {
@@ -17,40 +16,39 @@ export class Card {
       this._paragraphContainer.classList.add(cardClassMap.cardContentParagraphContainer)
 
       this._imageContainer = document.createElement("div")
-      this._imageContainer.classList(cardClassMap.cardImageContainer)
+      this._imageContainer.classList.add(cardClassMap.cardImageContainer)
 
       this._image = document.createElement("img")
       this._image.classList.add(cardClassMap.cardImage)
 
    }
 
-   build(){
+   build(element){
       this._title.innerText = this._cardInfo.title;
       this._paragraph.innerText = this._cardInfo.paragraph;
 
-      this._image.setAttribute("src", cardInfo.image);
+      this._image.setAttribute("src", this._cardInfo.image);
 
       this._imageContainer.appendChild(this._image);
       this._section.appendChild(this._imageContainer);
 
-      this._paragraphContainer.appendChild(this._paragraph)
-      this._paragraphContainer.classList.add(cardClassMap.cardContentParagraphContainer)
+      this._paragraphContainer.appendChild(this._paragraph);
 
       this._contentContainer.appendChild(this._title);
       this._contentContainer.appendChild(this._paragraphContainer);
 
-      this._section.appendChild(this._contentContainer)
+      this._section.appendChild(this._contentContainer);
+
+      element.appendChild(this._section);
    }
 
    addEvents(){
       this._section.addEventListener("mouseenter", ()=>{
-	 this._contentContainer.classList.remove("non-visible");
 	 this._section.classList.add("card-open");
 	 this._section.classList.remove("card-closed");
       });
 
       this._section.addEventListener("mouseleave", ()=>{
-	 this._contentContainer.classList.add("non-visible");
 	 this._section.classList.remove("card-open");
 	 this._section.classList.add("card-closed");
       });
