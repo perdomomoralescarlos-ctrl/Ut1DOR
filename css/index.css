@@ -1,0 +1,26 @@
+*{
+   --white: #fefffeff;
+   --lavender: #e9ebf8ff;
+   --pale-slate: #b4b8c5ff;
+   --amber-flame: #fbbb25ff;
+   --amber-glow: #f9a019ff;
+}
+
+.card-section{
+   padding: 10px;
+   border: 1px solid var(--amber-flame);
+   max-width: 300px;
+   transition: border 0.3s ease, transform 0.3s ease;
+   border-radius: 10px;
+}
+
+.card-section:hover{
+   padding: 13px;
+   border: 1px solid var(--amber-glow);
+   transform: scale(1.03);
+}
+
+.non-visible{
+   display: none;
+}
+
