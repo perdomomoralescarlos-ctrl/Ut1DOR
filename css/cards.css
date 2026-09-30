@@ -6,7 +6,7 @@
    --amber-glow: #f9a019ff;
    --card-image-width: 400px;
    --card-image-height: 240px;
-   --card-open-heigh: 400px;
+   --card-open-height: 400px;
 }
 
 .card-section{
@@ -29,7 +29,7 @@
 }
 
 .card-open{
-   height: var(--card-open-heigh);
+   height: var(--card-open-height);
 }
 
 .card-section:hover{
