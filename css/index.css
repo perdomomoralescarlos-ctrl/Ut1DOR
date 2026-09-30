@@ -15,9 +15,8 @@
 }
 
 .card-section:hover{
-   padding: 13px;
    border: 1px solid var(--amber-glow);
-   transform: scale(1.03);
+   transform: scale(1.02);
 }
 
 .non-visible{
