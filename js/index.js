@@ -1,10 +1,9 @@
 import { Card } from "./card.js";
+import { cardsContent } from "./cssClassMap.js"; 
 
-let elementCardList = document.querySelectorAll(".card-section");
-let cardList = [];
+let section1 = document.getElementById("section1");
 
-elementCardList.forEach((elementCard) => {
-   let card = new Card(elementCard);
-   card.build();
-   cardList.push(card);
+let cards1 = [];
+
+cardsContent.forEach((info)=>{
 })
