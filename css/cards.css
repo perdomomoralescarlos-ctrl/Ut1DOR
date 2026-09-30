@@ -4,9 +4,9 @@
    --pale-slate: #b4b8c5ff;
    --amber-flame: #fbbb25ff;
    --amber-glow: #f9a019ff;
-   --card-image-width: 300px;
-   --card-image-height: 180px;
-   --card-open-heigh: 300px;
+   --card-image-width: 400px;
+   --card-image-height: 240px;
+   --card-open-heigh: 400px;
 }
 
 .card-section{
@@ -33,8 +33,7 @@
 }
 
 .card-section:hover{
-   border: 1px solid var(--amber-glow);
-   transform: scale(1.02);
+   border: 3px solid var(--amber-glow);
 }
 
 .card-content-container{
@@ -44,4 +43,16 @@
    margin:0;
 }
 
-/*IMPORTANTE UBICAR LAS CARDS EN GRID Y CON CONTENEDORES DE POSITION RELATIVE PARA QUE NO SE DESCUAREGINGUE TODO AL ABRIR LA CARTA*/
+#section1{
+   margin: auto;
+   max-width: 1400px;
+}
+
+.card-gallery{
+   display: grid;
+
+   grid-template-columns: 3fr 3fr 3fr;
+   grid-auto-rows: 420px;
+   gap: 30px;
+   justify-items: center;
+}
