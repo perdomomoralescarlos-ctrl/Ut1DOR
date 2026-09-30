@@ -44,13 +44,13 @@ export class Card {
 
    addEvents(){
       this._section.addEventListener("mouseenter", ()=>{
-	 this._section.classList.add("card-open");
-	 this._section.classList.remove("card-closed");
+	 this._section.classList.add(cardClassMap.cardOpen);
+	 this._section.classList.remove(cardClassMap.cardClosed);
       });
 
       this._section.addEventListener("mouseleave", ()=>{
-	 this._section.classList.remove("card-open");
-	 this._section.classList.add("card-closed");
+	 this._section.classList.remove(cardClassMap.cardOpen);
+	 this._section.classList.add(cardClassMap.cardClosed);
       });
    }
 

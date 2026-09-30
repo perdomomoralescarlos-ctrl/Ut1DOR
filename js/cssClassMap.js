@@ -7,7 +7,8 @@ export let cardClassMap = {
    nonVisible: "non-visible",
    cardContentContainer: "card-content-container",
    cardContentParagraphContainer: "card-content-paragraph-container",
-   cardClosed: "card-closed"
+   cardClosed: "card-closed",
+   cardOpen: "card-open"
 }
 
 export let cardContent = {
