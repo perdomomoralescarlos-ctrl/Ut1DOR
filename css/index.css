@@ -12,6 +12,15 @@
    max-width: 300px;
    transition: border 0.3s ease, transform 0.3s ease;
    border-radius: 10px;
+   overflow: hidden;
+}
+
+.card-closed{
+   height: 100px;
+}
+
+.card-open{
+   height: unset;
 }
 
 .card-section:hover{
