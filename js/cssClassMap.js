@@ -6,7 +6,8 @@ export let cardClassMap = {
    cardImage: "card-image",
    nonVisible: "non-visible",
    cardContentContainer: "card-content-container",
-   cardContentParagraphContainer: "card-content-paragraph-container"
+   cardContentParagraphContainer: "card-content-paragraph-container",
+   cardClosed: "card-closed"
 }
 
 export let cardContent = {

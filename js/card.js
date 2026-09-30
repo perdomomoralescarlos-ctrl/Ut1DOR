@@ -5,7 +5,7 @@ export class Card {
       this._cardInfo = cardInfo;
 
       this._section = document.createElement("section")
-      this._section.classList.add(cardClassMap.nonVisible);
+      this._section.classList.add(cardClassMap.cardSection, cardClassMap.cardClosed);
 
       this._contentContainer = document.createElement("div")
       this._contentContainer.classList.add(cardClassMap.cardContentContainer);
