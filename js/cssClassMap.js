@@ -1,22 +1,23 @@
+/*
+ * cssClassMap.js — Fuente de datos y nombres de clases CSS del proyecto.
+ *
+ * Este módulo centraliza el texto literal de las clases CSS (para no
+ * repetirlos como cadenas sueltas en el JavaScript) y el contenido de las
+ * tarjetas que se renderizan en cards.html.
+ */
 
-
+/* Mapa entre nombres legibles en JS y las clases reales definidas en cards.css. */
 export let cardClassMap = {
    cardSection: "card-section",
    cardImageContainer: "card-image-container",
    cardImage: "card-image",
-   nonVisible: "non-visible",
    cardContentContainer: "card-content-container",
    cardContentParagraphContainer: "card-content-paragraph-container",
    cardClosed: "card-closed",
    cardOpen: "card-open"
 }
 
-export let cardContent = {
-   image: "assets/something.jpg",
-   title: "Something",
-   paragraph: "Something SomethingSomethingSomethingSomethingSomethingSomethingSomething"
-}
-
+/* Datos de cada tarjeta: imagen, título y descripción. */
 export let cardsContent = [
    {
       image: "assets/pan/baguete.jpg",

@@ -1,16 +1,31 @@
+/*
+ * cards.css — Estilos de la galería de tarjetas de panes.
+ *
+ * Cada tarjeta (.card-section) se muestra cerrada por defecto (solo la
+ * imagen) y se expande al pasar el mouse para revelar el título y la
+ * descripción.
+ */
+
+/* Variables de diseño reutilizables en toda la hoja. */
 *{
+   /* Ancho y alto base de la imagen de cada tarjeta. */
+   --card-image-width: 400px;
+   --card-image-height: 240px;
+   /* Alto de la tarjeta cuando está expandida. */
+   --card-open-height: 400px;
+   /* Colores del borde de la tarjeta (normal y al pasar el mouse). */
+   --amber-flame: #fbbb25ff;
+   --amber-glow: #f9a019ff;
+   /* Colores de la paleta base (reservados para uso futuro). */
    --white: #fefffeff;
    --lavender: #e9ebf8ff;
    --pale-slate: #b4b8c5ff;
-   --amber-flame: #fbbb25ff;
-   --amber-glow: #f9a019ff;
-   --card-image-width: 400px;
-   --card-image-height: 240px;
-   --card-open-height: 400px;
 }
 
+/* Contenedor de una tarjeta individual. */
 .card-section{
    border: 1px solid var(--amber-flame);
+   /* Anima el borde y la altura al abrir/cerrar la tarjeta. */
    transition: border 0.3s ease, height 0.4s ease-in ;
    border-radius: 10px;
    width: var(--card-image-width);
@@ -18,24 +33,30 @@
    background-color: white;
 }
 
+/* Imagen del pan dentro de la tarjeta. */
 .card-image{ 
    width: var(--card-image-width);
    height: var(--card-image-height);
+   /* Recorta la imagen para que llene el marco sin deformarse. */
    object-fit: cover;
 }
 
+/* Estado cerrado: solo se ve la imagen. */
 .card-closed{
    height: var(--card-image-height);
 }
 
+/* Estado abierto: se revela el contenido de texto. */
 .card-open{
    height: var(--card-open-height);
 }
 
+/* Realce del borde al pasar el mouse sobre la tarjeta. */
 .card-section:hover{
    border: 3px solid var(--amber-glow);
 }
 
+/* Contenedor del título y la descripción. */
 .card-content-container{
    padding: 10px;
 }
@@ -43,11 +64,13 @@
    margin:0;
 }
 
+/* La galería ocupa todo el ancho disponible hasta un máximo. */
 #section1{
    margin: auto;
    max-width: 1400px;
 }
 
+/* Distribución de las tarjetas en una cuadrícula de tres columnas. */
 .card-gallery{
    display: grid;
 
