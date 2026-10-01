@@ -3,6 +3,6 @@
 - [ ] Body
     - [ ] Call to action
     - [ ] Contenido 
-    - [ ] secciones de comida (osea, un plato específico) (Gabriel)
-    - [ ] tablas de comidas.
+    - [x] secciones de comida (osea, un plato específico) (Gabriel)
+    - [X] tablas de comidas.
 - [ ] Footer
