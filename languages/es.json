@@ -1,0 +1,11 @@
+{
+    "header": {
+        "products": "Productos",
+        "about-us": "Sobre Nosotros",
+        "contact": "Contacto"
+    },
+    "hero": {
+        "title": "El Auténtico Sabor del Pan Artesanal",
+        "text": "Hecho a mano, horneado con pasión y diseñado para deleitar tus sentidos."
+    }
+}
