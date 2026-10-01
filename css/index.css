@@ -1,0 +1,12 @@
+.languages {
+    display: flex;
+    gap: .5rem;
+}
+
+.lang-button {
+    background-color: transparent;
+    font-size: 1.25rem;
+    border: 0;
+    cursor: pointer;
+    line-height: 1;
+}
