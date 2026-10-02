@@ -10,13 +10,28 @@ import { empanadas } from "./data/empanadas.js";
  */
 
 /* Todos los productos de la galería, agrupados por tipo. */
-let productsContent = [...panes, ...dulces, ...empanadas];
 
 /* Contenedor donde se insertan todas las tarjetas. */
-let section1 = document.getElementById("section1");
+let panaderia = document.getElementById("panaderia");
+let dulceria = document.getElementById("dulceria")
+let empanadasElement = document.getElementById("empanadas")
 
-productsContent.forEach((info)=>{
-   let cardElement = new Card(info);
-   cardElement.build(section1);
-   cardElement.addEvents();
-})
+
+const sectionsArray = [panaderia, dulceria, empanadasElement]
+const productArray = [panes, dulces, empanadas]
+
+function listRender(list, section){
+   list.forEach((info)=>{
+      let cardElement = new Card(info);
+      cardElement.build(section);
+      cardElement.addEvents();
+   })
+}
+
+for(let i = 0;
+    i<sectionsArray.length;
+    i++){
+   
+   listRender(productArray[i], sectionsArray[i])
+}
+
