@@ -9,10 +9,10 @@
 /* Variables de diseño reutilizables en toda la hoja. */
 *{
    /* Ancho y alto base de la imagen de cada tarjeta. */
-   --card-image-width: 400px;
-   --card-image-height: 240px;
+   --card-image-width: 200px;
+   --card-image-height: 120px;
    /* Alto de la tarjeta cuando está expandida. */
-   --card-open-height: 400px;
+   --card-open-height: 210px;
    /* Colores del borde de la tarjeta (normal y al pasar el mouse). */
    --amber-flame: #fbbb25ff;
    --amber-glow: #f9a019ff;
@@ -20,6 +20,7 @@
    --white: #fefffeff;
    --lavender: #e9ebf8ff;
    --pale-slate: #b4b8c5ff;
+   font-family: sans-serif;
 }
 
 /* Contenedor de una tarjeta individual. */
@@ -53,7 +54,7 @@
 
 /* Realce del borde al pasar el mouse sobre la tarjeta. */
 .card-section:hover{
-   border: 3px solid var(--amber-glow);
+   border: 2px solid var(--amber-glow);
 }
 
 /* Contenedor del título y la descripción. */
@@ -64,18 +65,30 @@
    margin:0;
 }
 
-/* La galería ocupa todo el ancho disponible hasta un máximo. */
-#section1{
-   margin: auto;
-   max-width: 1400px;
-}
-
 /* Distribución de las tarjetas en una cuadrícula de tres columnas. */
 .card-gallery{
+   
+   border-radius: 10px;
+
+   font-size: 12px;
+   margin: auto;
+   max-width: 800px;
    display: grid;
 
+   padding-top: 80px;
+
    grid-template-columns: 3fr 3fr 3fr;
-   grid-auto-rows: 420px;
+   grid-auto-rows: 200px;
    gap: 30px;
    justify-items: center;
+}
+
+/* Fondo alterno aplicado a las secciones contenedoras (las de más arriba). */
+main > section:nth-child(2n+1){
+   background-color: #fcf3e8;
+}
+
+/* Centra el título de cada sección contenedora. */
+main > section > h3{
+   text-align: center;
 }

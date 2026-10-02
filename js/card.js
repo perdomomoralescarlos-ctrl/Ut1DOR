@@ -14,7 +14,7 @@ export class Card {
       this._cardInfo = cardInfo;
 
       /* Contenedor principal; nace cerrado. */
-      this._section = document.createElement("section")
+      this._section = document.createElement("div")
       this._section.classList.add(cardClassMap.cardSection, cardClassMap.cardClosed);
 
       /* Contenedor del texto (título + descripción). */
