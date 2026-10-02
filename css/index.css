@@ -14,72 +14,69 @@ body {
 
 /* HEADER */
 .header {
-	background-color: #A0522D;
-	padding: 20px 48px;
+	background-color: #ce6300;
+	padding: 18px 48px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	border-bottom: 2px solid #D2B48C;
+	border-bottom: 3px solid #bd5b00;
+	box-shadow: 0 2px 8px rgba(204, 124, 4, 0.15);
 }
 
 .logo h1 {
-	color: white;
-	font-size: 1.6rem;
-	letter-spacing: 2px;
+	color: #FFF8E7;
+	font-size: 1.7rem;
+	letter-spacing: 1.5px;
 	text-transform: uppercase;
+	font-weight: 700;
 }
 
 .nav {
 	display: flex;
-	gap: 8px;
+	gap: 12px;
 }
 
 .nav a {
 	display: block;
-	padding: 8px 18px;
-	color: #D2B48C;
+	padding: 10px 25px;
+	background-color: #b95a00;
+	color: #FFF8E7;
 	text-decoration: none;
-	border-radius: 6px;
-	font-size: 0.9rem;
+	border-radius: 4px;
+	font-size: 20px;
 	font-weight: 500;
-	letter-spacing: 0.5px;
-	border: 1px solid transparent;
-	transition: border-color 0.2s, color 0.2s;
+	letter-spacing: 0.3px;
+	transition: all 0.25s ease;
 }
 
 .nav a:hover {
-	border-color: #FFD700;
-	color: white;
+	background-color: #bd5b00;
+	border-color: #FFF8E7;
+	transform: translateY(-1px);
 }
 
 .lang-selector {
 	display: flex;
-	gap: 8px;
+	gap: 10px;
 }
 
 .lang-btn {
 	display: inline-block;
-	padding: 5px 15px;
-	font: inherit;
-	cursor: pointer;
-	background-color: #FFF8EB;
-	color: #A0522D;
+	padding: 6px 16px;
+	background-color: #FFF8E7;
+	color: #5C4033;
 	text-decoration: none;
-	border: none;
-	font-weight: bold;
-	border-radius: 6px;
-	transition: background-color 0.2s, color 0.2s;
-}
 
-.flag-icon {
-	display: block;
-	width: 30px;
-	height: 20px;
+	font-weight: 600;
+	border-radius: 4px;
+	transition: all 0.25s ease;
+	font-size: 0.85rem;
 }
 
 .lang-btn:hover {
-	background-color: #A0522D;
-	color: white;
+	background-color: #bd5b00;
+	color: #FFF8E7;
+	transform: translateY(-1px);
 }
 
 /* CONTENIDO PRINCIPAL */
@@ -206,11 +203,11 @@ body {
 
 /* FOOTER */
 .footer {
-	background-color: #A0522D;
-	color: white;
+	background-color: #ce6300;
+	color: #FFF8E7;
 	text-align: center;
 	padding: 28px 48px;
-	border-top: 2px solid #D2B48C;
+	border-top: 3px solid #ad7600;
 }
 
 .footer p {
