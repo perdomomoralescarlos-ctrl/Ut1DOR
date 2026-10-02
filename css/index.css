@@ -208,19 +208,58 @@ section h3 {
 
 /* FOOTER */
 .footer {
-	background-color: #ce6300;
-	color: #FFF8E7;
-	text-align: center;
-	padding: 28px 48px;
-	border-top: 3px solid #ad7600;
+  background-color: #d37300; /* O el color naranja que estés usando */
+  color: #ffffff;
+  padding: 40px 20px;
+  width: 100%;
 }
 
-.footer p {
-	font-size: 14px;
-	letter-spacing: 1px;
-	margin: 0;
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* Empuja el logo a la izquierda y el contenido a la derecha */
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 80px; /* <--- Aumenta este valor lo que hace es basicamente añadir más espacio*/
 }
 
+.footer-logo {
+  flex: 0 0 auto;
+  margin-right: 60px; /* <--- Aumenta la distancía de la imagen y de las letras */
+}
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  text-align: left; /* Alineado a la izquierda para mayor limpieza */
+}
+
+.footer-section h4 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-section p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.social-icon {
+  width: 24px;      /* Ancho deseado (puedes probar con 20px, 24px, 30px...) */
+  height: 24px;     /* Altura para que mantengan la proporción */
+  object-fit: contain;
+  margin-right: 10px; /* Separación entre iconos */
+  transition: opacity 0.3s ease;
+}
+
+/* Efecto opcional al pasar el ratón por encima */
+.social-icon:hover {
+  opacity: 0.7;
+}
 /* RESPONSIVE */
 @media (max-width: 768px) {
 	header {
