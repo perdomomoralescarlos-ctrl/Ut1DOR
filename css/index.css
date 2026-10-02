@@ -60,13 +60,21 @@ body {
 .lang-btn {
 	display: inline-block;
 	padding: 5px 15px;
-	background-color: #FFD700;
+	font: inherit;
+	cursor: pointer;
+	background-color: #FFF8EB;
 	color: #A0522D;
 	text-decoration: none;
-	border: 2px solid #A0522D;
+	border: none;
 	font-weight: bold;
 	border-radius: 6px;
 	transition: background-color 0.2s, color 0.2s;
+}
+
+.flag-icon {
+	display: block;
+	width: 30px;
+	height: 20px;
 }
 
 .lang-btn:hover {
