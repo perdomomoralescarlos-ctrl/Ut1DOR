@@ -3,11 +3,7 @@ import { panes } from "./data/panes.js";
 import { dulces } from "./data/dulces.js";
 import { empanadas } from "./data/empanadas.js";
 
-/*
- * index.js — Punto de entrada de cards.html.
- * Toma los datos de cada tipo de producto, crea una Card por cada uno, la
- * construye dentro de la galería y activa sus eventos de apertura/cierre.
- */
+/* Punto de entrada de index.html: traduce la interfaz y renderiza las tarjetas. */
 
 /* Todos los productos de la galería, agrupados por tipo. */
 
@@ -17,21 +13,55 @@ let dulceria = document.getElementById("dulceria")
 let empanadasElement = document.getElementById("empanadas")
 
 
-const sectionsArray = [panaderia, dulceria, empanadasElement]
-const productArray = [panes, dulces, empanadas]
+const sectionsArray = [panaderia, dulceria, empanadasElement];
+const productArray = [panes, dulces, empanadas];
 
-function listRender(list, section){
-   list.forEach((info)=>{
-      let cardElement = new Card(info);
-      cardElement.build(section);
-      cardElement.addEvents();
-   })
+const translations = {
+   es: {
+      navInicio: "Inicio", navPanaderia: "Panadería", navPasteleria: "Pastelería-Bollería",
+      navEmpanadas: "Empanadas", navContacto: "Contacto", seccionPanaderia: "Panadería",
+      seccionDulceria: "Dulcería", seccionEmpanadas: "Empanadas", horarios: "Horarios",
+      sabado: "Lunes a sábado: 8:00 - 12:00 / 16:00 - 20:30", domingo: "Domingo: 8:00 - 13:00",
+      contactos: "Contacto"
+   },
+   pt: {
+      navInicio: "Início", navPanaderia: "Padaria", navPasteleria: "Confeitaria-Panificação",
+      navEmpanadas: "Empanadas", navContacto: "Contacto", seccionPanaderia: "Padaria",
+      seccionDulceria: "Doçaria", seccionEmpanadas: "Empanadas", horarios: "Horário",
+      sabado: "Segunda-feira a sábado: 8:00 - 12:00 / 16:00 - 20:30", domingo: "Domingo: 8:00 - 13:00",
+      contactos: "Contato"
+   }
+};
+
+function renderCards(language) {
+   sectionsArray.forEach((section, index) => {
+      section.replaceChildren();
+      productArray[index].forEach((info) => {
+         const localizedInfo = language === "pt"
+            ? { ...info, title: info.titlePt, paragraph: info.paragraphPt }
+            : info;
+         const card = new Card(localizedInfo);
+         card.build(section);
+         card.addEvents();
+      });
+   });
 }
 
-for(let i = 0;
-    i<sectionsArray.length;
-    i++){
-   
-   listRender(productArray[i], sectionsArray[i])
+function changeLanguage(language) {
+   document.documentElement.lang = language;
+   document.querySelectorAll("[data-i18n]").forEach((element) => {
+      element.textContent = translations[language][element.dataset.i18n];
+   });
+   document.querySelectorAll(".lang-btn").forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.dataset.lang === language));
+   });
+   renderCards(language);
+   localStorage.setItem("idioma", language);
 }
+
+document.querySelectorAll(".lang-btn").forEach((button) => {
+   button.addEventListener("click", () => changeLanguage(button.dataset.lang));
+});
+
+changeLanguage(localStorage.getItem("idioma") === "pt" ? "pt" : "es");
 
