@@ -172,15 +172,11 @@ section h3 {
   width: 24px;
   height: 24px;
   object-fit: contain;
-<<<<<<< HEAD
   margin-right: 10px;
   transition: opacity 0.3s ease;
 }
 
 
-=======
-  transition: opacity 0.3s ease;
-}
 
 .footer-copyright {
   text-align: center;
@@ -192,7 +188,6 @@ section h3 {
 }
 
 /* Efecto opcional al pasar el ratón por encima */
->>>>>>> eed564a (Hecho refactor de limpieza)
 .social-icon:hover {
   opacity: 0.7;
 }
