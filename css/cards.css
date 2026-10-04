@@ -7,7 +7,7 @@
  */
 
 /* Variables de diseño reutilizables en toda la hoja. */
-*{
+:root{
    /* Ancho y alto base de la imagen de cada tarjeta. */
    --card-image-width: 200px;
    --card-image-height: 120px;
@@ -16,11 +16,10 @@
    /* Colores del borde de la tarjeta (normal y al pasar el mouse). */
    --amber-flame: #fbbb25ff;
    --amber-glow: #f9a019ff;
-   /* Colores de la paleta base (reservados para uso futuro). */
+   /* Fondo de la tarjeta. */
    --white: #fefffeff;
-   --lavender: #e9ebf8ff;
-   --pale-slate: #b4b8c5ff;
-   font-family: sans-serif;
+   /* Fuente base del proyecto. */
+   font-family: Arial, sans-serif;
 }
 
 /* Contenedor de una tarjeta individual. */
@@ -31,7 +30,7 @@
    border-radius: 10px;
    width: var(--card-image-width);
    overflow: hidden;
-   background-color: white;
+   background-color: var(--white);
 }
 
 /* Imagen del pan dentro de la tarjeta. */
@@ -54,7 +53,8 @@
 
 /* Realce del borde al pasar el mouse sobre la tarjeta. */
 .card-section:hover{
-   border: 2px solid var(--amber-glow);
+   border-color: var(--amber-glow);
+   box-shadow: 0 0 0 1px var(--amber-glow);
 }
 
 /* Contenedor del título y la descripción. */
@@ -76,8 +76,8 @@
    display: grid;
 
 
-   grid-template-columns: 3fr 3fr 3fr;
-   grid-auto-rows: 200px;
+   grid-template-columns: repeat(3, 1fr);
+   grid-auto-rows: var(--card-open-height);
    gap: 30px;
    justify-items: center;
 }
@@ -96,4 +96,11 @@
 .card-gallery-container h3{
   margin-bottom:60px;
    text-align: center;
+}
+
+/* En pantallas pequeñas las tarjetas se apilan en una sola columna. */
+@media (max-width: 768px){
+   .card-gallery{
+      grid-template-columns: 1fr;
+   }
 }
