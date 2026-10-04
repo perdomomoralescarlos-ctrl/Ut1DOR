@@ -28,8 +28,8 @@ header {
 	font-size: 1.7rem;
 	letter-spacing: 1.5px;
 	font-weight: 700;
-font-family: "Rouge Script", cursive;
-  font-style: normal;
+	font-family: "Rouge Script", cursive;
+	font-style: normal;
 }
 
 .nav {
@@ -101,110 +101,8 @@ section {
 section h3 {
 	font-size: 24px;
 	color: #A0522D;
-	margin-bottom: 20px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
-}
-
-/* ANIMACIÓN PLACEHOLDER */
-.animation-placeholder {
-	width: 100%;
-	height: 200px;
-	background-color: #FFF8DC;
-	border: 2px solid #A0522D;
-	text-align: center;
-	line-height: 200px;
-	margin: 20px 0;
-	border-radius: 8px;
-}
-
-/* GRID DE PRODUCTOS */
-.products-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-	gap: 30px;
-}
-
-.product-card {
-	background-color: white;
-	border: 2px solid #A0522D;
-	border-radius: 12px;
-	overflow: hidden;
-	transition: box-shadow 0.2s, border-color 0.2s;
-}
-
-.product-card:hover {
-	box-shadow: 0 4px 16px rgba(160, 82, 45, 0.2);
-	border-color: #D2B48C;
-}
-
-.product-image {
-	width: 100%;
-	height: 200px;
-	background-color: #FFF8DC;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-bottom: 2px solid #A0522D;
-}
-
-.image-placeholder {
-	color: #A0522D;
-	font-size: 18px;
-	font-weight: bold;
-}
-
-.product-recipe {
-	padding: 20px;
-}
-
-.product-recipe h3 {
-	color: #A0522D;
-	font-size: 18px;
-	margin-bottom: 8px;
-}
-
-.description {
-	color: #666;
-	font-size: 14px;
-	margin-bottom: 12px;
-}
-
-.recipe {
-	background-color: #FFF8DC;
-	padding: 12px;
-	border-radius: 6px;
-	border: 1px solid #D2B48C;
-}
-
-.recipe h4 {
-	color: #A0522D;
-	font-size: 14px;
-	margin-bottom: 6px;
-	text-transform: uppercase;
-}
-
-.recipe p {
-	color: #333;
-	font-size: 13px;
-	margin: 0;
-}
-
-/* CONTACTO */
-.contact-info {
-	background-color: #FFF8DC;
-	padding: 20px;
-	border-radius: 8px;
-	border: 2px solid #A0522D;
-}
-
-.contact-info p {
-	margin: 10px 0;
-	font-size: 16px;
-}
-
-.contact-info strong {
-	color: #A0522D;
 }
 
 /* FOOTER */
@@ -225,10 +123,14 @@ section h3 {
   gap: 80px;
 }
 
-.footer-logo {
-  flex: 0 0 auto;
-  margin-right: 60px;
+.footer-brand {
+  font-family: "Rouge Script", cursive;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #FFF8E7;
 }
+
 .footer-section {
   flex: 1;
   min-width: 250px;
@@ -249,6 +151,18 @@ section h3 {
   opacity: 0.9;
 }
 
+.footer-section .footer-tagline {
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
 .footer-socials a {
   display: inline-flex;
   text-decoration: none;
@@ -258,11 +172,27 @@ section h3 {
   width: 24px;
   height: 24px;
   object-fit: contain;
+<<<<<<< HEAD
   margin-right: 10px;
   transition: opacity 0.3s ease;
 }
 
 
+=======
+  transition: opacity 0.3s ease;
+}
+
+.footer-copyright {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 15px;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* Efecto opcional al pasar el ratón por encima */
+>>>>>>> eed564a (Hecho refactor de limpieza)
 .social-icon:hover {
   opacity: 0.7;
 }
@@ -281,9 +211,5 @@ section h3 {
 
 	main {
 		padding: 20px 16px;
-	}
-
-	.products-grid {
-		grid-template-columns: 1fr;
 	}
 }
