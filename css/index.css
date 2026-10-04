@@ -209,7 +209,7 @@ section h3 {
 
 /* FOOTER */
 .footer {
-  background-color: #d37300; /* O el color naranja que estés usando */
+  background-color: #d37300;
   color: #ffffff;
   padding: 40px 20px;
   width: 100%;
@@ -219,20 +219,20 @@ section h3 {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between; /* Empuja el logo a la izquierda y el contenido a la derecha */
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 80px; /* <--- Aumenta este valor lo que hace es basicamente añadir más espacio*/
+  gap: 80px;
 }
 
 .footer-logo {
   flex: 0 0 auto;
-  margin-right: 60px; /* <--- Aumenta la distancía de la imagen y de las letras */
+  margin-right: 60px;
 }
 .footer-section {
   flex: 1;
   min-width: 250px;
-  text-align: left; /* Alineado a la izquierda para mayor limpieza */
+  text-align: left;
 }
 
 .footer-section h4 {
@@ -255,14 +255,14 @@ section h3 {
 }
 
 .social-icon {
-  width: 24px;      /* Ancho deseado (puedes probar con 20px, 24px, 30px...) */
-  height: 24px;     /* Altura para que mantengan la proporción */
+  width: 24px;
+  height: 24px;
   object-fit: contain;
-  margin-right: 10px; /* Separación entre iconos */
+  margin-right: 10px;
   transition: opacity 0.3s ease;
 }
 
-/* Efecto opcional al pasar el ratón por encima */
+
 .social-icon:hover {
   opacity: 0.7;
 }
