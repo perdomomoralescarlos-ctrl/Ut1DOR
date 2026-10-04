@@ -27,8 +27,9 @@ header {
 	color: #FFF8E7;
 	font-size: 1.7rem;
 	letter-spacing: 1.5px;
-	text-transform: uppercase;
 	font-weight: 700;
+font-family: "Rouge Script", cursive;
+  font-style: normal;
 }
 
 .nav {
@@ -246,6 +247,11 @@ section h3 {
   margin: 5px 0;
   font-size: 0.95rem;
   opacity: 0.9;
+}
+
+.footer-socials a {
+  display: inline-flex;
+  text-decoration: none;
 }
 
 .social-icon {
