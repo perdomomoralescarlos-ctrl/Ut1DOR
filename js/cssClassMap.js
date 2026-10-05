@@ -6,12 +6,15 @@
  */
 
 /* Mapa entre nombres legibles en JS y las clases reales definidas en cards.css. */
-export let cardClassMap = {
+export let C = {
+   col: "col",
+   card: "card",
+   cardImgTop: "card-img-top",
+   cardBody: "card-body",
+   cardTitle: "card-title",
+   cardText: "card-text",
    cardSection: "card-section",
-   cardImageContainer: "card-image-container",
    cardImage: "card-image",
-   cardContentContainer: "card-content-container",
-   cardContentParagraphContainer: "card-content-paragraph-container",
    cardClosed: "card-closed",
    cardOpen: "card-open"
 }
