@@ -1,4 +1,4 @@
-import { cardClassMap } from "./cssClassMap.js";
+import { C } from "./cssClassMap.js";
 
 /*
  * Card — representa una tarjeta de pan de la galería.
@@ -13,49 +13,51 @@ export class Card {
 		/* Datos de la tarjeta: imagen, título y descripción. */
 		this._cardInfo = cardInfo;
 
-		/* Columna de Bootstrap que coloca la tarjeta en la rejilla. */
-		this._column = document.createElement("div");
-		this._column.className = cardClassMap.cardCol;
+      /* Contenedor principal; nace cerrado. */
+      this._column = document.createElement("div")
+      this._column.classList.add(C.col);
 
-		/* Contenedor principal; nace cerrado. */
-		this._section = document.createElement("div");
-		this._section.classList.add(cardClassMap.cardSection, cardClassMap.cardClosed);
+      /* Contenedor del texto (título + descripción). */
+      this._card = document.createElement("div")
+      this._card.classList.add(C.card, C.cardSection, C.cardClosed);
 
-		/* Contenedor del texto (título + descripción). */
-		this._contentContainer = document.createElement("div");
-		this._contentContainer.classList.add(cardClassMap.cardContentContainer);
+      this._image = document.createElement("img")
+      this._image.classList.add(C.cardImgTop, C.cardImage)
 
-		this._title = document.createElement("h4");
-		this._paragraph = document.createElement("p");
+      this._body = document.createElement("div")
+      this._body.classList.add(C.cardBody)
 
-		this._image = document.createElement("img");
-		this._image.classList.add(cardClassMap.cardImage);
-	}
+      this._title = document.createElement("h4");
+      this._title.classList.add(C.cardTitle)
 
-	/* Ensambla los nodos y los inserta dentro de `element`. */
-	build(element) {
-		this._title.innerText = this._cardInfo.title;
-		this._paragraph.innerText = this._cardInfo.paragraph;
+      this._paragraph = document.createElement("p");
+      this._paragraph.classList.add(C.cardText)
+   }
 
-		this._image.setAttribute("src", this._cardInfo.image);
+   /* Ensambla los nodos y los inserta dentro de `element`. */
+   build(element){
+      this._title.textContent = this._cardInfo.title;
+      this._paragraph.textContent = this._cardInfo.paragraph;
 
-		this._section.appendChild(this._image);
+      this._image.setAttribute("src", this._cardInfo.image);
+      this._image.setAttribute("alt", this._cardInfo.title);
 
-		this._contentContainer.appendChild(this._title);
-		this._contentContainer.appendChild(this._paragraph);
+      this._body.append(this._title, this._paragraph);
+      this._card.append(this._image, this._body);
+      this._column.appendChild(this._card);
+      element.appendChild(this._column);
+   }
 
-		this._section.appendChild(this._contentContainer);
-		this._column.appendChild(this._section);
+   /* Expande la tarjeta al entrar el mouse y la cierra al salir. */
+   addEvents(){
+      this._card.addEventListener("mouseenter", ()=>{
+	 this._card.classList.replace(C.cardClosed, C.cardOpen);
+      });
 
-		element.appendChild(this._column);
-	}
-
-	/* Expande la tarjeta al entrar el mouse y la cierra al salir. */
-	addEvents() {
-		this._section.addEventListener("mouseenter", () => {
-			this._section.classList.add(cardClassMap.cardOpen);
-			this._section.classList.remove(cardClassMap.cardClosed);
-		});
+      this._card.addEventListener("mouseleave", ()=>{
+	 this._card.classList.replace(C.cardOpen, C.cardClosed);
+      });
+   }
 
 		this._section.addEventListener("mouseleave", () => {
 			this._section.classList.remove(cardClassMap.cardOpen);

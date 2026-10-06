@@ -31,7 +31,7 @@ header nav a {
 	font-size: 20px;
 	font-weight: 500;
 	letter-spacing: 0.3px;
-	transition: all 0.25s ease;
+	padding: 10px 15px !important;
 }
 
 header nav a:hover {
@@ -72,7 +72,7 @@ section h3 {
 	letter-spacing: 2px;
 }
 
-/* FOOTER */
+/* FOOTER con Bootstrap */
 .footer {
 	background-color: #d37300;
 	color: #ffffff;

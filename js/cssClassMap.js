@@ -5,11 +5,16 @@
  * repetirlos como cadenas sueltas en el JavaScript.
  */
 
-export let cardClassMap = {
-	cardCol: "col-12 col-md-4 d-flex justify-content-center card-col",
-	cardSection: "card-section",
-	cardImage: "card-image",
-	cardContentContainer: "card-content-container",
-	cardClosed: "card-closed",
-	cardOpen: "card-open"
+/* Mapa entre nombres legibles en JS y las clases reales definidas en cards.css. */
+export let C = {
+   col: "col",
+   card: "card",
+   cardImgTop: "card-img-top",
+   cardBody: "card-body",
+   cardTitle: "card-title",
+   cardText: "card-text",
+   cardSection: "card-section",
+   cardImage: "card-image",
+   cardClosed: "card-closed",
+   cardOpen: "card-open"
 }

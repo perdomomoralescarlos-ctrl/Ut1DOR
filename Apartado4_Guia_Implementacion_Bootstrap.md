@@ -54,7 +54,7 @@ eliminando la maquetación con `<table>` y el CSS de layout propio, **manteniend
 - `js/card.js` — adaptar el DOM generado a `.col` + `.card`.
 - `css/index.css` — eliminar layout propio, definir tema naranja.
 - `css/cards.css` — adaptar dimensiones y conservar hover-expand.
-
+cacct
 **No se tocan:**
 - `js/index.js` — la lógica (i18n, `localStorage`, agrupación de datos) no cambia.
   Solo se verifica que los `id` de los contenedores sigan existiendo.
