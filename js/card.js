@@ -8,10 +8,10 @@ import { C } from "./cssClassMap.js";
  * registra la apertura/cierre de la tarjeta al pasar el mouse.
  */
 export class Card {
-   /* Crea los elementos del DOM a partir de los datos de la tarjeta. */
-   constructor(cardInfo){
-      /* Datos de la tarjeta: imagen, título y descripción. */
-      this._cardInfo = cardInfo;
+	/* Crea los elementos del DOM a partir de los datos de la tarjeta. */
+	constructor(cardInfo) {
+		/* Datos de la tarjeta: imagen, título y descripción. */
+		this._cardInfo = cardInfo;
 
       /* Contenedor principal; nace cerrado. */
       this._column = document.createElement("div")
@@ -59,4 +59,9 @@ export class Card {
       });
    }
 
+		this._section.addEventListener("mouseleave", () => {
+			this._section.classList.remove(cardClassMap.cardOpen);
+			this._section.classList.add(cardClassMap.cardClosed);
+		});
+	}
 }
