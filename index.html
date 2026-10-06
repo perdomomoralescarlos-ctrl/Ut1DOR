@@ -4,6 +4,8 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Migas Amigas Panadería</title>
+	<!-- Bootstrap CDN -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
@@ -19,29 +21,52 @@
 			<div class="logo">
 				<h1 > Migas Amigas</h1>
 			</div>
-			<nav class="nav">
-				<a href="#inicio" data-i18n="navInicio">Inicio</a>
-				<a href="#panaderia" data-i18n="navPanaderia">Panadería</a>
-				<a href="#dulceria" data-i18n="navPasteleria">Dulcería</a>
-				<a href="#empanadas" data-i18n="navEmpanadas">Empanadas</a>
-				<a href="#contacto" data-i18n="navContacto">Contacto</a>
-			</nav>
-			<div class="lang-selector">
-				<button type="button" class="lang-btn" data-lang="es" aria-label="Español" aria-pressed="true" title="Español">
-					<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
-						<rect width="30" height="20" fill="#AA151B" />
-						<rect y="5" width="30" height="10" fill="#F1BF00" />
-					</svg>
-				</button>
-				<button type="button" class="lang-btn" data-lang="pt" aria-label="Português" aria-pressed="false" title="Português">
-					<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
-						<rect width="12" height="20" fill="#66382E" />
-						<rect x="12" width="18" height="20" fill="#66382E" />
-						<circle cx="12" cy="10" r="3.5" fill="#FFCC00" />
-						<circle cx="12" cy="10" r="2.1" fill="#FFFFFF" />
-					</svg>
-				</button>
+			<!-- Navbar de Bootstrap -->
+	 <nav class="navbar navbar-expand-lg navbar-dark" id="inicio">
+		<div class="container">
+			<a class="navbar-brand logo" href="#">
+				<h1>Migas Amigas</h1>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav me-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#inicio" data-i18n="navInicio">Inicio</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#panaderia" data-i18n="navPanaderia">Panadería</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#dulceria" data-i18n="navPasteleria">Dulcería</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#empanadas" data-i18n="navEmpanadas">Empanadas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#contacto" data-i18n="navContacto">Contacto</a>
+					</li>
+				</ul>
+				<div class="lang-selector">
+					<button type="button" class="lang-btn" data-lang="es" aria-label="Español" aria-pressed="true" title="Español">
+						<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
+							<rect width="30" height="20" fill="#AA151B" />
+							<rect y="5" width="30" height="10" fill="#F1BF00" />
+						</svg>
+					</button>
+					<button type="button" class="lang-btn" data-lang="pt" aria-label="Português" aria-pressed="false" title="Português">
+						<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
+							<rect width="12" height="20" fill="#66382E" />
+							<rect x="12" width="18" height="20" fill="#66382E" />
+							<circle cx="12" cy="10" r="3.5" fill="#FFCC00" />
+							<circle cx="12" cy="10" r="2.1" fill="#FFFFFF" />
+						</svg>
+					</button>
+				</div>
 			</div>
+		</div>
+	 </nav>
 		  </header>
 	       </td>
 	    </tr>
