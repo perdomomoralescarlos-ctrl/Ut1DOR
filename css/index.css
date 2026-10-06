@@ -1,3 +1,9 @@
+:root {
+  --brand-primary: #ce6300;
+  --brand-primary-dark: #bd5b00;
+  --brand-cream: #FFF8E7;
+}
+
 /* Estilos generales */
 body {
 	font-family: Arial, sans-serif;
@@ -8,8 +14,8 @@ body {
 
 /* NAVBAR de Bootstrap personalizado */
 .navbar {
-	background-color: #ce6300 !important;
-	border-bottom: 3px solid #bd5b00;
+	background-color: var(--brand-primary) !important;
+	border-bottom: 3px solid var(--brand-primary-dark);
 	box-shadow: 0 2px 8px rgba(204, 124, 4, 0.15);
 }
 
@@ -87,7 +93,9 @@ section h3 {
 
 /* FOOTER con Bootstrap */
 .footer {
-  background-color: #ce6300;
+  background-color: var(--brand-primary);
+  border-top: 3px solid var(--brand-primary-dark);
+  box-shadow: 0 -2px 8px rgba(204, 124, 4, 0.15);
 }
 
 .footer-brand {
