@@ -15,7 +15,7 @@ export class Card {
 
       /* Contenedor principal; nace cerrado. */
       this._column = document.createElement("div")
-      this._column.classList.add(C.col);
+      this._column.classList.add(C.col, C.cardCol);
 
       /* Contenedor del texto (título + descripción). */
       this._card = document.createElement("div")
@@ -58,10 +58,4 @@ export class Card {
 	 this._card.classList.replace(C.cardOpen, C.cardClosed);
       });
    }
-
-		this._section.addEventListener("mouseleave", () => {
-			this._section.classList.remove(cardClassMap.cardOpen);
-			this._section.classList.add(cardClassMap.cardClosed);
-		});
-	}
 }

@@ -7,7 +7,8 @@
 
 /* Mapa entre nombres legibles en JS y las clases reales definidas en cards.css. */
 export let C = {
-   col: "col",
+   col: "col-md-4",
+   cardCol: "card-col",
    card: "card",
    cardImgTop: "card-img-top",
    cardBody: "card-body",
