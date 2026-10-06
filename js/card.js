@@ -50,11 +50,11 @@ export class Card {
 
    /* Expande la tarjeta al entrar el mouse y la cierra al salir. */
    addEvents(){
-      this._section.addEventListener("mouseenter", ()=>{
+      this._card.addEventListener("mouseenter", ()=>{
 	 this._card.classList.replace(C.cardClosed, C.cardOpen);
       });
 
-      this._section.addEventListener("mouseleave", ()=>{
+      this._card.addEventListener("mouseleave", ()=>{
 	 this._card.classList.replace(C.cardOpen, C.cardClosed);
       });
    }
