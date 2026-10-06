@@ -85,22 +85,9 @@ section h3 {
 	letter-spacing: 2px;
 }
 
-/* FOOTER */
+/* FOOTER con Bootstrap */
 .footer {
   background-color: #d37300;
-  color: #ffffff;
-  padding: 40px 20px;
-  width: 100%;
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 80px;
 }
 
 .footer-brand {
@@ -111,29 +98,12 @@ section h3 {
   color: #FFF8E7;
 }
 
-.footer-section {
-  flex: 1;
-  min-width: 250px;
-  text-align: left;
-}
-
-.footer-section h4 {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.footer-section p {
-  margin: 5px 0;
-  font-size: 0.95rem;
-  opacity: 0.9;
-}
-
-.footer-section .footer-tagline {
-  margin-top: 15px;
+.footer-tagline {
   font-size: 0.9rem;
+}
+
+.footer-socials a {
+  text-decoration: none;
 }
 
 .footer-socials {
