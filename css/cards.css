@@ -1,106 +1,62 @@
 /*
- * cards.css — Estilos de la galería de tarjetas de panes.
- *
- * Cada tarjeta (.card-section) se muestra cerrada por defecto (solo la
- * imagen) y se expande al pasar el mouse para revelar el título y la
- * descripción.
+ * Estilos de las tarjetas de producto.
+ * La distribución en columnas la aporta la rejilla de Bootstrap (row / col-*).
  */
 
-/* Variables de diseño reutilizables en toda la hoja. */
-:root{
-   /* Ancho y alto base de la imagen de cada tarjeta. */
-   --card-image-width: 200px;
-   --card-image-height: 120px;
-   /* Alto de la tarjeta cuando está expandida. */
-   --card-open-height: 210px;
-   /* Colores del borde de la tarjeta (normal y al pasar el mouse). */
-   --amber-flame: #fbbb25ff;
-   --amber-glow: #f9a019ff;
-   /* Fondo de la tarjeta. */
-   --white: #fefffeff;
-   /* Fuente base del proyecto. */
-   font-family: Arial, sans-serif;
+:root {
+	--card-image-width: 200px;
+	--card-image-height: 120px;
+	--card-open-height: 210px;
+	--amber-flame: #fbbb25ff;
+	--amber-glow: #f9a019ff;
+	--white: #fefffeff;
 }
 
-/* Contenedor de una tarjeta individual. */
-.card-section{
-   border: 1px solid var(--amber-flame);
-   /* Anima el borde y la altura al abrir/cerrar la tarjeta. */
-   transition: border 0.3s ease, height 0.4s ease-in ;
-   border-radius: 10px;
-   width: var(--card-image-width);
-   overflow: hidden;
-   background-color: var(--white);
+.card-section {
+	border: 1px solid var(--amber-flame);
+	transition: border 0.3s ease, height 0.4s ease-in;
+	border-radius: 10px;
+	width: var(--card-image-width);
+	overflow: hidden;
+	background-color: var(--white);
 }
 
-/* Imagen del pan dentro de la tarjeta. */
-.card-image{ 
-   width: var(--card-image-width);
-   height: var(--card-image-height);
-   /* Recorta la imagen para que llene el marco sin deformarse. */
-   object-fit: cover;
+.card-image {
+	width: var(--card-image-width);
+	height: var(--card-image-height);
+	object-fit: cover;
 }
 
-/* Estado cerrado: solo se ve la imagen. */
-.card-closed{
-   height: var(--card-image-height);
+.card-closed {
+	height: var(--card-image-height);
 }
 
-/* Estado abierto: se revela el contenido de texto. */
-.card-open{
-   height: var(--card-open-height);
+.card-open {
+	height: var(--card-open-height);
 }
 
-/* Realce del borde al pasar el mouse sobre la tarjeta. */
-.card-section:hover{
-   border-color: var(--amber-glow);
-   box-shadow: 0 0 0 1px var(--amber-glow);
+.card-section:hover {
+	border-color: var(--amber-glow);
+	box-shadow: 0 0 0 1px var(--amber-glow);
 }
 
-/* Contenedor del título y la descripción. */
-.card-content-container{
-   padding: 10px;
-}
-.card-content-container h4{
-   margin:0;
+.card-content-container {
+	padding: 10px;
 }
 
-/* Distribución de las tarjetas en una cuadrícula de tres columnas. */
-.card-gallery{
-   
-   border-radius: 10px;
-
-   font-size: 12px;
-   margin: auto;
-   max-width: 800px;
-   display: grid;
-
-
-   grid-template-columns: repeat(3, 1fr);
-   grid-auto-rows: var(--card-open-height);
-   gap: 30px;
-   justify-items: center;
+.card-content-container h4 {
+	margin: 0;
+	font-size: 12px;
 }
 
-/* Fondo alterno aplicado a las secciones contenedoras (las de más arriba). */
-.card-gallery-container:nth-child(2n +1){
-   background-color: #fcf3e8;
+.card-content-container p {
+	font-size: 12px;
 }
 
-.card-gallery-container{
-  border-radius: 12px;
-   padding-top: 80px;
+.card-gallery-container:nth-child(odd) {
+	background-color: #fcf3e8;
 }
 
-/* Centra el título de cada sección contenedora. */
-.card-gallery-container h3{
-  margin-bottom:60px;
-   text-align: center;
-}
-
-/* En pantallas pequeñas las tarjetas se apilan en una sola columna. */
-@media (max-width: 768px){
-   .card-gallery{
-      grid-template-columns: 1fr;
-   }
+.card-col {
+	min-height: var(--card-open-height);
 }
