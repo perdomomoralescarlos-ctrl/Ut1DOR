@@ -14,14 +14,14 @@ export class Card {
       this._cardInfo = cardInfo;
 
       /* Contenedor principal; nace cerrado. */
-      this._section = document.createElement("div")
+      this._section = document.createElement("article")
       this._section.classList.add(cardClassMap.cardSection, cardClassMap.cardClosed);
 
       /* Contenedor del texto (título + descripción). */
       this._contentContainer = document.createElement("div")
       this._contentContainer.classList.add(cardClassMap.cardContentContainer);
 
-      this._title = document.createElement("h4");
+      this._title = document.createElement("h3");
       this._paragraph = document.createElement("p");
       this._paragraphContainer = document.createElement("div")
       this._paragraphContainer.classList.add(cardClassMap.cardContentParagraphContainer)
@@ -54,6 +54,10 @@ export class Card {
 
       element.appendChild(this._section);
    }
+
+  getAccessibleElements(){
+    return [this._image, this._paragraph, this._title]
+  }
 
    /* Expande la tarjeta al entrar el mouse y la cierra al salir. */
    addEvents(){
