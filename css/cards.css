@@ -61,7 +61,9 @@
 .card-content-container{
    padding: 10px;
 }
-.card-content-container h4{
+.card-content-container h3{
+   font-size: 1em;
+   font-weight: bold;
    margin:0;
 }
 
@@ -93,7 +95,7 @@
 }
 
 /* Centra el título de cada sección contenedora. */
-.card-gallery-container h3{
+.card-gallery-container > h2{
   margin-bottom:60px;
    text-align: center;
 }

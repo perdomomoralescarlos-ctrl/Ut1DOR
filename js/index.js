@@ -8,9 +8,9 @@ import { empanadas } from "./data/empanadas.js";
 /* Todos los productos de la galería, agrupados por tipo. */
 
 /* Contenedor donde se insertan todas las tarjetas. */
-let panaderia = document.getElementById("panaderia");
-let dulceria = document.getElementById("dulceria")
-let empanadasElement = document.getElementById("empanadas")
+let panaderia = document.querySelector("#panaderia .card-gallery");
+let dulceria = document.querySelector("#dulceria .card-gallery");
+let empanadasElement = document.querySelector("#empanadas .card-gallery");
 
 
 const sectionsArray = [panaderia, dulceria, empanadasElement];
@@ -64,4 +64,3 @@ document.querySelectorAll(".lang-btn").forEach((button) => {
 });
 
 changeLanguage(localStorage.getItem("idioma") === "pt" ? "pt" : "es");
-
