@@ -57,6 +57,17 @@
    border: 2px solid var(--amber-glow);
 }
 
+/*
+ * Foco de teclado. Al tabular, cada tarjeta recibe foco (tiene tabindex="0")
+ * y se despliega igual que con el mouse; este realce deja claro cuál está
+ * activa para quien navega sin ratón.
+ */
+.card-section:focus-visible{
+   border: 2px solid var(--amber-glow);
+   outline: 2px solid var(--amber-glow);
+   outline-offset: 2px;
+}
+
 /* Contenedor del título y la descripción. */
 .card-content-container{
    padding: 10px;
