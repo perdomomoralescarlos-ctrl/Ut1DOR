@@ -63,4 +63,10 @@ document.querySelectorAll(".lang-btn").forEach((button) => {
    button.addEventListener("click", () => changeLanguage(button.dataset.lang));
 });
 
-changeLanguage(localStorage.getItem("idioma") === "pt" ? "pt" : "es");
+const savedLanguage = localStorage.getItem("idioma");
+const browserLanguage = navigator.language.toLowerCase().startsWith("pt") ? "pt" : "es";
+const initialLanguage = savedLanguage === "pt" || savedLanguage === "es"
+   ? savedLanguage
+   : browserLanguage;
+
+changeLanguage(initialLanguage);
