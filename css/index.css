@@ -1,8 +1,21 @@
+
 /* Estilos generales */
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+.languages {
+    display: flex;
+    gap: .5rem;
+}
+
+.lang-button {
+    background-color: transparent;
+    font-size: 1.25rem;
+    border: 0;
+    cursor: pointer;
+    line-height: 1;
 }
 
 body {
@@ -207,5 +220,9 @@ section {
 
 	main {
 		padding: 20px 16px;
+	}
+
+	.products-grid {
+		grid-template-columns: 1fr;
 	}
 }
