@@ -98,7 +98,7 @@ section {
 	margin-bottom: 60px;
 }
 
-section h3 {
+.card-gallery-container > h2 {
 	font-size: 24px;
 	color: #A0522D;
 	text-transform: uppercase;
@@ -134,10 +134,11 @@ section h3 {
 .footer-section {
   flex: 1;
   min-width: 250px;
-  text-align: left;
+  text-align: left; /* Alineado a la izquierda para mayor limpieza */
+  margin-bottom: 0;
 }
 
-.footer-section h4 {
+.footer-section h2 {
   font-size: 1.1rem;
   margin-bottom: 10px;
   font-weight: bold;
