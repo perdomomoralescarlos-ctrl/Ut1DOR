@@ -51,14 +51,25 @@ export class Card {
       /*
        * Accesibilidad. La tarjeta es contenido, no un control: no se anuncia
        * como botón ni hay que activarla para leerla.
-       *  - tabindex="0": Tab recorre las tarjetas en el orden del DOM, que es
-       *    el orden en que renderCards() las inserta; Shift+Tab retrocede.
-       *  - aria-labelledby: cada tarjeta se anuncia por el título (<h3>).
+       *  - id: etiqueta única de cada elemento en el DOM. Sirve para la tecnología 
+       *  ARIA apunte a los elemntos con dicho id
+       *  - aria-labelledby: el nombre accesible de la tarjeta es el texto del
+       *    <h3>, de modo que al tabular se anuncia el nombre del plato. Al 
+       *    apuntar a un elemento mediante su ID, dicho elemento se convierte en 
+       *    el "nombre" del elemento que tiene este atributo, en este caso, el h3.
+       *  - aria-describedby: de forma similar al anterior, apunta al id de un elemento,
+       *    que se lee como la descripción del elemento con este atributo, en este caso, el elemento p
+       *  - tabindex="0": Tab recorre las tarjetas en el orden del DOM; al
+       *    recibir el foco se anuncian nombre e ingredientes en una sola parada.
        */
-      const titleId = `card-title-${++cardCounter}`;
+      const cardId = ++cardCounter;
+      const titleId = `card-title-${cardId}`;
+      const paragraphId = `card-paragraph-${cardId}`;
       this._title.setAttribute("id", titleId);
+      this._paragraph.setAttribute("id", paragraphId);
       this._section.setAttribute("tabindex", "0");
       this._section.setAttribute("aria-labelledby", titleId);
+      this._section.setAttribute("aria-describedby", paragraphId);
 
       this._imageContainer.appendChild(this._image);
       this._section.appendChild(this._imageContainer);
