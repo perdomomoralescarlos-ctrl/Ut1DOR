@@ -1,3 +1,9 @@
+/* Colores cálidos de texto con contraste suficiente sobre los naranjas. */
+:root {
+	--warm-ink: #2b1600;
+	--warm-cream: #fffcf2;
+}
+
 /* Estilos generales */
 * {
 	margin: 0;
@@ -24,7 +30,7 @@ header {
 }
 
 .logo h1 {
-	color: #FFF8E7;
+	color: var(--warm-cream);
 	font-size: 1.7rem;
 	letter-spacing: 1.5px;
 	font-weight: 700;
@@ -41,7 +47,7 @@ header {
 	display: block;
 	padding: 10px 25px;
 	background-color: #b95a00;
-	color: #FFF8E7;
+	color: var(--warm-cream);
 	text-decoration: none;
 	border-radius: 4px;
 	font-size: 20px;
@@ -51,8 +57,8 @@ header {
 }
 
 .nav a:hover {
-	background-color: #bd5b00;
-	border-color: #FFF8E7;
+	background-color: #b05200;
+	border-color: var(--warm-cream);
 	transform: translateY(-1px);
 }
 
@@ -82,8 +88,8 @@ header {
 }
 
 .lang-btn:hover {
-	background-color: #bd5b00;
-	color: #FFF8E7;
+	background-color: #b05200;
+	color: var(--warm-cream);
 	transform: translateY(-1px);
 }
 
@@ -108,7 +114,7 @@ section {
 /* FOOTER */
 .footer {
   background-color: #d37300;
-  color: #ffffff;
+  color: var(--warm-ink);
   padding: 40px 20px;
   width: 100%;
 }
@@ -128,7 +134,7 @@ section {
   font-size: 1.7rem;
   font-weight: 700;
   letter-spacing: 1.5px;
-  color: #FFF8E7;
+  color: var(--warm-ink);
 }
 
 .footer-section {
@@ -149,7 +155,6 @@ section {
 .footer-section p {
   margin: 5px 0;
   font-size: 0.95rem;
-  opacity: 0.9;
 }
 
 .footer-section .footer-tagline {
@@ -185,7 +190,6 @@ section {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding-top: 15px;
   font-size: 0.85rem;
-  opacity: 0.8;
 }
 
 /* Efecto opcional al pasar el ratón por encima */
