@@ -18,7 +18,7 @@ const productArray = [panes, dulces, empanadas];
 
 const translations = {
    es: {
-      navInicio: "Inicio", navPanaderia: "Panadería", navPasteleria: "Dulceria",
+      navInicio: "Inicio", navPanaderia: "Panadería", navPasteleria: "Dulcería",
       navEmpanadas: "Empanadas", navContacto: "Contacto", seccionPanaderia: "Panadería",
       seccionDulceria: "Dulcería", seccionEmpanadas: "Empanadas", horarios: "Horarios",
       sabado: "Lunes a sábado: 8:00 - 12:00 / 16:00 - 20:30", domingo: "Domingo: 8:00 - 13:00",
