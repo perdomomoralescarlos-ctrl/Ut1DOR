@@ -18,8 +18,8 @@ body {
 	line-height: 1.6;
 }
 
-/* HEADER */
-header {
+/* Header organiza el logo, el menú y los idiomas en una fila. */
+header.navbar {
 	background-color: #ce6300;
 	padding: 18px 48px;
 	display: flex;
@@ -39,11 +39,13 @@ header {
 }
 
 .nav {
+	/* Coloca los enlaces en fila y deja espacio entre ellos. */
 	display: flex;
 	gap: 12px;
 }
 
 .nav a {
+	/* Apariencia y tamaño de los botones del menú. */
 	display: block;
 	padding: 10px 25px;
 	background-color: #b95a00;
@@ -57,9 +59,16 @@ header {
 }
 
 .nav a:hover {
+	/* Cambia el aspecto al pasar el ratón. */
 	background-color: #b05200;
 	border-color: var(--warm-cream);
 	transform: translateY(-1px);
+}
+
+.nav a:focus-visible {
+	/* Señala el enlace seleccionado al navegar con teclado. */
+	outline: 3px solid var(--warm-cream);
+	outline-offset: 3px;
 }
 
 .lang-selector {
@@ -196,20 +205,23 @@ section {
 .social-icon:hover {
   opacity: 0.7;
 }
-/* RESPONSIVE */
-@media (max-width: 768px) {
-	header {
+/* responsives */
+@media (max-width: 991.98px) {
+	/* En pantallas pequeñas, apila los elementos del header. */
+	header.navbar {
 		flex-direction: column;
 		gap: 16px;
 		padding: 20px 24px;
 	}
 
 	.nav {
+		/* Permite que el menú ocupe varias filas y las centra. */
 		flex-wrap: wrap;
 		justify-content: center;
 	}
 
 	main {
+		/* Reduce los márgenes laterales del contenido en móvil. */
 		padding: 20px 16px;
 	}
 }
