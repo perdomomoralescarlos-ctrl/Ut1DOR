@@ -7,10 +7,13 @@
 
 /* Mapa entre nombres legibles en JS y las clases reales definidas en cards.css. */
 export let cardClassMap = {
+   card: "card",
    cardSection: "card-section",
-   cardImageContainer: "card-image-container",
+   cardImageTop: "card-img-top",
    cardImage: "card-image",
-   cardContentContainer: "card-content-container",
+   cardContentContainer: "card-body card-content-container",
+   cardTitle: "card-title",
+   cardText: "card-text",
    cardContentParagraphContainer: "card-content-paragraph-container",
    cardClosed: "card-closed",
    cardOpen: "card-open"

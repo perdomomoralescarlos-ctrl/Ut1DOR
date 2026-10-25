@@ -18,25 +18,30 @@ export class Card {
       /* Datos de la tarjeta: imagen, título y descripción. */
       this._cardInfo = cardInfo;
 
-      /* Contenedor principal; nace cerrado. */
+      /* Contenedor principal (componente .card de Bootstrap); nace cerrado. */
       this._section = document.createElement("article")
-      this._section.classList.add(cardClassMap.cardSection, cardClassMap.cardClosed);
+      this._section.classList.add(
+         cardClassMap.card,
+         cardClassMap.cardSection,
+         cardClassMap.cardClosed
+      );
 
-      /* Contenedor del texto (título + descripción). */
+      /* Cuerpo de la tarjeta (.card-body): título + descripción. */
       this._contentContainer = document.createElement("div")
       this._contentContainer.classList.add(cardClassMap.cardContentContainer);
 
       this._title = document.createElement("h3");
+      this._title.classList.add(cardClassMap.cardTitle);
+
       this._paragraph = document.createElement("p");
+      this._paragraph.classList.add(cardClassMap.cardText);
+
       this._paragraphContainer = document.createElement("div")
       this._paragraphContainer.classList.add(cardClassMap.cardContentParagraphContainer)
 
-      /* Contenedor de la imagen. */
-      this._imageContainer = document.createElement("div")
-      this._imageContainer.classList.add(cardClassMap.cardImageContainer)
-
+      /* Imagen de la tarjeta (.card-img-top de Bootstrap). */
       this._image = document.createElement("img")
-      this._image.classList.add(cardClassMap.cardImage)
+      this._image.classList.add(cardClassMap.cardImageTop, cardClassMap.cardImage);
 
    }
 
@@ -72,8 +77,7 @@ export class Card {
       this._section.setAttribute("aria-labelledby", titleId);
       this._section.setAttribute("aria-describedby", paragraphId);
 
-      this._imageContainer.appendChild(this._image);
-      this._section.appendChild(this._imageContainer);
+      this._section.appendChild(this._image);
 
       this._paragraphContainer.appendChild(this._paragraph);
 
