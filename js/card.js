@@ -28,7 +28,7 @@ export class Card {
 
       /* Cuerpo de la tarjeta (.card-body): título + descripción. */
       this._contentContainer = document.createElement("div")
-      this._contentContainer.classList.add(cardClassMap.cardContentContainer);
+      this._contentContainer.classList.add(...cardClassMap.cardContentContainer.split(" "));
 
       this._title = document.createElement("h3");
       this._title.classList.add(cardClassMap.cardTitle);
