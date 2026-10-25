@@ -63,4 +63,11 @@ document.querySelectorAll(".lang-btn").forEach((button) => {
    button.addEventListener("click", () => changeLanguage(button.dataset.lang));
 });
 
-changeLanguage(localStorage.getItem("idioma") === "pt" ? "pt" : "es");
+const savedLanguage = localStorage.getItem("idioma");
+//Detecta que idioma esta seleccionado actualmente.
+const browserLanguage = navigator.language.toLowerCase().startsWith("pt") ? "pt" : "es";
+const initialLanguage = savedLanguage === "pt" || savedLanguage === "es"
+   ? savedLanguage
+   : browserLanguage;
+//changeLanguage actualiza el atributo lang en index.html y el contenido traducido.
+changeLanguage(initialLanguage);

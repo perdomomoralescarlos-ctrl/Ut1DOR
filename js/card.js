@@ -51,7 +51,8 @@ export class Card {
       this._paragraph.innerText = this._cardInfo.paragraph;
 
       this._image.setAttribute("src", this._cardInfo.image);
-      this._image.setAttribute("alt", "");
+      // El nombre del producto identifica la imagen para lectores de pantalla.
+      this._image.setAttribute("alt", this._cardInfo.title);
 
       /*
        * Accesibilidad. La tarjeta es contenido, no un control: no se anuncia
