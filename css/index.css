@@ -1,9 +1,4 @@
-/* Estilos generales */
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
+/* Estilos generales: el reset base lo aporta Bootstrap (Reboot). */
 
 body {
 	font-family: Arial, sans-serif;
