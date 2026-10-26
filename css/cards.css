@@ -1,9 +1,9 @@
 /*
- * cards.css — Estilos de la galería de tarjetas de panes sobre Bootstrap 5.
+ * cards.css — Estilos de la galería de tarjetas de panes.
  *
- * La estructura y los estilos base (.card, .card-img-top, .card-body,
- * .card-title, .card-text y la rejilla .row) los aporta Bootstrap. Esta hoja
- * solo añade el comportamiento de apertura al pasar el mouse o al enfocar.
+ * Cada tarjeta (.card-section) se muestra cerrada por defecto (solo la
+ * imagen) y se expande al pasar el mouse para revelar el título y la
+ * descripción.
  */
 
 /* Variables de diseño reutilizables en toda la hoja. */
@@ -22,25 +22,19 @@
    font-family: Arial, sans-serif;
 }
 
-/*
- * Tarjeta individual: usa el componente .card de Bootstrap y solo
- * sobrescribe sus variables de color, borde y radio.
- */
+/* Contenedor de una tarjeta individual. */
 .card-section{
-   --bs-card-border-color: var(--amber-flame);
-   --bs-card-border-radius: 10px;
-   --bs-card-bg: var(--white);
-   width: 100%;
-   max-width: var(--card-image-width);
-   /* Centra la tarjeta dentro de su columna de Bootstrap. */
-   margin: 0 auto;
-   overflow: hidden;
+   border: 1px solid var(--amber-flame);
    /* Anima el borde y la altura al abrir/cerrar la tarjeta. */
-   transition: border-color 0.3s ease, height 0.4s ease-in;
+   transition: border 0.3s ease, height 0.4s ease-in ;
+   border-radius: 10px;
+   width: var(--card-image-width);
+   overflow: hidden;
+   background-color: var(--white);
 }
 
-/* Imagen del pan dentro de la tarjeta (.card-img-top de Bootstrap). */
-.card-image{
+/* Imagen del pan dentro de la tarjeta. */
+.card-image{ 
    width: var(--card-image-width);
    height: var(--card-image-height);
    /* Recorta la imagen para que llene el marco sin deformarse. */
@@ -74,21 +68,32 @@
    outline-offset: 2px;
 }
 
-/* Título dentro del .card-body, con el tamaño original de la galería. */
+/* Contenedor del título y la descripción. */
+.card-content-container{
+   padding: 10px;
+}
 .card-content-container h3{
    font-size: 1em;
    font-weight: bold;
-   margin: 0;
+   margin:0;
 }
 
-/*
- * Rejilla de tarjetas. El contenedor usa las clases .row, .row-cols-* y .g-4
- * de Bootstrap desde el HTML; aquí solo se fija su ancho y tipografía.
- */
+/* Distribución de las tarjetas en una cuadrícula de tres columnas. */
 .card-gallery{
-   max-width: 800px;
-   margin: 0 auto;
+   
+   border-radius: 10px;
+
    font-size: 12px;
+   margin: auto;
+   max-width: 800px;
+   display: grid;
+
+
+   /* Tres columnas cuando caben; se adapta si el espacio es menor. */
+   grid-template-columns: repeat(auto-fit, minmax(var(--card-image-width), 1fr));
+   grid-auto-rows: var(--card-open-height);
+   gap: 30px;
+   justify-items: center;
 }
 
 /* Fondo alterno aplicado a las secciones contenedoras (las de más arriba). */
@@ -97,12 +102,12 @@
 }
 
 .card-gallery-container{
-   border-radius: 12px;
+  border-radius: 12px;
    padding-top: 80px;
 }
 
 /* Centra el título de cada sección contenedora. */
 .card-gallery-container > h2{
-   margin-bottom: 60px;
+  margin-bottom:60px;
    text-align: center;
 }

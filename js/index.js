@@ -1,4 +1,4 @@
-import { Card } from "./card.js";
+import { Card } from "./card.js?v=2";
 import { panes } from "./data/panes.js";
 import { dulces } from "./data/dulces.js";
 import { empanadas } from "./data/empanadas.js";
