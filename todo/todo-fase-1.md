@@ -1,8 +1,0 @@
-- [ ] Header
-    - [ ] Nav
-- [ ] Body
-    - [ ] Call to action
-    - [ ] Contenido 
-    - [x] secciones de comida (osea, un plato específico) (Gabriel)
-    - [X] tablas de comidas.
-- [ ] Footer
