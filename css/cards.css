@@ -111,3 +111,57 @@
   margin-bottom:60px;
    text-align: center;
 }
+
+/* Tarjetas de producto dentro del main: bordes sobrios y acento verde. */
+main .card-gallery {
+	max-width: 960px;
+	grid-template-columns: repeat(3, var(--card-image-width));
+	grid-auto-rows: auto;
+	column-gap: 24px;
+	row-gap: 48px;
+	justify-content: center;
+	justify-items: stretch;
+}
+
+main .card-section {
+	width: var(--card-image-width);
+	border: 1px solid #666666;
+	border-radius: 2px;
+	background: #ffffff;
+}
+
+main .card-image {
+	width: 100%;
+	height: var(--card-image-height);
+	object-fit: cover;
+}
+
+main .card-section:hover {
+	border-color: #3e9722;
+	box-shadow: inset 0 0 0 1px #3e9722;
+}
+
+main .card-section:focus-visible {
+	border-color: #3e9722;
+	outline-color: #3e9722;
+}
+
+main .card-content-container {
+	color: #333333;
+}
+
+main .card-gallery-container:nth-child(2n + 1) {
+	background: #ffffff;
+}
+
+@media (max-width: 1199.98px) {
+	main .card-gallery {
+		grid-template-columns: repeat(2, var(--card-image-width));
+	}
+}
+
+@media (max-width: 480px) {
+	main .card-gallery {
+		grid-template-columns: minmax(0, var(--card-image-width));
+	}
+}
