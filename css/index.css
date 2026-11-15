@@ -2,6 +2,11 @@
 :root {
 	--warm-ink: #2b1600;
 	--warm-cream: #fffcf2;
+	--aside-surface: #fffdf8;
+	--site-header-height: 88px;
+	/* Columnas laterales solicitadas para el layout de escritorio. */
+	--aside-left-width: 220px;
+	--aside-right-width: 180px;
 }
 
 /* Estilos generales */
@@ -11,9 +16,13 @@
 	box-sizing: border-box;
 }
 
+html {
+	background-color: var(--aside-surface);
+}
+
 body {
-	font-family: Arial, sans-serif;
-	background-color: #FFFFFF;
+	font-family: Inter, Arial, sans-serif;
+	background-color: var(--aside-surface);
 	color: #000000;
 	line-height: 1.6;
 }
@@ -137,9 +146,10 @@ header nav li a:hover {
 
 /* CONTENIDO PRINCIPAL */
 main {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 40px 20px;
+	min-width: 0;
+	max-width: none;
+	margin: 0;
+	padding: 40px clamp(20px, 3vw, 48px);
 }
 
 section {
@@ -312,23 +322,53 @@ section {
 	font-size: 13px;
 	font-weight: bold;
 }
-/* Adaptacion responsive para moviles */
 
-/* Pantallas medianas y tablets */
-@media (max-width: 960px) {
-	header {
-		/* Quitamos el ancho fijo para adaptarse a la pantalla */
-		width: auto;
-		box-sizing: border-box;
-		margin: 0;
-		border-radius: 0;
-		padding: 15px 15px 0 15px;
+/*
+ * Cuadrícula general del contenido (sin incluir header ni footer):
+ * 220px para el panel izquierdo, 500px para la columna central y 200px
+ * para el panel derecho. Los 20px de separación completan los 960px totales.
+ * La columna central reserva 20px de padding izquierdo, dejando 480px útiles.
+ */
+.layout-container{
+	display: grid;
+	grid-template-columns: var(--aside-left-width) 500px calc(var(--aside-right-width) + 20px);
+	grid-template-areas: "left main right";
+	column-gap: 20px;
+	align-items: stretch;
+	max-width: 960px;
+	margin: 0 auto;
+	background: var(--aside-surface);
+}
+
+/* El panel central ocupa la columna central de la cuadrícula. */
+.left-aside { grid-area: left; }
+.layout-container > main {
+	grid-area: main;
+	background: var(--warm-cream);
+}
+.right-aside { grid-area: right; }
+
+.card-gallery-container {
+	scroll-margin-top: calc(var(--site-header-height) + 16px);
+}
+
+/*
+ * Ajuste para tabletas: se mantiene la columna izquierda junto al contenido;
+ * el panel derecho pasa a una fila propia. Los anchos fijos de escritorio se
+ * liberan para evitar desbordamientos en viewports más estrechos.
+ */
+@media (max-width: 1199.98px) {
+	.layout-container {
+		max-width: 960px;
 	}
+}
 
-	header nav {
-		/* Centramos las pestañas si la pantalla se estrecha */
-		justify-content: center;
-		margin-top: 15px;
+@media (max-width: 991.98px) {
+	/* En pantallas pequeñas, apila los elementos del header. */
+	header.navbar {
+		flex-direction: column;
+		gap: 16px;
+		padding: 20px 24px;
 	}
 
 	header nav ul {
@@ -341,21 +381,114 @@ section {
 		/* Reduce los márgenes laterales del contenido en móvil. */
 		padding: 20px 16px;
 	}
-	.footer {
-    		width: auto;
-    		margin: 0;
-    		border-radius: 0;
-    		padding: 25px 15px 0 15px;
-    	}
 
-    	.footer-container {
-    		gap: 25px;
-    	}
+	.layout-container {
+		grid-template-columns: minmax(190px, 220px) minmax(0, 1fr);
+		grid-template-areas:
+			"left main"
+			"right right";
+		column-gap: 20px;
+		row-gap: 24px;
+		padding: 0 16px;
+	}
 
-    	.footer-copyright {
-    		margin: 20px -15px 0 -15px;
-    		padding: 12px 15px;
-    	}
+	.layout-container > main {
+		width: auto;
+	}
+
+	:root {
+		--site-header-height: auto;
+	}
+
+	.card-gallery-container {
+		scroll-margin-top: 190px;
+	}
+}
+
+@media (max-width: 700px) {
+	.layout-container {
+		grid-template-columns: minmax(0, 1fr);
+		grid-template-areas:
+			"main"
+			"left"
+			"right";
+		column-gap: 0;
+		row-gap: 24px;
+		padding: 0;
+	}
+
+	/* La columna central se adapta al ancho disponible en teléfono. */
+	.layout-container > main {
+		width: auto;
+	}
+
+	.card-gallery-container { padding-top: 36px; }
+	.card-gallery-container > h2 { margin-bottom: 32px; }
+	.card-gallery-container { scroll-margin-top: 300px; }
+}
+
+/*
+ * Marco y paleta de la columna central según la referencia:
+ * #3e9722 (verde) delimita el área; #333333 es el color de texto;
+ * los encabezados usan #3c74e6 (azul) y #cae646 (lima).
+ */
+.layout-container > main {
+	width: 500px;
+	min-width: 0;
+	padding: 28px 0 48px 20px;
+	border-top: 2px solid #3e9722;
+	border-right: 1px solid #3e9722;
+	border-bottom: 2px solid #3e9722;
+	border-left: 1px solid #3e9722;
+	background: #ffffff;
+	color: #333333;
+}
+
+.layout-container > main .card-gallery-container {
+	/* Separación y línea divisoria entre categorías del catálogo. */
+	margin-bottom: 24px;
+	padding: 0 0 28px;
+	border-bottom: 1px dotted #666666;
+	background: #ffffff;
+}
+
+.layout-container > main .card-gallery-container > h2 {
+	/* Banda azul con marcador lima para identificar cada categoría. */
+	margin: 0 0 26px;
+	padding: 10px 14px;
+	border-left: 6px solid #cae646;
+	background: #3c74e6;
+	color: #ffffff;
+	font-size: 1rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	line-height: 1.4;
+	text-align: left;
+	text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+	.layout-container > main {
+		padding: 20px 14px 32px;
+	}
+
+	.layout-container > main .card-gallery-container {
+		padding-top: 0;
+	}
+
+	.layout-container > main .card-gallery-container > h2 {
+		margin-bottom: 20px;
+	}
+}
+
+/*
+ * Estas anulaciones se declaran al final para prevalecer sobre el ancho fijo
+ * de escritorio: tabletas y móviles usan todo el ancho de su celda de grid.
+ */
+@media (max-width: 991.98px) {
+	.layout-container > main {
+		width: auto;
+	}
 }
 
 /* Pantallas moviles estrechas */
