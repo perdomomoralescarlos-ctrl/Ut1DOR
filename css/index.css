@@ -4,8 +4,9 @@
 	--warm-cream: #fffcf2;
 	--aside-surface: #fffdf8;
 	--site-header-height: 88px;
-	--aside-left-width: clamp(215px, 17vw, 250px);
-	--aside-right-width: clamp(220px, 18vw, 270px);
+	/* Columnas laterales solicitadas para el layout de escritorio. */
+	--aside-left-width: 220px;
+	--aside-right-width: 180px;
 }
 
 /* Estilos generales */
@@ -221,17 +222,24 @@ section {
   opacity: 0.7;
 }
 
+/*
+ * Cuadrícula general del contenido (sin incluir header ni footer):
+ * 220px para el panel izquierdo, 500px para la columna central y 200px
+ * para el panel derecho. Los 20px de separación completan los 960px totales.
+ * La columna central reserva 20px de padding izquierdo, dejando 480px útiles.
+ */
 .layout-container{
 	display: grid;
-	grid-template-columns: var(--aside-left-width) minmax(0, 1fr) var(--aside-right-width);
+	grid-template-columns: var(--aside-left-width) 500px calc(var(--aside-right-width) + 20px);
 	grid-template-areas: "left main right";
-	column-gap: clamp(48px, 5vw, 80px);
+	column-gap: 20px;
 	align-items: stretch;
-	max-width: 1800px;
+	max-width: 960px;
 	margin: 0 auto;
 	background: var(--aside-surface);
 }
 
+/* El panel central ocupa la columna central de la cuadrícula. */
 .left-aside { grid-area: left; }
 .layout-container > main {
 	grid-area: main;
@@ -243,10 +251,14 @@ section {
 	scroll-margin-top: calc(var(--site-header-height) + 16px);
 }
 
-/* responsives */
+/*
+ * Ajuste para tabletas: se mantiene la columna izquierda junto al contenido;
+ * el panel derecho pasa a una fila propia. Los anchos fijos de escritorio se
+ * liberan para evitar desbordamientos en viewports más estrechos.
+ */
 @media (max-width: 1199.98px) {
 	.layout-container {
-		column-gap: 32px;
+		max-width: 960px;
 	}
 }
 
@@ -270,12 +282,17 @@ section {
 	}
 
 	.layout-container {
-		grid-template-columns: minmax(190px, 230px) minmax(0, 1fr);
+		grid-template-columns: minmax(190px, 220px) minmax(0, 1fr);
 		grid-template-areas:
 			"left main"
 			"right right";
-		column-gap: 32px;
+		column-gap: 20px;
 		row-gap: 24px;
+		padding: 0 16px;
+	}
+
+	.layout-container > main {
+		width: auto;
 	}
 
 	:root {
@@ -296,6 +313,12 @@ section {
 			"right";
 		column-gap: 0;
 		row-gap: 24px;
+		padding: 0;
+	}
+
+	/* La columna central se adapta al ancho disponible en teléfono. */
+	.layout-container > main {
+		width: auto;
 	}
 
 	.card-gallery-container { padding-top: 36px; }
@@ -303,9 +326,15 @@ section {
 	.card-gallery-container { scroll-margin-top: 300px; }
 }
 
-/* Área de contenido: bandas azules y acentos verdes como en la referencia. */
+/*
+ * Marco y paleta de la columna central según la referencia:
+ * #3e9722 (verde) delimita el área; #333333 es el color de texto;
+ * los encabezados usan #3c74e6 (azul) y #cae646 (lima).
+ */
 .layout-container > main {
-	padding: 28px clamp(16px, 2.4vw, 36px) 48px;
+	width: 500px;
+	min-width: 0;
+	padding: 28px 0 48px 20px;
 	border-top: 2px solid #3e9722;
 	border-right: 1px solid #3e9722;
 	border-bottom: 2px solid #3e9722;
@@ -315,6 +344,7 @@ section {
 }
 
 .layout-container > main .card-gallery-container {
+	/* Separación y línea divisoria entre categorías del catálogo. */
 	margin-bottom: 24px;
 	padding: 0 0 28px;
 	border-bottom: 1px dotted #666666;
@@ -322,6 +352,7 @@ section {
 }
 
 .layout-container > main .card-gallery-container > h2 {
+	/* Banda azul con marcador lima para identificar cada categoría. */
 	margin: 0 0 26px;
 	padding: 10px 14px;
 	border-left: 6px solid #cae646;
@@ -346,5 +377,15 @@ section {
 
 	.layout-container > main .card-gallery-container > h2 {
 		margin-bottom: 20px;
+	}
+}
+
+/*
+ * Estas anulaciones se declaran al final para prevalecer sobre el ancho fijo
+ * de escritorio: tabletas y móviles usan todo el ancho de su celda de grid.
+ */
+@media (max-width: 991.98px) {
+	.layout-container > main {
+		width: auto;
 	}
 }

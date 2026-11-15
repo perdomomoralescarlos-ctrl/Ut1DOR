@@ -1,13 +1,12 @@
 .left-aside,
 .right-aside {
-	position: fixed;
-	top: calc(var(--site-header-height) + 20px);
-	width: var(--aside-left-width);
-	max-height: calc(100dvh - var(--site-header-height) - 40px);
+	/* Los paneles laterales forman parte de la cuadrícula, no flotan sobre main. */
+	position: static;
+	width: auto;
+	max-height: none;
 	min-width: 0;
 	padding: 24px 16px;
-	overflow-y: auto;
-	overscroll-behavior: contain;
+	overflow: visible;
 	border: 1px solid #ead9c6;
 	border-radius: 16px;
 	background: var(--aside-surface);
@@ -16,12 +15,12 @@
 }
 
 .left-aside {
-	left: max(0px, calc((100vw - 1800px) / 2));
+	grid-area: left;
 }
 
 .right-aside {
-	right: max(0px, calc((100vw - 1800px) / 2));
-	width: var(--aside-right-width);
+	grid-area: right;
+	padding: 24px 0 24px 20px;
 }
 
 .aside-section {
@@ -68,6 +67,7 @@
 }
 
 .recipes-nav a {
+	/* Cada opción es un enlace de lista; el hover también funciona con teclado. */
 	display: block;
 	padding: 11px 12px;
 	border-radius: 10px;

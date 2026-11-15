@@ -25,8 +25,13 @@
 				<a class="nav-link" href="#empanadas" data-i18n="navEmpanadas">Empanadas</a>
 				<a class="nav-link" href="#contacto" data-i18n="navContacto">Contacto</a>
 			</nav>
-  </header>
+	</header>
 
+  <!--
+    Área de contenido de tres columnas: panel de categorías, contenido principal
+    y panel de idioma/recomendación. El CSS fija los anchos de escritorio y
+    apila estas columnas en tabletas y móviles.
+  -->
   <div class="layout-container">
 	<aside class="left-aside" aria-label="Información de la panadería">
 		<section class="aside-section recipes-section" aria-labelledby="recipes-heading">
@@ -56,28 +61,32 @@
 			<p><strong>Domingo</strong><span>8:00–13:00</span></p>
 		</section>
 	</aside>
+	<!--
+	  Contenido central de la página. Cada section representa una categoría;
+	  su identificador permite acceder desde los enlaces de navegación y su
+	  aria-labelledby relaciona la sección con su título visible.
+	  Los contenedores .card-gallery se rellenan desde js/index.js con los
+	  productos de js/data/ y mantienen el contenido distribuido en rejilla.
+	-->
 	<main>
+		<section class="card-gallery-container" id="panaderia" aria-labelledby="heading-panaderia">
+			<h2 id="heading-panaderia" data-i18n="seccionPanaderia">Panadería</h2>
+			<!-- Galería dinámica: JavaScript inserta una tarjeta por producto. -->
+			<div class="card-gallery"></div>
+		</section>
 
-				<section class="card-gallery-container" id="panaderia" aria-labelledby="heading-panaderia">
-					<h2 id="heading-panaderia" data-i18n="seccionPanaderia">Panadería</h2>
-				<div class="card-gallery">
-				</div>
-				</section>
+		<section class="card-gallery-container" id="dulceria" aria-labelledby="heading-dulceria">
+			<h2 id="heading-dulceria" data-i18n="seccionDulceria">Dulcería</h2>
+			<!-- Galería dinámica de productos de dulcería. -->
+			<div class="card-gallery"></div>
+		</section>
 
-				<section class="card-gallery-container" id="dulceria" aria-labelledby="heading-dulceria">
-					<h2 id="heading-dulceria" data-i18n="seccionDulceria">Dulcería</h2>
-				<div class="card-gallery">
-				</div>
-		     </section>
-
-		     <section class="card-gallery-container" id="empanadas" aria-labelledby="heading-empanadas">
-				<h2 id="heading-empanadas" data-i18n="seccionEmpanadas">Empanadas</h2>
-			<div class="card-gallery">
-			</div>
-		     </section>
-
-	
- 	 </main>
+		<section class="card-gallery-container" id="empanadas" aria-labelledby="heading-empanadas">
+			<h2 id="heading-empanadas" data-i18n="seccionEmpanadas">Empanadas</h2>
+			<!-- Galería dinámica de variedades de empanada. -->
+			<div class="card-gallery"></div>
+		</section>
+	</main>
 	<aside class="right-aside" aria-label="Idioma e imagen destacada">
 			<p class="aside-eyebrow">Idioma</p>
 				<div class="lang-selector">
