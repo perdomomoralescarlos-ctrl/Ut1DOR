@@ -18,88 +18,121 @@ body {
 	line-height: 1.6;
 }
 
-/* Header organiza el logo, el menú y los idiomas en una fila. */
-header.navbar {
-	background-color: #ce6300;
-	padding: 18px 48px;
+/* Cabecera y menu de navegacion */
+
+header {
+	/* Ancho de 920px mas 20px de padding a los lados = 960px total */
+	width: 920px;
+	box-sizing: content-box;
+	margin: 0 auto;
+	padding: 20px 20px 0 20px;
+
+	/* Degradado verde con los colores de la paleta */
+	background: linear-gradient(180deg, #CAE646 0%, #3E9722 100%);
+
+	/* Bordes superiores redondeados */
+	border-radius: 10px 10px 0 0;
+
+	/* Posicion para ubicar el selector de idioma y el menu */
+	position: relative;
+	min-height: 120px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+/* Titulo del logo */
+header .logo h1 {
+	font-family: Arial, sans-serif;
+	font-size: 26px;
+	font-weight: bold;
+	color: #333333;
+	margin: 0;
+	line-height: 1.1;
+}
+
+/* Subtitulo del logo */
+header .logo p {
+	font-family: Arial, sans-serif;
+	font-size: 13px;
+	color: #333333;
+	margin-top: 3px;
+}
+
+/* Selector de idioma arriba a la derecha */
+header .lang-selector {
+	position: absolute;
+	top: 15px;
+	right: 20px;
+	display: flex;
+	gap: 6px;
+}
+
+/* Botones de idiomas */
+header .lang-btn {
+	background: rgba(255, 255, 255, 0.75);
+	border: 1px solid #333333;
+	padding: 3px 6px;
+	cursor: pointer;
+	border-radius: 3px;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	border-bottom: 3px solid #bd5b00;
-	box-shadow: 0 2px 8px rgba(204, 124, 4, 0.15);
+	transition: background-color 0.2s ease;
 }
 
-.logo h1 {
-	color: var(--warm-cream);
-	font-size: 1.7rem;
-	letter-spacing: 1.5px;
-	font-weight: 700;
-	font-family: "Rouge Script", cursive;
-	font-style: normal;
+header .lang-btn:hover {
+	background: #ffffff;
 }
 
-.nav {
-	/* Coloca los enlaces en fila y deja espacio entre ellos. */
-	display: flex;
-	gap: 12px;
-}
-
-.nav a {
-	/* Apariencia y tamaño de los botones del menú. */
-	display: block;
-	padding: 10px 25px;
-	background-color: #b95a00;
-	color: var(--warm-cream);
-	text-decoration: none;
-	border-radius: 4px;
-	font-size: 20px;
-	font-weight: 500;
-	letter-spacing: 0.3px;
-	transition: all 0.25s ease;
-}
-
-.nav a:hover {
-	/* Cambia el aspecto al pasar el ratón. */
-	background-color: #b05200;
-	border-color: var(--warm-cream);
-	transform: translateY(-1px);
-}
-
-.nav a:focus-visible {
-	/* Señala el enlace seleccionado al navegar con teclado. */
-	outline: 3px solid var(--warm-cream);
-	outline-offset: 3px;
-}
-
-.lang-selector {
-	display: flex;
-	gap: 10px;
-}
-
-.lang-btn {
-	display: inline-block;
-	padding: 6px 16px;
-	background-color: #FFF8E7;
-	color: #5C4033;
-	text-decoration: none;
-	border: none;
-	cursor: pointer;
-	font-weight: 600;
-	border-radius: 4px;
-	transition: all 0.25s ease;
-	font-size: 0.85rem;
-}
-
-.flag-icon {
-	width: 30px;
-	height: 20px;
+/* Iconos de las banderas */
+header .flag-icon {
+	width: 24px;
+	height: 16px;
 	display: block;
 }
 
-.lang-btn:hover {
-	background-color: #b05200;
-	color: var(--warm-cream);
-	transform: translateY(-1px);
+/* Menu alineado a la derecha */
+header nav {
+	display: flex;
+	justify-content: flex-end;
+}
+
+/* Lista del menu en horizontal y sin puntos */
+header nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	gap: 3px;
+}
+
+/* Enlaces con forma de pestana */
+header nav li a {
+	display: block;
+	text-decoration: none;
+	font-family: Arial, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #333333;
+	background-color: #f3f8e8;
+	padding: 8px 16px;
+	border-radius: 6px 6px 0 0;
+	border: 1px solid #bddb8f;
+	border-bottom: none;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Pestana activa en color naranja */
+header nav li a.activo {
+	background-color: #E58C24;
+	color: #ffffff;
+	border-color: #E58C24;
+}
+
+/* Cambio de color de fondo al pasar el raton */
+header nav li a:hover {
+	background-color: #E58C24;
+	color: #ffffff;
 }
 
 /* CONTENIDO PRINCIPAL */
@@ -205,17 +238,27 @@ section {
 .social-icon:hover {
   opacity: 0.7;
 }
-/* responsives */
-@media (max-width: 991.98px) {
-	/* En pantallas pequeñas, apila los elementos del header. */
-	header.navbar {
-		flex-direction: column;
-		gap: 16px;
-		padding: 20px 24px;
+/* Adaptacion responsive para moviles */
+
+/* Pantallas medianas y tablets */
+@media (max-width: 960px) {
+	header {
+		/* Quitamos el ancho fijo para adaptarse a la pantalla */
+		width: auto;
+		box-sizing: border-box;
+		margin: 0;
+		border-radius: 0;
+		padding: 15px 15px 0 15px;
 	}
 
-	.nav {
-		/* Permite que el menú ocupe varias filas y las centra. */
+	header nav {
+		/* Centramos las pestañas si la pantalla se estrecha */
+		justify-content: center;
+		margin-top: 15px;
+	}
+
+	header nav ul {
+		/* Permite que las pestañas bajen si no caben en una linea */
 		flex-wrap: wrap;
 		justify-content: center;
 	}
@@ -223,5 +266,25 @@ section {
 	main {
 		/* Reduce los márgenes laterales del contenido en móvil. */
 		padding: 20px 16px;
+	}
+}
+
+/* Pantallas moviles estrechas */
+@media (max-width: 500px) {
+	header nav ul {
+		/* Las pestañas se apilan en columna vertical */
+		flex-direction: column;
+		width: 100%;
+	}
+
+	header nav li {
+		width: 100%;
+		text-align: center;
+	}
+
+	header nav li a {
+		border-radius: 4px;
+		margin-bottom: 3px;
+		border-bottom: 1px solid #bddb8f;
 	}
 }
