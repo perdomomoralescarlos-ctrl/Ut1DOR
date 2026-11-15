@@ -2,6 +2,10 @@
 :root {
 	--warm-ink: #2b1600;
 	--warm-cream: #fffcf2;
+	--aside-surface: #fffdf8;
+	--site-header-height: 88px;
+	--aside-left-width: clamp(215px, 17vw, 250px);
+	--aside-right-width: clamp(220px, 18vw, 270px);
 }
 
 /* Estilos generales */
@@ -11,17 +15,25 @@
 	box-sizing: border-box;
 }
 
+html {
+	background-color: var(--aside-surface);
+}
+
 body {
-	font-family: Arial, sans-serif;
-	background-color: #FFFFFF;
+	font-family: Inter, Arial, sans-serif;
+	background-color: var(--aside-surface);
 	color: #000000;
 	line-height: 1.6;
 }
 
 /* Header organiza el logo, el menú y los idiomas en una fila. */
 header.navbar {
+	position: sticky;
+	top: 0;
+	z-index: 20;
+	height: var(--site-header-height);
 	background-color: #ce6300;
-	padding: 18px 48px;
+	padding: 0 48px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -104,9 +116,10 @@ header.navbar {
 
 /* CONTENIDO PRINCIPAL */
 main {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 40px 20px;
+	min-width: 0;
+	max-width: none;
+	margin: 0;
+	padding: 40px clamp(20px, 3vw, 48px);
 }
 
 section {
@@ -126,6 +139,8 @@ section {
   color: var(--warm-ink);
   padding: 40px 20px;
   width: 100%;
+	position: relative;
+	z-index: 11;
 }
 
 .footer-container {
@@ -205,7 +220,36 @@ section {
 .social-icon:hover {
   opacity: 0.7;
 }
+
+.layout-container{
+	display: grid;
+	grid-template-columns: var(--aside-left-width) minmax(0, 1fr) var(--aside-right-width);
+	grid-template-areas: "left main right";
+	column-gap: clamp(48px, 5vw, 80px);
+	align-items: stretch;
+	max-width: 1800px;
+	margin: 0 auto;
+	background: var(--aside-surface);
+}
+
+.left-aside { grid-area: left; }
+.layout-container > main {
+	grid-area: main;
+	background: var(--warm-cream);
+}
+.right-aside { grid-area: right; }
+
+.card-gallery-container {
+	scroll-margin-top: calc(var(--site-header-height) + 16px);
+}
+
 /* responsives */
+@media (max-width: 1199.98px) {
+	.layout-container {
+		column-gap: 32px;
+	}
+}
+
 @media (max-width: 991.98px) {
 	/* En pantallas pequeñas, apila los elementos del header. */
 	header.navbar {
@@ -223,5 +267,84 @@ section {
 	main {
 		/* Reduce los márgenes laterales del contenido en móvil. */
 		padding: 20px 16px;
+	}
+
+	.layout-container {
+		grid-template-columns: minmax(190px, 230px) minmax(0, 1fr);
+		grid-template-areas:
+			"left main"
+			"right right";
+		column-gap: 32px;
+		row-gap: 24px;
+	}
+
+	:root {
+		--site-header-height: auto;
+	}
+
+	.card-gallery-container {
+		scroll-margin-top: 190px;
+	}
+}
+
+@media (max-width: 700px) {
+	.layout-container {
+		grid-template-columns: minmax(0, 1fr);
+		grid-template-areas:
+			"main"
+			"left"
+			"right";
+		column-gap: 0;
+		row-gap: 24px;
+	}
+
+	.card-gallery-container { padding-top: 36px; }
+	.card-gallery-container > h2 { margin-bottom: 32px; }
+	.card-gallery-container { scroll-margin-top: 300px; }
+}
+
+/* Área de contenido: bandas azules y acentos verdes como en la referencia. */
+.layout-container > main {
+	padding: 28px clamp(16px, 2.4vw, 36px) 48px;
+	border-top: 2px solid #3e9722;
+	border-right: 1px solid #3e9722;
+	border-bottom: 2px solid #3e9722;
+	border-left: 1px solid #3e9722;
+	background: #ffffff;
+	color: #333333;
+}
+
+.layout-container > main .card-gallery-container {
+	margin-bottom: 24px;
+	padding: 0 0 28px;
+	border-bottom: 1px dotted #666666;
+	background: #ffffff;
+}
+
+.layout-container > main .card-gallery-container > h2 {
+	margin: 0 0 26px;
+	padding: 10px 14px;
+	border-left: 6px solid #cae646;
+	background: #3c74e6;
+	color: #ffffff;
+	font-size: 1rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	line-height: 1.4;
+	text-align: left;
+	text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+	.layout-container > main {
+		padding: 20px 14px 32px;
+	}
+
+	.layout-container > main .card-gallery-container {
+		padding-top: 0;
+	}
+
+	.layout-container > main .card-gallery-container > h2 {
+		margin-bottom: 20px;
 	}
 }
