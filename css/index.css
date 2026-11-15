@@ -153,90 +153,164 @@ section {
 	letter-spacing: 2px;
 }
 
-/* FOOTER */
+/* ==========================================================================
+   FOOTER  (960px de ancho + bordes, tal y como pide el enunciado)
+   ========================================================================== */
+
+/* --- 1. LA CAJA DEL PIE --- */
 .footer {
-  background-color: #d37300;
-  color: var(--warm-ink);
-  padding: 40px 20px;
-  width: 100%;
+	/* Ancho EXACTO que pide el enunciado: 960px.
+	   Es el mismo total que la cabecera (920px de contenido + 20px de
+	   relleno a cada lado = 960px), asi las dos cajas quedan alineadas. */
+	width: 960px;
+
+	/* Los 960px incluyen TODO: contenido + padding (20px a cada lado)
+	   + borde (2px). Sin esto la caja mediria 960 + 40 + 4 = 1004px
+	   y sobresaliria respecto a la cabecera. */
+	box-sizing: border-box;
+
+	/* margin: 0 auto = 0 arriba/abajo, auto a los lados.
+	   El auto centra la caja dentro del body (necesita ancho fijo). */
+	margin: 0 auto;
+
+	/* Relleno interior: 30px arriba, 20px a los lados y 0 abajo
+	   (el de abajo lo pone la barra de copyright). */
+	padding: 30px 20px 0 20px;
+
+	/* Colores de la paleta: fondo blanco, texto gris oscuro.
+	   (El anterior #d37300 no estaba en la paleta). */
+	background-color: #FFFFFF;
+	color: #333333;
+
+	/* EL BORDE que pide el enunciado: 2px y color #333333.
+	   border-radius 0 0 10px 10px redondea SOLO las esquinas de abajo,
+	   en espejo con las de arriba de la cabecera (10px 10px 0 0),
+	   para que la pagina cierre por abajo. */
+	border: 2px solid #333333;
+	border-radius: 0 0 10px 10px;
 }
 
+/* --- 2. LAS TRES COLUMNAS (marca, horarios, contacto) --- */
+/* flex: los tres hijos pasan a estar en linea.
+   space-between: reparte el espacio sobrante entre ellas.
+   flex-start: alinea por arriba (los titulos empiezan todos a la misma
+   altura aunque una columna sea mas larga).
+   wrap: si no caben, bajan a otra linea.
+   gap: 25px entre filas y 40px entre columnas. */
 .footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 80px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	gap: 25px 40px;
 }
 
+/* Nombre de la panaderia, con la tipografia decorativa del proyecto */
 .footer-brand {
-  font-family: "Rouge Script", cursive;
-  font-size: 1.7rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: var(--warm-ink);
+	font-family: "Rouge Script", "Segoe Script", cursive;
+	font-size: 1.7rem;
+	letter-spacing: 1.5px;
+	color: #333333;
+	line-height: 1.2;
 }
 
+/* flex: 1 1 200px -> crecer:1, encoger:1, base:200px.
+   min-width:0 evita que el texto largo desborde la columna. */
 .footer-section {
-  flex: 1;
-  min-width: 250px;
-  text-align: left; /* Alineado a la izquierda para mayor limpieza */
-  margin-bottom: 0;
+	flex: 1 1 200px;
+	min-width: 0;
+	text-align: left;
+	margin-bottom: 0;   /* anula el margin-bottom:60px de la regla
+	                       general "section { ... }" */
 }
 
+/* :first-child selecciona la PRIMERA columna (la de la marca),
+   que necesita un poco mas de ancho que las otras dos. */
+.footer-section:first-child {
+	flex: 1 1 240px;
+}
+
+/* Titulos en mayusulas con linea verde debajo (#3E9722 de la paleta).
+   padding-bottom crea el espacio entre el texto y la linea. */
 .footer-section h2 {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+	font-size: 15px;
+	margin-bottom: 12px;
+	padding-bottom: 6px;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #333333;
+	border-bottom: 1px solid #3E9722;
 }
 
+/* Texto en gris #666666 de la paleta */
 .footer-section p {
-  margin: 5px 0;
-  font-size: 0.95rem;
+	margin: 5px 0;
+	font-size: 14px;
+	color: #666666;
 }
 
 .footer-section .footer-tagline {
-  margin-top: 15px;
-  font-size: 0.9rem;
+	margin-top: 15px;
+	font-size: 14px;
+	color: #666666;
 }
 
+/* --- 3. ICONOS DE REDES SOCIALES --- */
 .footer-socials {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 10px;
+	display: flex;
+	align-items: center;
+	gap: 10px;          /* separacion uniforme entre iconos */
+	margin-top: 15px;
 }
 
 .footer-socials a {
-  display: inline-flex;
-  text-decoration: none;
+	display: inline-flex;
+	text-decoration: none;   /* quita el subrayado de los enlaces */
 }
 
+/* Los iconos llevan borde, igual que el resto de cajas de la pagina */
 .social-icon {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-  margin-right: 10px;
-  transition: opacity 0.3s ease;
+	width: 30px;
+	height: 30px;
+	object-fit: contain;     /* la imagen se ajusta sin deformarse */
+	border: 1px solid #333333;
+	border-radius: 5px;
+	padding: 3px;
+	background-color: #FFFFFF;
+	transition: opacity 0.3s ease, transform 0.2s ease;  /* animacion */
 }
 
+/* PSEUDOSELECCIONADOR :hover -> al pasar el raton, el icono se
+   aclara y sube 2px. */
+.footer-socials a:hover .social-icon {
+	opacity: 0.7;
+	transform: translateY(-2px);
+}
 
+/* :focus-visible -> mismo realce al navegar con el teclado
+   (accesibilidad). Naranja #E58C24 de la paleta. */
+.footer-socials a:focus-visible .social-icon {
+	outline: 2px solid #E58C24;
+	outline-offset: 2px;
+}
 
+/* --- 4. BARRA DE COPYRIGHT --- */
 .footer-copyright {
-  text-align: center;
-  margin-top: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  padding-top: 15px;
-  font-size: 0.85rem;
-}
+	text-align: center;
 
-/* Efecto opcional al pasar el ratón por encima */
-.social-icon:hover {
-  opacity: 0.7;
+	/* MARGEN NEGATIVO: -20px a izquierda y derecha hace que la barra
+	   "salga" del relleno lateral del footer y llegue pegada a los
+	   bordes de la caja. Tecnica clasica para llevarla a sangre. */
+	margin: 25px -20px 0 -20px;
+	padding: 12px 20px;
+
+	border-top: 2px solid #333333;  /* linea que la separa del contenido */
+	background-color: #CAE646;      /* lima de la paleta: la cabecera
+	                                  empieza en lima y el pie acaba */
+	color: #333333;
+	font-size: 13px;
+	font-weight: bold;
 }
 /* Adaptacion responsive para moviles */
 
@@ -267,6 +341,21 @@ section {
 		/* Reduce los márgenes laterales del contenido en móvil. */
 		padding: 20px 16px;
 	}
+	.footer {
+    		width: auto;
+    		margin: 0;
+    		border-radius: 0;
+    		padding: 25px 15px 0 15px;
+    	}
+
+    	.footer-container {
+    		gap: 25px;
+    	}
+
+    	.footer-copyright {
+    		margin: 20px -15px 0 -15px;
+    		padding: 12px 15px;
+    	}
 }
 
 /* Pantallas moviles estrechas */
@@ -287,4 +376,15 @@ section {
 		margin-bottom: 3px;
 		border-bottom: 1px solid #bddb8f;
 	}
+		.footer-container {
+    		flex-direction: column;
+    		gap: 20px;
+    	}
+
+    	.footer-section,
+    	.footer-section:first-child {
+    		width: 100%;
+    		flex: 1 1 auto;
+    	}
 }
+
