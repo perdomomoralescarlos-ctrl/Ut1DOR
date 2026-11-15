@@ -1,10 +1,30 @@
-﻿/*
- * Paneles laterales y sus contenidos: estructura, apariencia e interacción.
- * La cuadrícula que los coloca junto a main está definida en css/index.css.
+/*
+ * Estilos de los paneles laterales de index.html:
+ * - .left-aside: categorías, datos de contacto y horario.
+ * - .right-aside: selector de idioma y recomendación destacada.
+ *
+ * Esta hoja define la apariencia y el posicionamiento de esos paneles.
+ * Las columnas y áreas generales de la cuadrícula se definen en
+ * css/index.css; los anchos usados aquí (--aside-left-width y
+ * --aside-right-width) también se declaran allí.
  */
 
-/* Marco y posición de ambos paneles. */
-.left-aside, .right-aside {
+/* ==========================================================================
+   Marco y posicionamiento
+   ========================================================================== */
+
+/*
+ * En escritorio los paneles se separan del flujo del documento mediante
+ * position: fixed. Así permanecen en el mismo lugar de la ventana aunque el
+ * usuario se desplace por las galerías de productos.
+ *
+ * El borde superior deja libre la cabecera. Si el alto del viewport es menor
+ * que el contenido de un panel, max-height limita el marco y overflow-y
+ * permite desplazarse dentro de él. overscroll-behavior evita que ese gesto
+ * continúe desplazando la página al llegar al final del panel.
+ */
+.left-aside,
+.right-aside {
 	position: fixed;
 	top: 160px;
 	z-index: 10;
@@ -20,20 +40,42 @@
 	box-shadow: 0 4px 14px rgb(51 51 51 / 9%);
 	color: #333;
 }
+
+/*
+ * El contenedor centrado de index.css tiene un ancho máximo de 960px.
+ * Esta fórmula alinea cada panel con uno de sus extremos; max() conserva un
+ * margen mínimo cuando el viewport apenas permite mostrar las tres columnas.
+ * grid-area mantiene los nombres de área necesarios en el layout responsive.
+ */
 .left-aside {
 	grid-area: left;
 	left: max(12px, calc((100vw - 960px) / 2));
 }
+
 .right-aside {
 	grid-area: right;
 	right: max(12px, calc((100vw - 960px) / 2));
+	/* El ancho incluye los 20px de separación previstos por la cuadrícula. */
 	width: calc(var(--aside-right-width) + 20px);
+	/* Reserva espacio a la izquierda para mantener la alineación interior. */
 	padding: 24px 0 24px 20px;
 }
 
-/* Encabezados y textos. */
-.aside-section { margin-bottom: 0; }
-.aside-section h2, .right-aside .aside-feature-copy h2 {
+/* ==========================================================================
+   Encabezados, subtítulos y textos
+   ========================================================================== */
+
+/* Evita que se añada espacio extra bajo cada bloque interno del panel. */
+.aside-section {
+	margin-bottom: 0;
+}
+
+/*
+ * Tratamiento común de encabezados de secciones y de la recomendación:
+ * banda azul, texto blanco y marcador lima en el borde izquierdo.
+ */
+.aside-section h2,
+.right-aside .aside-feature-copy h2 {
 	padding: 9px 10px;
 	border-left: 5px solid #cae646;
 	background: #3c74e6;
@@ -44,9 +86,33 @@
 	line-height: 1.35;
 	text-transform: uppercase;
 }
-.recipes-section h2 { max-width: none; }
-.hours-section h2 { margin-bottom: 10px; background: transparent; color: #333; font-size: .98rem; }
-.aside-eyebrow { margin: 0 0 8px; color: #333; font-size: .68rem; font-weight: 700; line-height: 1.35; }
+
+/* El título de categorías puede ocupar el ancho completo del panel. */
+.recipes-section h2 {
+	max-width: none;
+}
+
+/*
+ * El encabezado del bloque de horarios tiene una jerarquía visual distinta:
+ * no usa la banda azul compartida por los demás títulos.
+ */
+.hours-section h2 {
+	margin-bottom: 10px;
+	background: transparent;
+	color: #333;
+	font-size: .98rem;
+}
+
+/* Etiqueta breve que precede a un bloque, por ejemplo "Idioma". */
+.aside-eyebrow {
+	margin: 0 0 8px;
+	color: #333;
+	font-size: .68rem;
+	font-weight: 700;
+	line-height: 1.35;
+}
+
+/* En el panel derecho la etiqueta de idioma adopta el estilo de una banda. */
 .right-aside > .aside-eyebrow {
 	padding: 8px 10px;
 	border-left: 5px solid #cae646;
@@ -56,10 +122,35 @@
 	text-transform: uppercase;
 }
 
-/* Enlaces de recetas y contacto. */
-.recipes-nav ul, .aside-contact-list { margin: 0; padding: 0; list-style: none; }
-.recipes-nav li + li { margin-top: 4px; }
-.recipes-nav a, .aside-contact-list a { color: #333; text-decoration: none; text-underline-offset: 3px; }
+/* ==========================================================================
+   Navegación de categorías y lista de contacto
+   ========================================================================== */
+
+/* Reinicia los estilos de lista para controlar viñetas y sangrías a mano. */
+.recipes-nav ul,
+.aside-contact-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* Separa las opciones de categoría, excepto la primera. */
+.recipes-nav li + li {
+	margin-top: 4px;
+}
+
+/* Estilo compartido de enlaces de categoría y enlaces de contacto. */
+.recipes-nav a,
+.aside-contact-list a {
+	color: #333;
+	text-decoration: none;
+	text-underline-offset: 3px;
+}
+
+/*
+ * Los enlaces de categoría ocupan toda la fila y se dividen con una línea.
+ * La transición suaviza el cambio de color en hover y al recibir foco.
+ */
 .recipes-nav a {
 	display: block;
 	padding: 8px 10px;
@@ -69,13 +160,44 @@
 	font-weight: 600;
 	transition: background-color 160ms ease, color 160ms ease;
 }
-.recipes-nav a[href="#panaderia"] { background: #cae646; }
-.recipes-nav a:hover, .recipes-nav a:focus-visible { background: #e58c24; color: #222; }
-.recipes-nav a:focus-visible, .aside-contact-list a:focus-visible, .right-aside .lang-btn:focus-visible {
+
+/* Señala la categoría inicial y ofrece feedback para ratón y teclado. */
+.recipes-nav a[href="#panaderia"] {
+	background: #cae646;
+}
+
+.recipes-nav a:hover,
+.recipes-nav a:focus-visible {
+	background: #e58c24;
+	color: #222;
+}
+
+/*
+ * El contorno visible distingue el elemento enfocado al navegar con teclado.
+ * Se aplica a los enlaces y al selector de idioma del panel derecho.
+ */
+.recipes-nav a:focus-visible,
+.aside-contact-list a:focus-visible,
+.right-aside .lang-btn:focus-visible {
 	outline: 3px solid #3e9722;
 	outline-offset: 3px;
 }
-.aside-contact-list li { position: relative; margin-top: 12px; padding-left: 16px; color: #333; font-size: .82rem; line-height: 1.5; overflow-wrap: anywhere; }
+
+/*
+ * Cada dato de contacto reserva espacio para una viñeta. overflow-wrap permite
+ * partir direcciones o correos largos sin desbordar el panel.
+ */
+.aside-contact-list li {
+	position: relative;
+	margin-top: 12px;
+	padding-left: 16px;
+	color: #333;
+	font-size: .82rem;
+	line-height: 1.5;
+	overflow-wrap: anywhere;
+}
+
+/* Viñeta decorativa dibujada en CSS, sin añadir contenido al HTML. */
 .aside-contact-list li::before {
 	position: absolute;
 	top: .55em;
@@ -86,17 +208,77 @@
 	background: #3e9722;
 	content: "";
 }
-.aside-contact-list a:hover { color: #9b4800; text-decoration: underline; }
 
-/* Separadores, horarios y datos de contacto. */
-.contact-section { margin-top: 24px; padding-top: 22px; border-top: 1px solid #3e9722; }
-.contact-section address { font-style: normal; }
-.hours-section { margin-top: 30px; padding: 16px; border-left: 4px solid #e58c24; border-radius: 2px; background: #f3f3f3; }
-.hours-section p { display: grid; gap: 2px; margin: 8px 0 0; color: #333; font-size: .74rem; line-height: 1.45; }
-.hours-section p strong { font-weight: 700; }
+/* Hace explícito el subrayado del enlace de contacto al pasar el ratón. */
+.aside-contact-list a:hover {
+	color: #9b4800;
+	text-decoration: underline;
+}
 
-/* Selector de idioma del panel derecho. */
-.right-aside .lang-selector { justify-content: flex-start; gap: 8px; padding: 4px; border: 1px solid #666; border-radius: 3px; background: #fff; }
+/* ==========================================================================
+   Separadores, dirección y horario
+   ========================================================================== */
+
+/* Separa la información de contacto de la navegación de categorías. */
+.contact-section {
+	margin-top: 24px;
+	padding-top: 22px;
+	border-top: 1px solid #3e9722;
+}
+
+/* Quita la cursiva semántica por defecto del elemento <address>. */
+.contact-section address {
+	font-style: normal;
+}
+
+/*
+ * El horario queda agrupado en una tarjeta gris, identificada por un borde
+ * naranja. El padding deja espacio entre el contenido y ese marco.
+ */
+.hours-section {
+	margin-top: 30px;
+	padding: 16px;
+	border-left: 4px solid #e58c24;
+	border-radius: 2px;
+	background: #f3f3f3;
+}
+
+/* Cada fila distribuye el día y las horas en líneas legibles. */
+.hours-section p {
+	display: grid;
+	gap: 2px;
+	margin: 8px 0 0;
+	color: #333;
+	font-size: .74rem;
+	line-height: 1.45;
+}
+
+/* Resalta el nombre del día dentro de cada fila del horario. */
+.hours-section p strong {
+	font-weight: 700;
+}
+
+/* ==========================================================================
+   Selector de idioma
+   ========================================================================== */
+
+/*
+ * El selector solo se estiliza aquí dentro del panel derecho para no afectar
+ * al selector equivalente que aparece en la cabecera.
+ */
+.right-aside .lang-selector {
+	justify-content: flex-start;
+	gap: 8px;
+	padding: 4px;
+	border: 1px solid #666;
+	border-radius: 3px;
+	background: #fff;
+}
+
+/*
+ * Los botones comparten el espacio disponible. grid centra sus banderas o
+ * iconos, y la altura mantiene un objetivo de interacción uniforme.
+ */
 .right-aside .lang-btn {
 	display: grid;
 	min-width: 0;
@@ -110,21 +292,95 @@
 	color: #333;
 	font-size: .8rem;
 }
-.right-aside .lang-btn[aria-pressed="true"] { border-color: #e58c24; background: #e58c24; color: #333; }
-.right-aside .lang-btn:hover, .right-aside .lang-btn[aria-pressed="true"]:hover { background: #cae646; color: #333; }
 
-/* Imagen, descripción y nota promocional. */
-.aside-feature { width: 100%; margin: 20px 0 0; aspect-ratio: 4 / 5; overflow: hidden; border: 1px solid #3e9722; border-radius: 2px; background: #f2e6d7; }
-.aside-feature img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.aside-feature-copy { margin-top: 16px; }
-.aside-feature-copy h2 { margin: 0 0 10px; color: #333; font-size: 1.38rem; line-height: 1.2; }
-.aside-feature-copy > p:last-child, .aside-note { color: #333; }
-.aside-feature-copy > p:last-child { margin: 0; font-size: .8rem; line-height: 1.5; }
-.aside-note { margin: 20px 0 0; padding-top: 16px; border-top: 1px solid #3e9722; font-size: .78rem; font-weight: 600; line-height: 1.45; }
+/* aria-pressed identifica el idioma activo, también para tecnologías de apoyo. */
+.right-aside .lang-btn[aria-pressed="true"] {
+	border-color: #e58c24;
+	background: #e58c24;
+	color: #333;
+}
 
-/* Tablet: paneles a ancho completo; el derecho distribuye sus elementos en grid. */
+/* Realce al pasar el ratón, tanto en botones activos como inactivos. */
+.right-aside .lang-btn:hover,
+.right-aside .lang-btn[aria-pressed="true"]:hover {
+	background: #cae646;
+	color: #333;
+}
+
+/* ==========================================================================
+   Recomendación destacada
+   ========================================================================== */
+
+/*
+ * El figure mantiene una proporción vertical en escritorio, recorta el exceso
+ * de imagen y proporciona un fondo de reserva mientras carga el recurso.
+ */
+.aside-feature {
+	width: 100%;
+	margin: 20px 0 0;
+	aspect-ratio: 4 / 5;
+	overflow: hidden;
+	border: 1px solid #3e9722;
+	border-radius: 2px;
+	background: #f2e6d7;
+}
+
+/* La imagen llena el marco sin deformarse; object-fit recorta si hace falta. */
+.aside-feature img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Separa el texto descriptivo de la imagen destacada. */
+.aside-feature-copy {
+	margin-top: 16px;
+}
+
+/* El título de recomendación recupera tamaño de texto de título. */
+.aside-feature-copy h2 {
+	margin: 0 0 10px;
+	color: #333;
+	font-size: 1.38rem;
+	line-height: 1.2;
+}
+
+/* Mantiene un color común para la descripción y la nota promocional. */
+.aside-feature-copy > p:last-child,
+.aside-note {
+	color: #333;
+}
+
+/* Elimina margen sobrante bajo la descripción y controla su interlineado. */
+.aside-feature-copy > p:last-child {
+	margin: 0;
+	font-size: .8rem;
+	line-height: 1.5;
+}
+
+/* La nota final se distingue mediante una línea divisoria superior. */
+.aside-note {
+	margin: 20px 0 0;
+	padding-top: 16px;
+	border-top: 1px solid #3e9722;
+	font-size: .78rem;
+	font-weight: 600;
+	line-height: 1.45;
+}
+
+/* ==========================================================================
+   Tablet y móvil
+   ========================================================================== */
+
+/*
+ * Hasta 991.98px los paneles vuelven al flujo del documento: fijarlos en una
+ * pantalla estrecha taparía la galería. También se quita el límite de altura
+ * y el scroll interno propio de escritorio.
+ */
 @media (max-width: 991.98px) {
-	.left-aside, .right-aside {
+	.left-aside,
+	.right-aside {
 		position: static;
 		width: auto;
 		max-height: none;
@@ -133,20 +389,80 @@
 		border-radius: 0;
 		box-shadow: none;
 	}
-	.left-aside { border-top: 1px solid #3e9722; }
-	.right-aside { display: grid; grid-template-columns: minmax(0, 1fr) minmax(150px, 210px); align-items: start; gap: 20px; }
-	.right-aside .lang-selector { grid-column: 1; grid-row: 2; }
-	.right-aside > .aside-eyebrow { grid-column: 1; grid-row: 1; }
-	.aside-feature { grid-column: 2; grid-row: 1 / span 3; margin: 0; aspect-ratio: 4 / 3; }
-	.aside-feature-copy, .aside-note { grid-column: 1; }
-	.aside-feature-copy { grid-row: 3; }
-	.aside-note { grid-row: 4; }
+
+	/* Línea superior para separar el panel izquierdo del contenido anterior. */
+	.left-aside {
+		border-top: 1px solid #3e9722;
+	}
+
+	/*
+	 * El panel derecho usa dos columnas: controles y texto en la primera;
+	 * imagen destacada en la segunda. Las asignaciones de fila mantienen el
+	 * orden visual sin alterar el orden semántico del HTML.
+	 */
+	.right-aside {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(150px, 210px);
+		align-items: start;
+		gap: 20px;
+	}
+
+	.right-aside .lang-selector {
+		grid-column: 1;
+		grid-row: 2;
+	}
+
+	.right-aside > .aside-eyebrow {
+		grid-column: 1;
+		grid-row: 1;
+	}
+
+	/* La imagen pasa a formato horizontal y ocupa el alto de las primeras filas. */
+	.aside-feature {
+		grid-column: 2;
+		grid-row: 1 / span 3;
+		margin: 0;
+		aspect-ratio: 4 / 3;
+	}
+
+	.aside-feature-copy,
+	.aside-note {
+		grid-column: 1;
+	}
+
+	.aside-feature-copy {
+		grid-row: 3;
+	}
+
+	.aside-note {
+		grid-row: 4;
+	}
 }
 
-/* Móvil: reducir espacios y adaptar las columnas del panel derecho. */
+/*
+ * En móviles estrechos se reducen los márgenes laterales y la columna de la
+ * imagen. El panel derecho conserva el layout en dos columnas siempre que
+ * haya espacio; la cuadrícula principal de la página se apila en index.css.
+ */
 @media (max-width: 700px) {
-	.left-aside, .right-aside { padding: 26px 20px; border-left: 0; border-right: 0; }
-	.right-aside { grid-template-columns: minmax(0, 1fr) minmax(110px, 38%); }
-	.recipes-section { margin-bottom: 0; }
-	.contact-section { margin-top: 22px; }
+	.left-aside,
+	.right-aside {
+		padding: 26px 20px;
+		border-left: 0;
+		border-right: 0;
+	}
+
+	.right-aside {
+		grid-template-columns: minmax(0, 1fr) minmax(110px, 38%);
+	}
+
+	/* No añade margen bajo la navegación, ya que el separador siguiente lo hace. */
+	.recipes-section {
+		margin-bottom: 0;
+	}
+
+	/* Compacta el espacio entre contacto y categorías en pantallas pequeñas. */
+	.contact-section {
+		margin-top: 22px;
+	}
 }
