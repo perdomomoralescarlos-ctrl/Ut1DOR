@@ -14,18 +14,51 @@
 
 </head>
 <body>
-<header id="inicio" class="navbar navbar-expand-lg">
-			<div class="logo navbar-brand">
-				<h1>Migas Amigas</h1>
-			</div>
-			<nav class="nav navbar-nav flex-row flex-wrap" aria-label="Navegación principal">
-				<a class="nav-link" href="#inicio" data-i18n="navInicio">Inicio</a>
-				<a class="nav-link" href="#panaderia" data-i18n="navPanaderia">Panadería</a>
-				<a class="nav-link" href="#dulceria" data-i18n="navPasteleria">Dulcería</a>
-				<a class="nav-link" href="#empanadas" data-i18n="navEmpanadas">Empanadas</a>
-				<a class="nav-link" href="#contacto" data-i18n="navContacto">Contacto</a>
-			</nav>
+	<!-- Cabecera de la web -->
+	<header id="inicio">
+		<!-- Logo y nombre de la panadería -->
+		<div class="logo">
+			<h1>Migas Amigas</h1>
+			<p>www.migasamigas.es</p>
+		</div>
+
+		<!-- Selector de idioma (es / pt) -->
+		<div class="lang-selector">
+			<button type="button" class="lang-btn" data-lang="es" aria-label="Español" aria-pressed="true" title="Español">
+				<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
+					<rect width="30" height="20" fill="#AA151B" />
+					<rect y="5" width="30" height="10" fill="#F1BF00" />
+				</svg>
+			</button>
+			<button type="button" class="lang-btn" data-lang="pt" aria-label="Português" aria-pressed="false" title="Português">
+				<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
+					<rect width="12" height="20" fill="#66382E" />
+					<rect x="12" width="18" height="20" fill="#66382E" />
+					<circle cx="12" cy="10" r="3.5" fill="#FFCC00" />
+					<circle cx="12" cy="10" r="2.1" fill="#FFFFFF" />
+				</svg>
+			</button>
+		</div>
+
+		<!-- Menu de navegacion en formato lista -->
+		<nav aria-label="Navegación principal">
+			<ul>
+				<li><a href="#inicio" class="activo" data-i18n="navInicio">Inicio</a></li>
+				<li><a href="#panaderia" data-i18n="navPanaderia">Panadería</a></li>
+				<li><a href="#dulceria" data-i18n="navPasteleria">Dulcería</a></li>
+				<li><a href="#empanadas" data-i18n="navEmpanadas">Empanadas</a></li>
+				<li><a href="#contacto" data-i18n="navContacto">Contacto</a></li>
+			</ul>
+		</nav>
 	</header>
+
+<main>
+
+		     <section class="card-gallery-container" id="panaderia" aria-labelledby="heading-panaderia">
+				<h2 id="heading-panaderia" data-i18n="seccionPanaderia">Panadería</h2>
+			<div class="card-gallery">
+			</div>
+		     </section>
 
   <!--
     Área de contenido de tres columnas: panel de categorías, contenido principal
