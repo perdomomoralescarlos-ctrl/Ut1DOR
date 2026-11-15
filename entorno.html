@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Nuestro entorno — Migas Amigas</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/index.css?v=2">
+	<link rel="stylesheet" href="css/cards.css?v=2">
+</head>
+<body>
+	<header id="inicio" class="navbar navbar-expand-lg">
+		<div class="logo navbar-brand"><h1>Migas Amigas</h1></div>
+		<nav class="nav navbar-nav flex-row flex-wrap" aria-label="Navegación principal">
+			<a class="nav-link" href="index.html" data-i18n="home">Inicio</a>
+			<a class="nav-link" href="index.html#panaderia" data-i18n="bakery">Panadería</a>
+			<a class="nav-link" href="index.html#dulceria" data-i18n="sweets">Dulcería</a>
+			<a class="nav-link" href="index.html#empanadas" data-i18n="empanadas">Empanadas</a>
+			<a class="nav-link" href="historia.html" data-i18n="story">Nuestra historia</a>
+			<a class="nav-link" href="entorno.html" aria-current="page" data-i18n="surroundings">Nuestro entorno</a>
+			<a class="nav-link" href="#contacto" data-i18n="contact">Contacto</a>
+		</nav>
+		<div class="lang-selector" aria-label="Idioma">
+			<button type="button" class="lang-btn" data-lang="es" aria-label="Español" aria-pressed="true" title="Español"><svg class="flag-icon" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/></svg></button>
+			<button type="button" class="lang-btn" data-lang="pt" aria-label="Português" aria-pressed="false" title="Português"><svg class="flag-icon" viewBox="0 0 30 20" aria-hidden="true"><rect width="12" height="20" fill="#006600"/><rect x="12" width="18" height="20" fill="#FF0000"/></svg></button>
+		</div>
+	</header>
+	<main>
+		<section class="card-gallery-container" aria-labelledby="titulo-entorno">
+			<h2 id="titulo-entorno" data-i18n="surroundings">Nuestro entorno</h2>
+			<img class="page-image" src="assets/entorno/entorno.jpg" alt="Paisaje rural cerca de la frontera entre España y Portugal" data-i18n-alt="surroundingsImageAlt">
+			<p data-i18n="surroundingsP1">Migas Amigas se encuentra en un pequeño pueblo cerca de la frontera entre España y Portugal, rodeado de campos, caminos tranquilos y casas de piedra.</p>
+			<p data-i18n="surroundingsP2">La mezcla de tradiciones de ambos lados de la frontera se nota en la vida del pueblo y también inspira algunas de nuestras recetas. Es un lugar apacible, donde vecinos y viajeros paran a conversar y llevarse algo recién horneado.</p>
+		</section>
+	</main>
+	<footer class="footer" id="contacto">
+		<div class="footer-container">
+			<div class="footer-section"><div class="footer-brand">Migas Amigas</div><p class="footer-tagline" data-i18n="tagline">¡El sabor de lo tradicional!</p></div>
+			<section class="footer-section"><h2 data-i18n="contact">Contacto</h2><p data-i18n="email">Correo: pedidos@migasamigas.com</p><p>+34 7596572369</p></section>
+		</div>
+		<div class="footer-copyright">© 2026 Migas Amigas. Todos los derechos reservados.</div>
+	</footer>
+	<script src="js/pages.js" defer></script>
+</body>
+</html>

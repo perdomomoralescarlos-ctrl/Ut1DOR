@@ -10,59 +10,51 @@
 <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/index.css?v=2" />
 	<link rel="stylesheet" href="css/cards.css?v=2">
+	<link rel="stylesheet" href="css/aside.css?v=3">
 
-</head>
+<style>.recipe-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}.recipe{padding:20px;border:1px solid #d7a46c;border-radius:10px;background:#fffdf8}.recipe h3{color:#8b4513;margin-bottom:12px}.recipe p{margin-bottom:10px}</style></head>
 <body>
 <header id="inicio" class="navbar navbar-expand-lg">
 			<div class="logo navbar-brand">
 				<h1>Migas Amigas</h1>
 			</div>
-			<nav class="nav navbar-nav flex-row flex-wrap" aria-label="Navegación principal">
-				<a class="nav-link" href="#inicio" data-i18n="navInicio">Inicio</a>
-				<a class="nav-link" href="#panaderia" data-i18n="navPanaderia">Panadería</a>
-				<a class="nav-link" href="#dulceria" data-i18n="navPasteleria">Dulcería</a>
-				<a class="nav-link" href="#empanadas" data-i18n="navEmpanadas">Empanadas</a>
-				<a class="nav-link" href="#contacto" data-i18n="navContacto">Contacto</a>
+												<nav class="nav navbar-nav flex-row flex-wrap" aria-label="Navegación principal">
+				<a class="nav-link" href="index.html">Inicio</a>
+				<a class="nav-link" href="pan.html">Panadería</a>
+				<a class="nav-link" href="dulces.html">Dulcería</a>
+				<a class="nav-link" href="empanadas.html">Empanadas</a>
+				<a class="nav-link" href="localizacion.html">Localización</a>
+				<a class="nav-link" href="historia.html">Historia</a>
+				<a class="nav-link" href="#contacto">Contacto</a>
 			</nav>
-			<div class="lang-selector">
+  			<div class="lang-selector">
 				<button type="button" class="lang-btn" data-lang="es" aria-label="Español" aria-pressed="true" title="Español">
-					<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
-						<rect width="30" height="20" fill="#AA151B" />
-						<rect y="5" width="30" height="10" fill="#F1BF00" />
-					</svg>
+					<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/></svg>
 				</button>
 				<button type="button" class="lang-btn" data-lang="pt" aria-label="Português" aria-pressed="false" title="Português">
-					<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
-						<rect width="12" height="20" fill="#66382E" />
-						<rect x="12" width="18" height="20" fill="#66382E" />
-						<circle cx="12" cy="10" r="3.5" fill="#FFCC00" />
-						<circle cx="12" cy="10" r="2.1" fill="#FFFFFF" />
-					</svg>
+					<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true"><rect width="12" height="20" fill="#046A38"/><rect x="12" width="18" height="20" fill="#DA291C"/><circle cx="12" cy="10" r="3.5" fill="#FFCC00"/><circle cx="12" cy="10" r="2.1" fill="#FFFFFF"/></svg>
 				</button>
 			</div>
   </header>
 
-<main>
-
-		     <section class="card-gallery-container" id="panaderia" aria-labelledby="heading-panaderia">
-				<h2 id="heading-panaderia" data-i18n="seccionPanaderia">Panadería</h2>
-			<div class="card-gallery">
-			</div>
-		     </section>
-
-		     <section class="card-gallery-container" id="dulceria" aria-labelledby="heading-dulceria">
-				<h2 id="heading-dulceria" data-i18n="seccionDulceria">Dulcería</h2>
-			<div class="card-gallery">
-			</div>
-		     </section>
-
-		     <section class="card-gallery-container" id="empanadas" aria-labelledby="heading-empanadas">
-				<h2 id="heading-empanadas" data-i18n="seccionEmpanadas">Empanadas</h2>
-			<div class="card-gallery">
-			</div>
-		     </section>
-
-  </main>
+	<div class="layout-container">
+		<aside class="left-aside" aria-label="Navegación de Migas Amigas">
+			<section class="aside-section recipes-section" aria-labelledby="recipes-heading">
+				<p class="aside-eyebrow">Migas Amigas</p>
+				<h2 id="recipes-heading">Explora la panadería</h2>
+				<nav class="recipes-nav" aria-label="Páginas del sitio">
+					<ul>
+						<li><a href="index.html">Inicio</a></li>
+						<li><a href="pan.html">Panadería</a></li>
+						<li><a href="dulces.html">Dulcería</a></li>
+						<li><a href="empanadas.html">Empanadas</a></li>
+						<li><a href="localizacion.html">Localización</a></li>
+						<li><a href="historia.html">Historia</a></li>
+				</ul>
+				</nav>
+			</section>
+		</aside>
+	<main><section class="card-gallery-container" id="panaderia"><h2>Recetas de pan</h2><div class="recipe-list"><article class="recipe"><h3>Pan de masa madre</h3><p><strong>Ingredientes:</strong> 500 g de harina de trigo, 350 ml de agua, 100 g de masa madre activa y 10 g de sal.</p><p><strong>Preparación:</strong> Mezcla los ingredientes, amasa y deja fermentar 4–6 horas con pliegues cada 30 minutos. Forma el pan, deja reposar 2 horas y hornea a 240 °C durante 20 minutos con vapor; baja a 220 °C y hornea 20 minutos más.</p><p><strong>Alérgenos:</strong> gluten (trigo).</p></article><article class="recipe"><h3>Pan integral de semillas</h3><p><strong>Ingredientes:</strong> 400 g de harina integral de trigo, 100 g de harina de centeno, 320 ml de agua, 7 g de levadura seca, 10 g de sal y 60 g de semillas de sésamo y girasol.</p><p><strong>Preparación:</strong> Mezcla y amasa todos los ingredientes, deja levar 1 hora, forma el pan y deja reposar 30 minutos. Hornea a 220 °C durante 35–40 minutos.</p><p><strong>Alérgenos:</strong> gluten (trigo y centeno), sésamo. Puede contener trazas de otros frutos de cáscara.</p></article></div></section></main>	</div>
 			   <footer class="footer" id="contacto">
 				   <div class="footer-container">
 					   <div class="footer-section">
@@ -100,3 +92,11 @@
 	</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
