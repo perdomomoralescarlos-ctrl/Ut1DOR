@@ -1,170 +1,103 @@
-.left-aside,
-.right-aside {
-	/* Los paneles laterales forman parte de la cuadrícula, no flotan sobre main. */
-	position: static;
-	width: auto;
-	max-height: none;
-	min-width: 0;
-	padding: 24px 16px;
-	overflow: visible;
-	border: 1px solid #ead9c6;
-	border-radius: 16px;
-	background: var(--aside-surface);
-	box-shadow: 0 8px 24px rgb(73 38 13 / 7%);
-	z-index: 10;
-}
+﻿/*
+ * Paneles laterales y sus contenidos: estructura, apariencia e interacción.
+ * La cuadrícula que los coloca junto a main está definida en css/index.css.
+ */
 
+/* Marco y posición de ambos paneles. */
+.left-aside, .right-aside {
+	position: fixed;
+	top: 160px;
+	z-index: 10;
+	width: var(--aside-left-width);
+	min-width: 0;
+	max-height: calc(100vh - 176px);
+	padding: 24px 16px;
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	border: 1px solid #3e9722;
+	border-radius: 10px;
+	background: #fff;
+	box-shadow: 0 4px 14px rgb(51 51 51 / 9%);
+	color: #333;
+}
 .left-aside {
 	grid-area: left;
+	left: max(12px, calc((100vw - 960px) / 2));
 }
-
 .right-aside {
 	grid-area: right;
+	right: max(12px, calc((100vw - 960px) / 2));
+	width: calc(var(--aside-right-width) + 20px);
 	padding: 24px 0 24px 20px;
 }
 
-.aside-section {
-	margin-bottom: 0;
-}
-
-.aside-section h2 {
-	margin: 0 0 16px;
-	color: #2b1600;
-	font-size: 1.18rem;
+/* Encabezados y textos. */
+.aside-section { margin-bottom: 0; }
+.aside-section h2, .right-aside .aside-feature-copy h2 {
+	padding: 9px 10px;
+	border-left: 5px solid #cae646;
+	background: #3c74e6;
+	color: #fff;
+	font-size: .88rem;
 	font-weight: 700;
-	line-height: 1.25;
-}
-
-.aside-eyebrow {
-	margin: 0 0 8px;
-	color: #9b4800;
-	font-size: 0.68rem;
-	font-weight: 700;
+	letter-spacing: .04em;
 	line-height: 1.35;
+	text-transform: uppercase;
+}
+.recipes-section h2 { max-width: none; }
+.hours-section h2 { margin-bottom: 10px; background: transparent; color: #333; font-size: .98rem; }
+.aside-eyebrow { margin: 0 0 8px; color: #333; font-size: .68rem; font-weight: 700; line-height: 1.35; }
+.right-aside > .aside-eyebrow {
+	padding: 8px 10px;
+	border-left: 5px solid #cae646;
+	background: #3c74e6;
+	color: #fff;
+	font-size: .8rem;
+	text-transform: uppercase;
 }
 
-.recipes-section h2 {
-	max-width: 190px;
-	font-size: 1.4rem;
-}
-
-.recipes-nav ul,
-.aside-contact-list {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.recipes-nav li + li {
-	margin-top: 4px;
-}
-
-.recipes-nav a,
-.aside-contact-list a {
-	color: #4c2a17;
-	text-decoration: none;
-	text-underline-offset: 3px;
-}
-
+/* Enlaces de recetas y contacto. */
+.recipes-nav ul, .aside-contact-list { margin: 0; padding: 0; list-style: none; }
+.recipes-nav li + li { margin-top: 4px; }
+.recipes-nav a, .aside-contact-list a { color: #333; text-decoration: none; text-underline-offset: 3px; }
 .recipes-nav a {
-	/* Cada opción es un enlace de lista; el hover también funciona con teclado. */
 	display: block;
-	padding: 11px 12px;
-	border-radius: 10px;
-	font-size: 1rem;
+	padding: 8px 10px;
+	border-bottom: 1px solid #ddd;
+	border-radius: 0;
+	font-size: .9rem;
 	font-weight: 600;
 	transition: background-color 160ms ease, color 160ms ease;
 }
-
-.recipes-nav a[href="#panaderia"] {
-	background: #faeddd;
-	color: #9b4800;
-}
-
-.recipes-nav a:hover,
-.recipes-nav a:focus-visible {
-	background: #faeddd;
-	color: #9b4800;
-}
-
-.recipes-nav a:focus-visible,
-.aside-contact-list a:focus-visible,
-.lang-btn:focus-visible {
-	outline: 3px solid #a94d00;
+.recipes-nav a[href="#panaderia"] { background: #cae646; }
+.recipes-nav a:hover, .recipes-nav a:focus-visible { background: #e58c24; color: #222; }
+.recipes-nav a:focus-visible, .aside-contact-list a:focus-visible, .right-aside .lang-btn:focus-visible {
+	outline: 3px solid #3e9722;
 	outline-offset: 3px;
 }
-
-.contact-section {
-	margin-top: 24px;
-	padding-top: 22px;
-	border-top: 1px solid #ead9c6;
-}
-
-.contact-section address {
-	font-style: normal;
-}
-
-.hours-section {
-	margin-top: 30px;
-	padding: 16px;
-	border-radius: 12px;
-	background: #faeddd;
-}
-
-.hours-section h2 {
-	margin-bottom: 10px;
-	color: #9b4800;
-	font-size: 0.98rem;
-}
-
-.hours-section p {
-	display: grid;
-	gap: 2px;
-	margin: 8px 0 0;
-	color: #4c2a17;
-	font-size: 0.74rem;
-	line-height: 1.45;
-}
-
-.hours-section p strong {
-	font-weight: 700;
-}
-
-.aside-contact-list li {
-	position: relative;
-	margin-top: 12px;
-	padding-left: 16px;
-	font-size: 0.82rem;
-	line-height: 1.5;
-	overflow-wrap: anywhere;
-}
-
+.aside-contact-list li { position: relative; margin-top: 12px; padding-left: 16px; color: #333; font-size: .82rem; line-height: 1.5; overflow-wrap: anywhere; }
 .aside-contact-list li::before {
 	position: absolute;
-	top: 0.55em;
+	top: .55em;
 	left: 0;
 	width: 7px;
 	height: 7px;
 	border-radius: 50%;
-	background: #ce6300;
+	background: #3e9722;
 	content: "";
 }
+.aside-contact-list a:hover { color: #9b4800; text-decoration: underline; }
 
-.aside-contact-list a:hover {
-	color: #9b4800;
-	text-decoration: underline;
-}
+/* Separadores, horarios y datos de contacto. */
+.contact-section { margin-top: 24px; padding-top: 22px; border-top: 1px solid #3e9722; }
+.contact-section address { font-style: normal; }
+.hours-section { margin-top: 30px; padding: 16px; border-left: 4px solid #e58c24; border-radius: 2px; background: #f3f3f3; }
+.hours-section p { display: grid; gap: 2px; margin: 8px 0 0; color: #333; font-size: .74rem; line-height: 1.45; }
+.hours-section p strong { font-weight: 700; }
 
-.lang-selector {
-	justify-content: flex-start;
-	gap: 8px;
-	padding: 4px;
-	border: 1px solid #ead9c6;
-	border-radius: 10px;
-	background: #fffcf2;
-}
-
-.lang-btn {
+/* Selector de idioma del panel derecho. */
+.right-aside .lang-selector { justify-content: flex-start; gap: 8px; padding: 4px; border: 1px solid #666; border-radius: 3px; background: #fff; }
+.right-aside .lang-btn {
 	display: grid;
 	min-width: 0;
 	flex: 1;
@@ -174,292 +107,46 @@
 	border: 1px solid transparent;
 	border-radius: 7px;
 	background: transparent;
-	color: #4c2a17;
-	font-size: 0.8rem;
+	color: #333;
+	font-size: .8rem;
 }
+.right-aside .lang-btn[aria-pressed="true"] { border-color: #e58c24; background: #e58c24; color: #333; }
+.right-aside .lang-btn:hover, .right-aside .lang-btn[aria-pressed="true"]:hover { background: #cae646; color: #333; }
 
-.lang-btn[aria-pressed="true"] {
-	border-color: #ce6300;
-	background: #ce6300;
-	box-shadow: 0 0 0 2px rgb(185 90 0 / 12%);
-	color: #fffdf8;
-}
+/* Imagen, descripción y nota promocional. */
+.aside-feature { width: 100%; margin: 20px 0 0; aspect-ratio: 4 / 5; overflow: hidden; border: 1px solid #3e9722; border-radius: 2px; background: #f2e6d7; }
+.aside-feature img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.aside-feature-copy { margin-top: 16px; }
+.aside-feature-copy h2 { margin: 0 0 10px; color: #333; font-size: 1.38rem; line-height: 1.2; }
+.aside-feature-copy > p:last-child, .aside-note { color: #333; }
+.aside-feature-copy > p:last-child { margin: 0; font-size: .8rem; line-height: 1.5; }
+.aside-note { margin: 20px 0 0; padding-top: 16px; border-top: 1px solid #3e9722; font-size: .78rem; font-weight: 600; line-height: 1.45; }
 
-.lang-btn:hover {
-	background: #faeddd;
-	color: #9b4800;
-	transform: translateY(-1px);
-}
-
-.lang-btn[aria-pressed="true"]:hover {
-	background: #b95a00;
-	color: #fffdf8;
-}
-
-.aside-feature {
-	width: 100%;
-	margin: 20px 0 0;
-	aspect-ratio: 4 / 5;
-	overflow: hidden;
-	border: 1px solid #ead9c6;
-	border-radius: 13px;
-	background: #f2e6d7;
-}
-
-.aside-feature img {
-	display: block;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-
-.aside-feature-copy {
-	margin-top: 16px;
-}
-
-.aside-feature-copy h2 {
-	margin: 0 0 6px;
-	color: #2b1600;
-	font-size: 1.38rem;
-	line-height: 1.2;
-}
-
-.aside-feature-copy > p:last-child {
-	margin: 0;
-	color: #80634f;
-	font-size: 0.8rem;
-	line-height: 1.5;
-}
-
-.aside-note {
-	margin: 20px 0 0;
-	padding-top: 16px;
-	border-top: 1px solid #ead9c6;
-	color: #4c2a17;
-	font-size: 0.78rem;
-	font-weight: 600;
-	line-height: 1.45;
-}
-
+/* Tablet: paneles a ancho completo; el derecho distribuye sus elementos en grid. */
 @media (max-width: 991.98px) {
-	.left-aside,
-	.right-aside {
+	.left-aside, .right-aside {
 		position: static;
 		width: auto;
 		max-height: none;
-		padding: 28px 22px;
 		overflow: visible;
+		padding: 28px 22px;
+		border-radius: 0;
 		box-shadow: none;
 	}
-
-	.left-aside {
-		border-radius: 0;
-	}
-
-	.right-aside {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(150px, 210px);
-		align-items: start;
-		gap: 20px;
-		border-radius: 0;
-	}
-
-	.right-aside .lang-selector {
-		grid-column: 1;
-		grid-row: 2;
-	}
-
-	.right-aside > .aside-eyebrow {
-		grid-column: 1;
-		grid-row: 1;
-	}
-
-	.aside-feature {
-		grid-column: 2;
-		grid-row: 1 / span 3;
-		margin: 0;
-		aspect-ratio: 4 / 3;
-	}
-
-	.aside-feature-copy,
-	.aside-note {
-		grid-column: 1;
-	}
-
+	.left-aside { border-top: 1px solid #3e9722; }
+	.right-aside { display: grid; grid-template-columns: minmax(0, 1fr) minmax(150px, 210px); align-items: start; gap: 20px; }
+	.right-aside .lang-selector { grid-column: 1; grid-row: 2; }
+	.right-aside > .aside-eyebrow { grid-column: 1; grid-row: 1; }
+	.aside-feature { grid-column: 2; grid-row: 1 / span 3; margin: 0; aspect-ratio: 4 / 3; }
+	.aside-feature-copy, .aside-note { grid-column: 1; }
 	.aside-feature-copy { grid-row: 3; }
 	.aside-note { grid-row: 4; }
 }
 
+/* Móvil: reducir espacios y adaptar las columnas del panel derecho. */
 @media (max-width: 700px) {
-	.left-aside,
-	.right-aside {
-		padding: 26px 20px;
-	}
-
-	.left-aside {
-		border-top: 1px solid #ead9c6;
-		border-right: 0;
-	}
-
-	.right-aside {
-		grid-template-columns: minmax(0, 1fr) minmax(110px, 38%);
-	}
-
-	.recipes-section {
-		margin-bottom: 0;
-	}
-
-	.contact-section {
-		margin-top: 22px;
-	}
-}
-
-/* Paneles laterales: marco verde y encabezados azules de estilo clásico. */
-.left-aside,
-.right-aside {
-	border: 1px solid #3e9722;
-	border-radius: 10px;
-	background: #ffffff;
-	box-shadow: 0 4px 14px rgb(51 51 51 / 9%);
-	color: #333333;
-}
-
-.aside-section h2,
-.right-aside .aside-feature-copy h2 {
-	padding: 9px 10px;
-	border-left: 5px solid #cae646;
-	background: #3c74e6;
-	color: #ffffff;
-	font-size: 0.88rem;
-	font-weight: 700;
-	letter-spacing: 0.04em;
-	line-height: 1.35;
-	text-transform: uppercase;
-}
-
-.aside-eyebrow {
-	color: #333333;
-}
-
-.right-aside > .aside-eyebrow {
-	padding: 8px 10px;
-	border-left: 5px solid #cae646;
-	background: #3c74e6;
-	color: #ffffff;
-	font-size: 0.8rem;
-	font-weight: 700;
-	text-transform: uppercase;
-}
-
-.recipes-section h2 {
-	max-width: none;
-}
-
-.recipes-nav a,
-.aside-contact-list a {
-	color: #333333;
-}
-
-.recipes-nav a {
-	padding: 8px 10px;
-	border-bottom: 1px solid #dddddd;
-	border-radius: 0;
-	font-size: 0.9rem;
-}
-
-.recipes-nav a[href="#panaderia"] {
-	background: #cae646;
-	color: #333333;
-}
-
-.recipes-nav a:hover,
-.recipes-nav a:focus-visible {
-	background: #e58c24;
-	color: #222222;
-}
-
-.recipes-nav a:focus-visible,
-.aside-contact-list a:focus-visible,
-.right-aside .lang-btn:focus-visible {
-	outline-color: #3e9722;
-}
-
-.contact-section {
-	border-top-color: #3e9722;
-}
-
-.hours-section {
-	border-left: 4px solid #e58c24;
-	border-radius: 2px;
-	background: #f3f3f3;
-}
-
-.hours-section h2 {
-	background: transparent;
-	color: #333333;
-}
-
-.hours-section p,
-.aside-contact-list li {
-	color: #333333;
-}
-
-.aside-contact-list li::before {
-	background: #3e9722;
-}
-
-.right-aside .lang-selector {
-	border-color: #666666;
-	border-radius: 3px;
-	background: #ffffff;
-}
-
-.right-aside .lang-btn[aria-pressed="true"] {
-	border-color: #e58c24;
-	background: #e58c24;
-	box-shadow: none;
-	color: #333333;
-}
-
-.right-aside .lang-btn:hover,
-.right-aside .lang-btn[aria-pressed="true"]:hover {
-	background: #cae646;
-	color: #333333;
-}
-
-.aside-feature {
-	border-color: #3e9722;
-	border-radius: 2px;
-}
-
-.right-aside .aside-feature-copy h2 {
-	margin-bottom: 10px;
-}
-
-.aside-feature-copy > p:last-child,
-.aside-note {
-	color: #333333;
-}
-
-.aside-note {
-	border-top-color: #3e9722;
-}
-
-@media (max-width: 991.98px) {
-	.left-aside,
-	.right-aside {
-		border-radius: 0;
-	}
-
-	.left-aside {
-		border-top: 1px solid #3e9722;
-	}
-}
-
-@media (max-width: 700px) {
-	.left-aside,
-	.right-aside {
-		border-left: 0;
-		border-right: 0;
-	}
+	.left-aside, .right-aside { padding: 26px 20px; border-left: 0; border-right: 0; }
+	.right-aside { grid-template-columns: minmax(0, 1fr) minmax(110px, 38%); }
+	.recipes-section { margin-bottom: 0; }
+	.contact-section { margin-top: 22px; }
 }
