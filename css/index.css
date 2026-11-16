@@ -94,7 +94,7 @@ header .lang-btn:hover {
 }
 
 /* Iconos de las banderas */
-header .flag-icon {
+.flag-icon {
 	width: 24px;
 	height: 16px;
 	display: block;

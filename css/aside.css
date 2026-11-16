@@ -14,26 +14,17 @@
    ========================================================================== */
 
 /*
- * En escritorio los paneles se separan del flujo del documento mediante
- * position: fixed. Así permanecen en el mismo lugar de la ventana aunque el
- * usuario se desplace por las galerías de productos.
- *
- * El borde superior deja libre la cabecera. Si el alto del viewport es menor
- * que el contenido de un panel, max-height limita el marco y overflow-y
- * permite desplazarse dentro de él. overscroll-behavior evita que ese gesto
- * continúe desplazando la página al llegar al final del panel.
+ * Los paneles forman parte del flujo del documento dentro de la cuadrícula de
+ * index.css, por lo que acompañan al contenido al desplazarse y no se solapan
+ * con el footer. align-self evita que se estiren a lo alto de la columna
+ * central y conserva su tamaño natural.
  */
 .left-aside,
 .right-aside {
-	position: fixed;
-	top: 160px;
-	z-index: 10;
-	width: var(--aside-left-width);
+	align-self: start;
+	width: auto;
 	min-width: 0;
-	max-height: calc(100vh - 176px);
 	padding: 24px 16px;
-	overflow-y: auto;
-	overscroll-behavior: contain;
 	border: 1px solid #3e9722;
 	border-radius: 10px;
 	background: #fff;
@@ -42,21 +33,15 @@
 }
 
 /*
- * El contenedor centrado de index.css tiene un ancho máximo de 960px.
- * Esta fórmula alinea cada panel con uno de sus extremos; max() conserva un
- * margen mínimo cuando el viewport apenas permite mostrar las tres columnas.
- * grid-area mantiene los nombres de área necesarios en el layout responsive.
+ * Cada panel ocupa su columna de la cuadrícula. grid-area mantiene los nombres
+ * de área necesarios en el layout responsive de index.css.
  */
 .left-aside {
 	grid-area: left;
-	left: max(12px, calc((100vw - 960px) / 2));
 }
 
 .right-aside {
 	grid-area: right;
-	right: max(12px, calc((100vw - 960px) / 2));
-	/* El ancho incluye los 20px de separación previstos por la cuadrícula. */
-	width: calc(var(--aside-right-width) + 20px);
 	/* Reserva espacio a la izquierda para mantener la alineación interior. */
 	padding: 24px 0 24px 20px;
 }
@@ -267,7 +252,9 @@
  * al selector equivalente que aparece en la cabecera.
  */
 .right-aside .lang-selector {
+	display: flex;
 	justify-content: flex-start;
+	flex-direction: row;
 	gap: 8px;
 	padding: 4px;
 	border: 1px solid #666;
@@ -374,17 +361,13 @@
    ========================================================================== */
 
 /*
- * Hasta 991.98px los paneles vuelven al flujo del documento: fijarlos en una
- * pantalla estrecha taparía la galería. También se quita el límite de altura
- * y el scroll interno propio de escritorio.
+ * Hasta 991.98px los paneles se integran en una cuadrícula de una o dos
+ * columnas. Se ajusta el relleno y se eliminan el redondeo y la sombra para
+ * que ocupen todo el ancho disponible.
  */
 @media (max-width: 991.98px) {
 	.left-aside,
 	.right-aside {
-		position: static;
-		width: auto;
-		max-height: none;
-		overflow: visible;
 		padding: 28px 22px;
 		border-radius: 0;
 		box-shadow: none;

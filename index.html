@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rouge+Script&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/index.css?v=2" />
 	<link rel="stylesheet" href="css/cards.css?v=2">
-	<link rel="stylesheet" href="css/aside.css?v=2">
+	<link rel="stylesheet" href="css/aside.css?v=3">
 
 </head>
 <body>
@@ -20,24 +20,6 @@
 		<div class="logo">
 			<h1>Migas Amigas</h1>
 			<p>www.migasamigas.es</p>
-		</div>
-
-		<!-- Selector de idioma (es / pt) -->
-		<div class="lang-selector">
-			<button type="button" class="lang-btn" data-lang="es" aria-label="Español" aria-pressed="true" title="Español">
-				<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
-					<rect width="30" height="20" fill="#AA151B" />
-					<rect y="5" width="30" height="10" fill="#F1BF00" />
-				</svg>
-			</button>
-			<button type="button" class="lang-btn" data-lang="pt" aria-label="Português" aria-pressed="false" title="Português">
-				<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
-					<rect width="12" height="20" fill="#66382E" />
-					<rect x="12" width="18" height="20" fill="#66382E" />
-					<circle cx="12" cy="10" r="3.5" fill="#FFCC00" />
-					<circle cx="12" cy="10" r="2.1" fill="#FFFFFF" />
-				</svg>
-			</button>
 		</div>
 
 		<!-- Menu de navegacion en formato lista -->
@@ -51,14 +33,6 @@
 			</ul>
 		</nav>
 	</header>
-
-<main>
-
-		     <section class="card-gallery-container" id="panaderia" aria-labelledby="heading-panaderia">
-				<h2 id="heading-panaderia" data-i18n="seccionPanaderia">Panadería</h2>
-			<div class="card-gallery">
-			</div>
-		     </section>
 
   <!--
     Área de contenido de tres columnas: panel de categorías, contenido principal
@@ -123,21 +97,21 @@
 	<aside class="right-aside" aria-label="Idioma e imagen destacada">
 			<p class="aside-eyebrow">Idioma</p>
 				<div class="lang-selector">
-					<button type="button" class="lang-btn" data-lang="es" aria-label="Español" aria-pressed="true" title="Español">
-						<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
-							<rect width="30" height="20" fill="#AA151B" />
-							<rect y="5" width="30" height="10" fill="#F1BF00" />
-						</svg>
-					</button>
-					<button type="button" class="lang-btn" data-lang="pt" aria-label="Português" aria-pressed="false" title="Português">
-						<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
-							<rect width="12" height="20" fill="#046A38" />
-							<rect x="12" width="18" height="20" fill="#DA291C" />
-							<circle cx="12" cy="10" r="3.5" fill="#FFCC00" />
-							<circle cx="12" cy="10" r="2.1" fill="#FFFFFF" />
-						</svg>
-					</button>
-				</div>
+			<button type="button" class="lang-btn" data-lang="es" aria-label="Español" aria-pressed="true" title="Español">
+				<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
+					<rect width="30" height="20" fill="#AA151B" />
+					<rect y="5" width="30" height="10" fill="#F1BF00" />
+				</svg>
+			</button>
+			<button type="button" class="lang-btn" data-lang="pt" aria-label="Português" aria-pressed="false" title="Português">
+				<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
+					<rect width="12" height="20" fill="#66382E" />
+					<rect x="12" width="18" height="20" fill="#66382E" />
+					<circle cx="12" cy="10" r="3.5" fill="#FFCC00" />
+					<circle cx="12" cy="10" r="2.1" fill="#FFFFFF" />
+				</svg>
+			</button>
+		</div>
 				<figure class="aside-feature">
 					<img src="assets/pan/pan-con-masa-madre.jpg" alt="Pan artesanal de masa madre recién horneado">
 				</figure>
