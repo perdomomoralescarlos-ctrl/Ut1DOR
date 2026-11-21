@@ -1,17 +1,18 @@
 /*
- * cssClassMap.js — Nombres de las clases CSS del proyecto.
+ * cssClassMap.js — Nombres de las clases de Bootstrap usadas por las tarjetas.
  *
- * Este módulo centraliza el texto literal de las clases CSS para no
- * repetirlos como cadenas sueltas en el JavaScript.
+ * Este módulo centraliza el texto literal de las clases para no repetirlos
+ * como cadenas sueltas en el JavaScript.
  */
 
-/* Mapa entre nombres legibles en JS y las clases reales definidas en cards.css. */
+/* Mapa entre nombres legibles en JS y las clases reales de Bootstrap. */
 export let cardClassMap = {
-   cardSection: "card-section",
-   cardImageContainer: "card-image-container",
-   cardImage: "card-image",
-   cardContentContainer: "card-content-container",
-   cardContentParagraphContainer: "card-content-paragraph-container",
-   cardClosed: "card-closed",
-   cardOpen: "card-open"
+   cardColumn: "col",
+   cardSection: "card h-100 shadow-sm",
+   cardImageContainer: "ratio ratio-16x9",
+   cardImage: "w-100 h-100 object-fit-cover",
+   cardContentContainer: "card-body",
+   cardContentParagraphContainer: "card-text small text-body-secondary mb-0",
+   cardTitle: "card-title h6 fw-bold",
+   cardParagraph: "mb-0"
 }
