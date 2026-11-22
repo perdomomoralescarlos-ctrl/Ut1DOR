@@ -48,7 +48,7 @@ export function crearSlidePanDelDia(dato, idioma) {
    const texto = dato[idioma] || dato.es;
 
    const caja = document.createElement("div");
-   caja.className = "bg-light min-vh-25 px-5 py-5 d-flex flex-column flex-md-row align-items-center gap-4";
+   caja.className = "bg-light px-5 py-5 d-flex flex-column flex-md-row align-items-center gap-4";
 
    const imagen = document.createElement("img");
    imagen.className = "img-fluid rounded border border-warning border-2";
