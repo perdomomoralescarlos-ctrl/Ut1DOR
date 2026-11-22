@@ -2,6 +2,9 @@ import { Card } from "./card.js?v=2";
 import { panes } from "./data/panes.js";
 import { dulces } from "./data/dulces.js";
 import { empanadas } from "./data/empanadas.js";
+import { iniciarCarrusel, actualizarIdiomaCarrusel, irASlide } from "./carrusel.js";
+import { temporadas, crearSlideTemporada } from "./data/temporadas.js";
+import { panDelDia, crearSlidePanDelDia } from "./data/panDelDia.js";
 
 /* Punto de entrada de index.html: traduce la interfaz y renderiza las tarjetas. */
 
@@ -15,6 +18,20 @@ let empanadasElement = document.querySelector("#empanadas .card-gallery");
 
 const sectionsArray = [panaderia, dulceria, empanadasElement];
 const productArray = [panes, dulces, empanadas];
+/* Iniciamos los dos carruseles.
+   El de temporadas cambia solo cada 6 segundos.
+   El del pan del día no cambia solo (intervalo 0). */
+iniciarCarrusel("carruselTemporadas", temporadas, crearSlideTemporada, 6000);
+iniciarCarrusel("carruselPanDelDia", panDelDia, crearSlidePanDelDia, 0);
+
+/* Abrir el pan del día en el día de hoy.
+   getDay(): 0=domingo, 1=lunes, ..., 6=sábado */
+const diaHoy = new Date().getDay();
+let indiceHoy = diaHoy - 1;
+if (indiceHoy < 0) {
+   indiceHoy = 6; // domingo
+}
+irASlide("carruselPanDelDia", indiceHoy);
 
 const translations = {
    es: {
@@ -22,14 +39,18 @@ const translations = {
       navEmpanadas: "Empanadas", navContacto: "Contacto", seccionPanaderia: "Panadería",
       seccionDulceria: "Dulcería", seccionEmpanadas: "Empanadas", horarios: "Horarios",
       sabado: "Lunes a sábado: 8:00 - 12:00 / 16:00 - 20:30", domingo: "Domingo: 8:00 - 13:00",
-      contactos: "Contacto"
+      contactos: "Contacto",
+      seccionTemporadas: "Hornadas de temporada",
+      seccionPanDelDia: "El pan del día"
    },
    pt: {
       navInicio: "Início", navPanaderia: "Padaria", navPasteleria: "Doçaria",
       navEmpanadas: "Empanadas", navContacto: "Contacto", seccionPanaderia: "Padaria",
       seccionDulceria: "Doçaria", seccionEmpanadas: "Empanadas", horarios: "Horário",
       sabado: "Segunda-feira a sábado: 8:00 - 12:00 / 16:00 - 20:30", domingo: "Domingo: 8:00 - 13:00",
-      contactos: "Contato"
+      contactos: "Contato",
+      seccionTemporadas: "Fornadas de temporada",
+      seccionPanDelDia: "O pão do dia"
    }
 };
 
@@ -57,6 +78,8 @@ function changeLanguage(language) {
    });
    renderCards(language);
    localStorage.setItem("idioma", language);
+   actualizarIdiomaCarrusel("carruselTemporadas", language);
+   actualizarIdiomaCarrusel("carruselPanDelDia", language);
 }
 
 document.querySelectorAll(".lang-btn").forEach((button) => {
