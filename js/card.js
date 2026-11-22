@@ -1,4 +1,4 @@
-import { cardClassMap } from "./cssClassMap.js?v=2";
+import { cardClassMap } from "./bootstrapClassMap.js?v=1";
 
 /* Contador para dar un id único al título de cada tarjeta. */
 let cardCounter = 0;
@@ -20,23 +20,25 @@ export class Card {
 
       /* Contenedor principal; nace cerrado. */
       this._section = document.createElement("article")
-      this._section.classList.add(cardClassMap.cardSection, cardClassMap.cardClosed);
+      this._section.classList.add(...cardClassMap.cardSection.split(/\s+/), "col-12", "col-sm-6");
 
       /* Contenedor del texto (título + descripción). */
       this._contentContainer = document.createElement("div")
-      this._contentContainer.classList.add(cardClassMap.cardContentContainer);
+      this._contentContainer.classList.add(...cardClassMap.cardContentContainer.split(/\s+/));
 
       this._title = document.createElement("h3");
+      this._title.classList.add("h6", "fw-bold", "mb-2");
       this._paragraph = document.createElement("p");
+      this._paragraph.classList.add("small", "mb-0");
       this._paragraphContainer = document.createElement("div")
-      this._paragraphContainer.classList.add(cardClassMap.cardContentParagraphContainer)
+      this._paragraphContainer.classList.add(...cardClassMap.cardContentParagraphContainer.split(/\s+/))
 
       /* Contenedor de la imagen. */
       this._imageContainer = document.createElement("div")
-      this._imageContainer.classList.add(cardClassMap.cardImageContainer)
+      this._imageContainer.classList.add(...cardClassMap.cardImageContainer.split(/\s+/))
 
       this._image = document.createElement("img")
-      this._image.classList.add(cardClassMap.cardImage)
+      this._image.classList.add(...cardClassMap.cardImage.split(/\s+/))
 
    }
 
@@ -95,8 +97,7 @@ export class Card {
    addEvents(){
       const sync = () => {
          const visible = this._section.matches(":hover") || this._section.matches(":focus");
-         this._section.classList.toggle(cardClassMap.cardOpen, visible);
-         this._section.classList.toggle(cardClassMap.cardClosed, !visible);
+         this._contentContainer.classList.toggle("d-none", !visible);
       };
 
       this._section.addEventListener("mouseenter", sync);

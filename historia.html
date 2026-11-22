@@ -4,31 +4,26 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Migas Amigas Panadería</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rouge+Script&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/index.css?v=2" />
-	<link rel="stylesheet" href="css/cards.css?v=2">
-	<link rel="stylesheet" href="css/aside.css?v=3">
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 	<!-- Cabecera de la web -->
-	<header id="inicio">
+	<header id="inicio" class="container bg-success bg-gradient text-white rounded-top shadow-sm p-3">
 		<!-- Logo y nombre de la panadería -->
-		<div class="logo">
-			<h1>Migas Amigas</h1>
-			<p>www.migasamigas.es</p>
+		<div class="mb-2">
+			<h1 class="h2 fw-bold mb-0">Migas Amigas</h1>
+			<p class="text-white-50 mb-2">www.migasamigas.es</p>
 		</div>
 
 		<!-- Menu de navegacion en formato lista -->
-		<nav aria-label="Navegación principal">
-			<ul>
-				<li><a href="index.html" class="activo" data-i18n="navInicio">Inicio</a></li>
-				<li><a href="#panaderia" data-i18n="navPanaderia">Panadería</a></li>
-				<li><a href="#dulceria" data-i18n="navPasteleria">Dulcería</a></li>
-				<li><a href="#empanadas" data-i18n="navEmpanadas">Empanadas</a></li>
-				<li><a href="#contacto" data-i18n="navContacto">Contacto</a></li>
+		<nav class="navbar navbar-expand-md navbar-dark p-0" aria-label="Navegación principal">
+			<ul class="navbar-nav nav-pills flex-row flex-wrap gap-1">
+				<li class="nav-item"><a href="index.html" class="nav-link active bg-warning text-dark fw-bold" data-i18n="navInicio">Inicio</a></li>
+				<li class="nav-item"><a class="nav-link text-white fw-semibold" href="#panaderia" data-i18n="navPanaderia">Panadería</a></li>
+				<li class="nav-item"><a class="nav-link text-white fw-semibold" href="#dulceria" data-i18n="navPasteleria">Dulcería</a></li>
+				<li class="nav-item"><a class="nav-link text-white fw-semibold" href="#empanadas" data-i18n="navEmpanadas">Empanadas</a></li>
+				<li class="nav-item"><a class="nav-link text-white fw-semibold" href="#contacto" data-i18n="navContacto">Contacto</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -38,35 +33,35 @@
     y panel de idioma/recomendación. El CSS fija los anchos de escritorio y
     apila estas columnas en tabletas y móviles.
   -->
-  <div class="layout-container">
-	<aside class="left-aside" aria-label="Información de la panadería">
-		<section class="aside-section recipes-section" aria-labelledby="recipes-heading">
-			<p class="aside-eyebrow">Para llevar o disfrutar</p>
-			<h2 id="recipes-heading">Mira nuestras recetas</h2>
-			<nav class="recipes-nav" aria-label="Categorías de productos">
-				<ul>
-					<li><a href="pan.html">Panadería</a></li>
-					<li><a href="dulces.html">Dulcería</a></li>
-					<li><a href="empanadas.html">Empanadas</a></li>
-					<li><a href="historia.html">Historia</a></li>
-					<li><a href="localizacion.html">Localización</a></li>
+  <div class="container my-3"><div class="row g-3 align-items-start">
+	<aside class="col-12 col-md-4 col-lg-3 card border-success shadow-sm p-3" aria-label="Información de la panadería">
+		<section class="mb-3" aria-labelledby="recipes-heading">
+			<p class="small fw-bold text-uppercase text-secondary mb-2">Para llevar o disfrutar</p>
+			<h2 id="recipes-heading" class="bg-primary text-white border-start border-4 border-warning px-2 py-2 fs-6 fw-bold text-uppercase">Mira nuestras recetas</h2>
+			<nav class="mb-2" aria-label="Categorías de productos">
+				<ul class="list-unstyled d-grid gap-1 mb-0">
+					<li><a class="nav-link text-body" href="pan.html">Panadería</a></li>
+					<li><a class="nav-link text-body" href="dulces.html">Dulcería</a></li>
+					<li><a class="nav-link text-body" href="empanadas.html">Empanadas</a></li>
+					<li><a class="nav-link text-body" href="historia.html">Historia</a></li>
+					<li><a class="nav-link text-body" href="localizacion.html">Localización</a></li>
 				</ul>
 			</nav>
 		</section>
-		<section class="aside-section contact-section" aria-labelledby="aside-contact-heading">
-			<h2 id="aside-contact-heading">Contáctanos</h2>
+		<section class="border-top border-success pt-3 mb-3" aria-labelledby="aside-contact-heading">
+			<h2 id="aside-contact-heading" class="bg-primary text-white border-start border-4 border-warning px-2 py-2 fs-6 fw-bold text-uppercase">Contáctanos</h2>
 			<address>
-				<ul class="aside-contact-list">
+				<ul class="list-unstyled small mb-0">
 					<li><a href="mailto:pedidos@migasamigas.com">pedidos@migasamigas.com</a></li>
 					<li><a href="tel:+347596572369">+34 759 657 2369</a></li>
 					<li><a href="https://maps.app.goo.gl/Afpj8fujEi7q7HDp9">C/ R. do Almo 27, Portugal</a></li>
 				</ul>
 			</address>
 		</section>
-		<section class="aside-section hours-section" aria-labelledby="aside-hours-heading">
-			<h2 id="aside-hours-heading">Hoy en el horno</h2>
-			<p><strong>Lun–sáb</strong><span>8:00–12:00 y 16:00–20:30</span></p>
-			<p><strong>Domingo</strong><span>8:00–13:00</span></p>
+		<section class="alert alert-light border-start border-4 border-warning mb-0" aria-labelledby="aside-hours-heading">
+			<h2 id="aside-hours-heading" class="h6 fw-bold text-uppercase mb-2">Hoy en el horno</h2>
+			<p><strong>Lun–sáb: </strong><span>8:00–12:00 y 16:00–20:30</span></p>
+			<p><strong>Domingo: </strong><span>8:00–13:00</span></p>
 		</section>
 	</aside>
 	<!--
@@ -76,27 +71,26 @@
 	  Los contenedores .card-gallery se rellenan desde js/index.js con los
 	  productos de js/data/ y mantienen el contenido distribuido en rejilla.
 	-->
-	<main>
-		<section class="card-gallery-container" id="historia" aria-labelledby="heading-historia">
-			<h2 id="heading-historia" data-i18n="seccionHistoria">Historia</h2>
+	<main class="col-12 col-md-8 col-lg-6 bg-white border border-success p-3">
+		<section class="mb-4 pb-4 border-bottom" id="historia" aria-labelledby="heading-historia">
+			<h2 id="heading-historia" class="bg-primary text-white border-start border-4 border-warning px-2 py-2 fs-6 fw-bold text-uppercase" data-i18n="seccionHistoria">Historia</h2>
 			<!-- Galería dinámica: JavaScript inserta una tarjeta por producto. -->
-			<img class="page-image" src="assets/history/historia.jpg" alt="Elaboración de pan en Migas Amigas" data-i18n-alt="storyImageAlt">
+			<div class="ratio ratio-4x3 mb-3"><img class="img-fluid w-100 h-100 object-fit-cover rounded shadow-sm" src="assets/history/historia.jpg" alt="Elaboración de pan en Migas Amigas" data-i18n-alt="storyImageAlt"></div>
 			<p data-i18n="storyP1">Migas Amigas nació del gusto por el pan recién hecho y las recetas de siempre. Cada jornada empieza temprano, mezclando ingredientes sencillos y compartiendo el aroma del horno con el vecindario.</p>
 			<p data-i18n="storyP2">Con el tiempo, a los panes se sumaron dulces y empanadas caseras. La idea sigue siendo la misma: ofrecer productos hechos con cariño y convertir cada visita en un momento cercano.</p>
 		</section>
-		</section>
 	</main>
-	<aside class="right-aside" aria-label="Idioma e imagen destacada">
-			<p class="aside-eyebrow">Idioma</p>
-				<div class="lang-selector">
-			<button type="button" class="lang-btn" data-lang="es" aria-label="Español" aria-pressed="true" title="Español">
-				<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
+	<aside class="col-12 col-md-12 col-lg-3 card border-success shadow-sm p-3" aria-label="Idioma e imagen destacada">
+			<p class="small fw-bold text-uppercase text-secondary mb-2">Idioma</p>
+				<div class="d-flex flex-wrap gap-2 mb-3">
+			<button type="button" class="lang-btn btn btn-outline-success" data-lang="es" aria-label="Español" aria-pressed="true" title="Español">
+				<svg class="d-block" width="24" height="16" viewBox="0 0 30 20" role="img" aria-hidden="true">
 					<rect width="30" height="20" fill="#AA151B" />
 					<rect y="5" width="30" height="10" fill="#F1BF00" />
 				</svg>
 			</button>
-			<button type="button" class="lang-btn" data-lang="pt" aria-label="Português" aria-pressed="false" title="Português">
-				<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
+			<button type="button" class="lang-btn btn btn-outline-success" data-lang="pt" aria-label="Português" aria-pressed="false" title="Português">
+				<svg class="d-block" width="24" height="16" viewBox="0 0 30 20" role="img" aria-hidden="true">
 					<rect width="12" height="20" fill="#66382E" />
 					<rect x="12" width="18" height="20" fill="#66382E" />
 					<circle cx="12" cy="10" r="3.5" fill="#FFCC00" />
@@ -104,47 +98,47 @@
 				</svg>
 			</button>
 		</div>
-				<figure class="aside-feature">
-					<img src="assets/pan/pan-con-masa-madre.jpg" alt="Pan artesanal de masa madre recién horneado">
+				<figure class="ratio ratio-1x1 border border-success mb-3">
+					<img src="assets/pan/pan-con-masa-madre.jpg" alt="Pan artesanal de masa madre recién horneado" class="img-fluid w-100 h-100 object-fit-cover">
 				</figure>
-				<div class="aside-feature-copy">
-					<p class="aside-eyebrow">Recomendación de la casa</p>
-					<h2>Masa madre</h2>
+				<div class="mb-3">
+					<p class="small fw-bold text-uppercase text-secondary mb-2">Recomendación de la casa</p>
+					<h2 class="h5 fw-bold">Masa madre</h2>
 					<p>Fermentación lenta, corteza crujiente y miga llena de aroma.</p>
 				</div>
-				<p class="aside-note">Hecho hoy en nuestro obrador de Portugueses.</p>
+				<p class="small border-top border-success pt-3 mb-0">Hecho hoy en nuestro obrador de Portugueses.</p>
 	</aside>
-  </div>
-			   <footer class="footer" id="contacto">
-				   <div class="footer-container">
-					   <div class="footer-section">
-						   <div class="footer-brand">Migas Amigas</div>
-						   <p class="footer-tagline">¡El sabor de lo tradicional!</p>
-						   <div class="footer-socials">
+  </div></div>
+			   <footer class="container bg-white border border-2 border-dark rounded-bottom shadow-sm p-3 mt-0" id="contacto">
+				   <div class="row g-3">
+					   <div class="col-12 col-md-4">
+						   <div class="h4 fw-bold">Migas Amigas</div>
+						   <p class="text-secondary">¡El sabor de lo tradicional!</p>
+						   <div class="d-flex gap-2">
                   <a href="https://www.instagram.com/reel/DXCZ-IHD4nn/?stk=eTBicWM1BWi4d2" target="_blank">
-								   <img src="/assets/capital/insta.png" alt="Instagram" class="social-icon">
+								   <img src="/assets/capital/insta.png" alt="Instagram" class="img-thumbnail">
                   </a>
 							   <a href="https://www.facebook.com/share/r/1F8tpk8DND/" target="_blank">
-								   <img src="/assets/capital/face.png" alt="Facebook" class="social-icon">
+								   <img src="/assets/capital/face.png" alt="Facebook" class="img-thumbnail">
 							   </a>
 						   </div>
 					   </div>
 
-					   <section class="footer-section" aria-labelledby="heading-horarios">
-						   <h2 id="heading-horarios" data-i18n="horarios">Horarios</h2>
+					   <section class="col-12 col-md-4" aria-labelledby="heading-horarios">
+						   <h2 class="h6 text-uppercase fw-bold border-bottom border-success pb-2" id="heading-horarios" data-i18n="horarios">Horarios</h2>
 						   <p data-i18n="sabado">Lunes a sábado: 8:00 - 12:00 / 16:00 - 20:30</p>
 						   <p data-i18n="domingo">Domingo: 8:00 - 13:00</p>
 					   </section>
 
-					   <section class="footer-section" aria-labelledby="heading-contacto">
-						   <h2 id="heading-contacto" data-i18n="contactos">Contacto</h2>
+					   <section class="col-12 col-md-4" aria-labelledby="heading-contacto">
+						   <h2 class="h6 text-uppercase fw-bold border-bottom border-success pb-2" id="heading-contacto" data-i18n="contactos">Contacto</h2>
 						   <p>C/R. do Almo 27, Portugal</p>
 						   <p>+34 7596572369</p>
 						   <p>Correo: pedidos@migasamigas.com</p>
 					   </section>
 				   </div>
 
-				   <div class="footer-copyright">
+				   <div class="text-center bg-warning fw-semibold p-2 mt-3">
 					   © 2026 Migas Amigas. Todos los derechos reservados.
 				   </div>
 			   </footer>
