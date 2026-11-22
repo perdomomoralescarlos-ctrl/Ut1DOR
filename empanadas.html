@@ -7,9 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rouge+Script&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/index.css?v=2" />
-	<link rel="stylesheet" href="css/cards.css?v=2">
-	<link rel="stylesheet" href="css/aside.css?v=3">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/index.css?v=3" />
 
 </head>
 <body>
@@ -35,83 +34,101 @@
 
   <!--
     Área de contenido de tres columnas: panel de categorías, contenido principal
-    y panel de idioma/recomendación. El CSS fija los anchos de escritorio y
-    apila estas columnas en tabletas y móviles.
+    y panel de idioma/recomendación. La rejilla y las utilidades de Bootstrap apilan las columnas en tabletas y móviles.
   -->
-  <div class="layout-container">
-	<aside class="left-aside" aria-label="Información de la panadería">
-		<section class="aside-section recipes-section" aria-labelledby="recipes-heading">
-			<p class="aside-eyebrow">Para llevar o disfrutar</p>
-			<h2 id="recipes-heading">Mira nuestras recetas</h2>
-			<nav class="recipes-nav" aria-label="Categorías de productos">
-				<ul>
-					<li><a href="pan.html">Panadería</a></li>
-					<li><a href="dulces.html">Dulcería</a></li>
-					<li><a href="empanadas.html">Empanadas</a></li>
-					<li><a href="historia.html">Historia</a></li>
-					<li><a href="localizacion.html">Localización</a></li>
-				</ul>
+  <div class="container">
+	<div class="row g-3 align-items-start">
+	<aside class="col-12 col-md-4 col-lg-3 order-2 order-md-1 bg-white border border-success rounded-3 shadow-sm p-3" aria-label="Información de la panadería">
+		<section aria-labelledby="recipes-heading">
+			<p class="small text-uppercase fw-bold text-body-secondary mb-2">Para llevar o disfrutar</p>
+			<h2 id="recipes-heading" class="h6 text-uppercase text-white bg-primary border-start border-4 border-warning px-2 py-2 mb-0">Mira nuestras recetas</h2>
+			<nav aria-label="Categorías de productos">
+				<div class="list-group list-group-flush">
+					<a class="list-group-item list-group-item-action px-2 fw-semibold" href="pan.html">Panadería</a>
+					<a class="list-group-item list-group-item-action px-2 fw-semibold" href="dulces.html">Dulcería</a>
+					<a class="list-group-item list-group-item-action px-2 fw-semibold" href="empanadas.html">Empanadas</a>
+					<a class="list-group-item list-group-item-action px-2 fw-semibold" href="historia.html">Historia</a>
+					<a class="list-group-item list-group-item-action px-2 fw-semibold" href="localizacion.html">Localización</a>
+				</div>
 			</nav>
 		</section>
-		<section class="aside-section contact-section" aria-labelledby="aside-contact-heading">
-			<h2 id="aside-contact-heading">Contáctanos</h2>
-			<address>
-				<ul class="aside-contact-list">
-					<li><a href="mailto:pedidos@migasamigas.com">pedidos@migasamigas.com</a></li>
-					<li><a href="tel:+347596572369">+34 759 657 2369</a></li>
-					<li><a href="https://maps.app.goo.gl/Afpj8fujEi7q7HDp9">C/ R. do Almo 27, Portugal</a></li>
+		<section class="mt-3 pt-3 border-top border-success" aria-labelledby="aside-contact-heading">
+			<h2 id="aside-contact-heading" class="h6 text-uppercase text-white bg-primary border-start border-4 border-warning px-2 py-2 mb-2">Contáctanos</h2>
+			<address class="fst-normal mb-0">
+				<ul class="list-unstyled small mb-0">
+					<li class="mt-2 text-break"><a class="link-dark link-underline-opacity-0 link-underline-opacity-100-hover" href="mailto:pedidos@migasamigas.com">pedidos@migasamigas.com</a></li>
+					<li class="mt-2 text-break"><a class="link-dark link-underline-opacity-0 link-underline-opacity-100-hover" href="tel:+347596572369">+34 759 657 2369</a></li>
+					<li class="mt-2 text-break"><a class="link-dark link-underline-opacity-0 link-underline-opacity-100-hover" href="https://maps.app.goo.gl/Afpj8fujEi7q7HDp9">C/ R. do Almo 27, Portugal</a></li>
 				</ul>
 			</address>
 		</section>
-		<section class="aside-section hours-section" aria-labelledby="aside-hours-heading">
-			<h2 id="aside-hours-heading">Hoy en el horno</h2>
-			<p><strong>Lun–sáb</strong><span>8:00–12:00 y 16:00–20:30</span></p>
-			<p><strong>Domingo</strong><span>8:00–13:00</span></p>
+		<section class="mt-3 p-3 bg-body-secondary border-start border-4 border-warning rounded-1" aria-labelledby="aside-hours-heading">
+			<h2 id="aside-hours-heading" class="h6 fw-bold mb-2">Hoy en el horno</h2>
+			<p class="d-grid mb-2 small"><strong>Lun–sáb</strong><span>8:00–12:00 y 16:00–20:30</span></p>
+			<p class="d-grid mb-0 small"><strong>Domingo</strong><span>8:00–13:00</span></p>
 		</section>
 	</aside>
+
 	<!--
 	  Contenido central de la página. Cada section representa una categoría;
 	  su identificador permite acceder desde los enlaces de navegación y su
 	  aria-labelledby relaciona la sección con su título visible.
-	  Los contenedores .card-gallery se rellenan desde js/index.js con los
-	  productos de js/data/ y mantienen el contenido distribuido en rejilla.
+	  Las columnas se rellenan desde js/index.js con los productos de js/data/.
 	-->
-	<main><section class="card-gallery-container" id="empanadas">
-		<h2>Recetas de empanadas</h2>
-		<div class="recipe-list">
-		<article class="recipe">
-		<h3>Empanada de atún</h3>
-		<p><strong>Ingredientes:</strong> 2 láminas de masa de hojaldre, 2 latas de atún, 1 cebolla, 1 pimiento, 200 g de tomate triturado y 1 huevo para pintar.</p>
-		<p><strong>Preparación:</strong> Sofríe la cebolla y el pimiento, añade el tomate y el atún escurrido. Rellena una lámina de masa, cubre con la otra, sella los bordes, pinta con huevo y hornea a 200 °C durante 25–30 minutos.</p><p><strong>Alérgenos:</strong> gluten (trigo), pescado (atún), huevo.</p></article><article class="recipe"><h3>Empanadillas de pollo y verduras</h3><p><strong>Ingredientes:</strong> 12 obleas de trigo, 250 g de pollo cocido, ½ cebolla, 1 zanahoria, ½ pimiento y 1 cucharada de aceite de oliva.</p><p><strong>Preparación:</strong> Sofríe las verduras picadas, añade el pollo desmenuzado y cocina unos minutos. Rellena las obleas, ciérralas con un tenedor y hornea a 200 °C durante 18–20 minutos.</p><p><strong>Alérgenos:</strong> gluten (trigo). Revisa el etiquetado de las obleas por posibles trazas.</p></article></div></section></main>	
-	<aside class="right-aside" aria-label="Idioma e imagen destacada">
-			<p class="aside-eyebrow">Idioma</p>
-				<div class="lang-selector">
-			<button type="button" class="lang-btn" data-lang="es" aria-label="Español" aria-pressed="true" title="Español">
-				<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
-					<rect width="30" height="20" fill="#AA151B" />
-					<rect y="5" width="30" height="10" fill="#F1BF00" />
-				</svg>
-			</button>
-			<button type="button" class="lang-btn" data-lang="pt" aria-label="Português" aria-pressed="false" title="Português">
-				<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
-					<rect width="12" height="20" fill="#66382E" />
-					<rect x="12" width="18" height="20" fill="#66382E" />
-					<circle cx="12" cy="10" r="3.5" fill="#FFCC00" />
-					<circle cx="12" cy="10" r="2.1" fill="#FFFFFF" />
-				</svg>
-			</button>
-		</div>
-				<figure class="aside-feature">
-					<img src="assets/pan/pan-con-masa-madre.jpg" alt="Pan artesanal de masa madre recién horneado">
-				</figure>
-				<div class="aside-feature-copy">
-					<p class="aside-eyebrow">Recomendación de la casa</p>
-					<h2>Masa madre</h2>
-					<p>Fermentación lenta, corteza crujiente y miga llena de aroma.</p>
+	<main class="col-12 col-md-8 col-lg-6 order-1 order-md-2 bg-white border border-2 border-success rounded-3 p-3 p-lg-4">
+	<section id="empanadas" aria-labelledby="heading-empanadas">
+		<h2 id="heading-empanadas" class="h5 text-uppercase fw-bold text-white bg-primary border-start border-4 border-warning px-3 py-2 mb-4">Recetas de empanadas</h2>
+		<div class="vstack gap-3">
+			<article class="card">
+				<div class="card-body">
+					<h3 class="card-title h6 fw-bold">Empanada de atún</h3>
+		<p class="card-text small mb-2"><strong>Ingredientes:</strong> 2 láminas de masa de hojaldre, 2 latas de atún, 1 cebolla, 1 pimiento, 200 g de tomate triturado y 1 huevo para pintar.</p>
+		<p class="card-text small mb-2"><strong>Preparación:</strong> Sofríe la cebolla y el pimiento, añade el tomate y el atún escurrido. Rellena una lámina de masa, cubre con la otra, sella los bordes, pinta con huevo y hornea a 200 °C durante 25–30 minutos.</p><p class="card-text small mb-2"><strong>Alérgenos:</strong> gluten (trigo), pescado (atún), huevo.</p></div>
+			</article>
+			<article class="card">
+				<div class="card-body">
+					<h3 class="card-title h6 fw-bold">Empanadillas de pollo y verduras</h3><p class="card-text small mb-2"><strong>Ingredientes:</strong> 12 obleas de trigo, 250 g de pollo cocido, ½ cebolla, 1 zanahoria, ½ pimiento y 1 cucharada de aceite de oliva.</p><p class="card-text small mb-2"><strong>Preparación:</strong> Sofríe las verduras picadas, añade el pollo desmenuzado y cocina unos minutos. Rellena las obleas, ciérralas con un tenedor y hornea a 200 °C durante 18–20 minutos.</p><p class="card-text small mb-2"><strong>Alérgenos:</strong> gluten (trigo). Revisa el etiquetado de las obleas por posibles trazas.</p>
 				</div>
-				<p class="aside-note">Hecho hoy en nuestro obrador de Portugal.</p>
+			</article>
+		</div>
+	</section>
+</main>
+	<aside class="col-12 col-lg-3 order-3 bg-white border border-success rounded-3 shadow-sm p-3" aria-label="Idioma e imagen destacada">
+		<div class="row g-3">
+			<div class="col-12 col-md-8 col-lg-12 order-md-1 order-lg-2">
+				<p class="small text-uppercase fw-bold text-white bg-primary border-start border-4 border-warning px-2 py-2 mb-2">Idioma</p>
+				<div class="btn-group w-100 border rounded p-1" role="group" aria-label="Selector de idioma">
+					<button type="button" class="lang-btn btn btn-outline-success" data-lang="es" aria-label="Español" aria-pressed="true" title="Español">
+						<svg class="img-fluid" viewBox="0 0 30 20" role="img" aria-hidden="true">
+							<rect width="30" height="20" fill="#AA151B" />
+							<rect y="5" width="30" height="10" fill="#F1BF00" />
+						</svg>
+					</button>
+					<button type="button" class="lang-btn btn btn-outline-success" data-lang="pt" aria-label="Português" aria-pressed="false" title="Português">
+						<svg class="img-fluid" viewBox="0 0 30 20" role="img" aria-hidden="true">
+							<rect width="12" height="20" fill="#66382E" />
+							<rect x="12" width="18" height="20" fill="#66382E" />
+							<circle cx="12" cy="10" r="3.5" fill="#FFCC00" />
+							<circle cx="12" cy="10" r="2.1" fill="#FFFFFF" />
+						</svg>
+					</button>
+				</div>
+				<div class="mt-3">
+					<p class="small text-uppercase fw-bold text-body-secondary mb-1">Recomendación de la casa</p>
+					<h2 class="h5 fw-bold mb-2">Masa madre</h2>
+					<p class="small mb-0">Fermentación lenta, corteza crujiente y miga llena de aroma.</p>
+				</div>
+				<p class="border-top border-success pt-3 mt-4 mb-0 small fw-semibold">Hecho hoy en nuestro obrador de Portugal.</p>
+			</div>
+			<div class="col-12 col-md-4 col-lg-12 order-md-2 order-lg-1">
+				<figure class="figure w-100 mb-0">
+					<img src="assets/pan/pan-con-masa-madre.jpg" class="figure-img img-fluid rounded border border-success w-100 mb-0" alt="Pan artesanal de masa madre recién horneado">
+				</figure>
+			</div>
+		</div>
 	</aside>
   </div>
+</div>
 			   <footer class="footer" id="contacto">
 				   <div class="footer-container">
 					   <div class="footer-section">
@@ -145,7 +162,7 @@
 					   © 2026 Migas Amigas. Todos los derechos reservados.
 				   </div>
 			   </footer>
-	<script src="js/index.js?v=2" type="module">
+	<script src="js/index.js?v=3" type="module">
 	</script>
 </body>
 </html>
