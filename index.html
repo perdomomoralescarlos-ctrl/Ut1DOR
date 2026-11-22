@@ -4,6 +4,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Migas Amigas Panadería</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rouge+Script&display=swap" rel="stylesheet">
@@ -13,24 +14,44 @@
 
 </head>
 <body>
-	<!-- Cabecera de la web -->
-	<header id="inicio">
-		<!-- Logo y nombre de la panadería -->
-		<div class="logo">
-			<h1>Migas Amigas</h1>
-			<p>www.migasamigas.es</p>
-		</div>
+	<!-- Cabecera de la web adaptada con Bootstrap -->
+	<header id="inicio" class="header-custom">
+		<div class="header-container d-flex flex-column flex-md-row justify-content-between align-items-md-end">
+			<!-- Logo y nombre de la panadería -->
+			<div class="logo">
+				<h1>Migas Amigas</h1>
+				<p>www.migasamigas.es</p>
+			</div>
 
-		<!-- Menu de navegacion en formato lista -->
-		<nav aria-label="Navegación principal">
-			<ul>
-				<li><a href="index.html" class="activo" data-i18n="navInicio">Inicio</a></li>
-				<li><a href="#panaderia" data-i18n="navPanaderia">Panadería</a></li>
-				<li><a href="#dulceria" data-i18n="navPasteleria">Dulcería</a></li>
-				<li><a href="#empanadas" data-i18n="navEmpanadas">Empanadas</a></li>
-				<li><a href="#contacto" data-i18n="navContacto">Contacto</a></li>
-			</ul>
-		</nav>
+			<!-- Menú de navegación con componente Navbar de Bootstrap -->
+			<nav class="navbar navbar-expand-md p-0" aria-label="Navegación principal">
+				<!-- Botón hamburguesa visible solo en dispositivos móviles (< 768px) -->
+				<button class="navbar-toggler ms-auto my-2" type="button" data-bs-toggle="collapse" data-bs-target="#navPrincipal" aria-controls="navPrincipal" aria-expanded="false" aria-label="Abrir menú de navegación">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<!-- Menú colapsable con pestañas de navegación -->
+				<div class="collapse navbar-collapse justify-content-end" id="navPrincipal">
+					<ul class="navbar-nav nav-tabs border-0 gap-1">
+						<li class="nav-item">
+							<a href="index.html" class="nav-link activo" data-i18n="navInicio">Inicio</a>
+						</li>
+						<li class="nav-item">
+							<a href="#panaderia" class="nav-link" data-i18n="navPanaderia">Panadería</a>
+						</li>
+						<li class="nav-item">
+							<a href="#dulceria" class="nav-link" data-i18n="navPasteleria">Dulcería</a>
+						</li>
+						<li class="nav-item">
+							<a href="#empanadas" class="nav-link" data-i18n="navEmpanadas">Empanadas</a>
+						</li>
+						<li class="nav-item">
+							<a href="#contacto" class="nav-link" data-i18n="navContacto">Contacto</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
 	</header>
 
   <!--
@@ -157,6 +178,8 @@
 					   © 2026 Migas Amigas. Todos los derechos reservados.
 				   </div>
 			   </footer>
+	<!-- Bootstrap Bundle JS con Popper (necesario para el menú responsive colapsable) -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="js/index.js?v=2" type="module">
 	</script>
 </body>
