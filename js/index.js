@@ -2,6 +2,8 @@ import { Card } from "./card.js?v=2";
 import { panes } from "./data/panes.js";
 import { dulces } from "./data/dulces.js";
 import { empanadas } from "./data/empanadas.js";
+import { iniciarCarrusel, actualizarIdiomaCarrusel, irASlide } from "./carrusel.js";
+import { panDelDia, crearSlidePanDelDia } from "./data/panDelDia.js";
 
 /* Punto de entrada de index.html: traduce la interfaz y renderiza las tarjetas. */
 
@@ -16,6 +18,17 @@ let empanadasElement = document.querySelector("#empanadas .card-gallery");
 const sectionsArray = [panaderia, dulceria, empanadasElement];
 const productArray = [panes, dulces, empanadas];
 
+/* Carrusel del pan del día (no cambia solo, intervalo 0). */
+iniciarCarrusel("carruselPanDelDia", panDelDia, crearSlidePanDelDia, 0);
+
+/* Abrir el pan del día en el día de hoy (0=domingo, 1=lunes...). */
+const diaHoy = new Date().getDay();
+let indiceHoy = diaHoy - 1;
+if (indiceHoy < 0) {
+   indiceHoy = 6; // domingo
+}
+irASlide("carruselPanDelDia", indiceHoy);
+
 const translations = {
    es: {
       navInicio: "Inicio", navPanaderia: "Panadería", navPasteleria: "Dulcería",
@@ -29,7 +42,8 @@ const translations = {
       surroundings: "Nuestro entorno",
       surroundingsP1: "Migas Amigas se encuentra en un pequeño pueblo cerca de la frontera entre España y Portugal, rodeado de campos, caminos tranquilos y casas de piedra.",
       surroundingsP2: "La mezcla de tradiciones de ambos lados de la frontera se nota en la vida del pueblo y también inspira algunas de nuestras recetas. Es un lugar apacible, donde vecinos y viajeros paran a conversar y llevarse algo recién horneado.",
-      surroundingsImageAlt: "Paisaje rural cerca de la frontera entre España y Portugal"
+      surroundingsImageAlt: "Paisaje rural cerca de la frontera entre España y Portugal",
+      seccionPanDelDia: "El pan del día"
    },
    pt: {
       navInicio: "Início", navPanaderia: "Padaria", navPasteleria: "Doçaria",
@@ -43,7 +57,8 @@ const translations = {
       surroundings: "O nosso ambiente",
       surroundingsP1: "A Migas Amigas fica numa pequena aldeia perto da fronteira entre Espanha e Portugal, rodeada de campos, caminhos tranquilos e casas de pedra.",
       surroundingsP2: "A mistura de tradições dos dois lados da fronteira sente-se na vida da aldeia e também inspira algumas das nossas receitas. É um lugar tranquilo, onde moradores e viajantes param para conversar e levar algo acabado de sair do forno.",
-      surroundingsImageAlt: "Paisagem rural perto da fronteira entre Espanha e Portugal"
+      surroundingsImageAlt: "Paisagem rural perto da fronteira entre Espanha e Portugal",
+      seccionPanDelDia: "O pão do dia"
    }
 };
 
@@ -77,6 +92,7 @@ function changeLanguage(language) {
    });
    renderCards(language);
    localStorage.setItem("idioma", language);
+   actualizarIdiomaCarrusel("carruselPanDelDia", language);
 }
 
 document.querySelectorAll(".lang-btn").forEach((button) => {
