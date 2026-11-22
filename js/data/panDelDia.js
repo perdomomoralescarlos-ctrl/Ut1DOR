@@ -43,37 +43,35 @@ export let panDelDia = [
    }
 ];
 
-/* Esta función crea el contenido de una diapositiva del pan del día. */
+/* Esta función crea el contenido de una diapositiva del pan del día con Bootstrap. */
 export function crearSlidePanDelDia(dato, idioma) {
-   const texto = dato[idioma];
+   const texto = dato[idioma] || dato.es;
 
    const caja = document.createElement("div");
-   caja.className = "slide-dia";
+   caja.className = "bg-light min-vh-25 px-5 py-5 d-flex flex-column flex-md-row align-items-center gap-4";
 
    const imagen = document.createElement("img");
-   imagen.className = "slide-dia-imagen";
+   imagen.className = "img-fluid rounded border border-warning border-2";
+   imagen.setAttribute("width", "220");
    imagen.src = dato.imagen;
    imagen.alt = texto.titulo;
 
    const contenido = document.createElement("div");
-   contenido.className = "slide-dia-texto";
 
    const dia = document.createElement("span");
-   dia.className = "slide-dia-badge";
+   dia.className = "badge rounded-pill bg-warning text-dark";
    dia.textContent = texto.dia;
 
    const titulo = document.createElement("h3");
+   titulo.className = "h3 text-warning-emphasis mt-2";
    titulo.textContent = texto.titulo;
 
    const parrafo = document.createElement("p");
+   parrafo.className = "mb-0";
    parrafo.textContent = texto.texto;
 
-   contenido.appendChild(dia);
-   contenido.appendChild(titulo);
-   contenido.appendChild(parrafo);
-
-   caja.appendChild(imagen);
-   caja.appendChild(contenido);
+   contenido.append(dia, titulo, parrafo);
+   caja.append(imagen, contenido);
 
    return caja;
 }
