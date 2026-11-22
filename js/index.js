@@ -1,4 +1,4 @@
-import { Card } from "./card.js?v=2";
+import { Card } from "./card.js?v=3";
 import { panes } from "./data/panes.js";
 import { dulces } from "./data/dulces.js";
 import { empanadas } from "./data/empanadas.js";
@@ -10,9 +10,9 @@ import { panDelDia, crearSlidePanDelDia } from "./data/panDelDia.js";
 /* Todos los productos de la galería, agrupados por tipo. */
 
 /* Contenedor donde se insertan todas las tarjetas. */
-let panaderia = document.querySelector("#panaderia .card-gallery");
-let dulceria = document.querySelector("#dulceria .card-gallery");
-let empanadasElement = document.querySelector("#empanadas .card-gallery");
+let panaderia = document.querySelector("#panaderia .row");
+let dulceria = document.querySelector("#dulceria .row");
+let empanadasElement = document.querySelector("#empanadas .row");
 
 
 const sectionsArray = [panaderia, dulceria, empanadasElement];
@@ -72,7 +72,6 @@ function renderCards(language) {
             : info;
          const card = new Card(localizedInfo);
          card.build(section);
-         card.addEvents();
       });
    });
 }
@@ -88,7 +87,9 @@ function changeLanguage(language) {
       if (translation) element.alt = translation;
    });
    document.querySelectorAll(".lang-btn").forEach((button) => {
-      button.setAttribute("aria-pressed", String(button.dataset.lang === language));
+      const active = button.dataset.lang === language;
+      button.setAttribute("aria-pressed", String(active));
+      button.classList.toggle("active", active);
    });
    renderCards(language);
    localStorage.setItem("idioma", language);
