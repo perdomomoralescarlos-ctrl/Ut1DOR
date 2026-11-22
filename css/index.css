@@ -18,147 +18,11 @@ body {
 	line-height: 1.6;
 }
 
-/* Cabecera y menu de navegacion adaptados con Bootstrap */
-
-header.header-custom,
-header {
-	/* Ancho de 920px mas 40px de padding a los lados = 960px total en pantallas grandes */
-	max-width: 960px;
-	width: 100%;
-	box-sizing: border-box;
-	margin: 0 auto;
-	padding: 20px 20px 0 20px;
-
-	/* Degradado verde con los colores de la paleta original */
-	background: linear-gradient(180deg, #CAE646 0%, #3E9722 100%);
-
-	/* Bordes superiores redondeados */
-	border-radius: 10px 10px 0 0;
-
-	/* Contenedor flexible para distribuir fila superior y navegacion */
-	position: relative;
-	min-height: 120px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.header-container {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	height: 100%;
-}
-
-/* Titulo del logo */
-header .logo h1 {
-	font-family: Arial, sans-serif;
-	font-size: 26px;
-	font-weight: bold;
-	color: #333333;
-	margin: 0;
-	line-height: 1.1;
-}
-
-/* Subtitulo del logo */
-header .logo p {
-	font-family: Arial, sans-serif;
-	font-size: 13px;
-	color: #333333;
-	margin-top: 3px;
-	margin-bottom: 0;
-}
-
-/* Selector de idioma arriba a la derecha */
-header .lang-selector {
-	display: flex;
-	gap: 6px;
-}
-
-/* Botones de idiomas */
-header .lang-btn {
-	background: rgba(255, 255, 255, 0.75);
-	border: 1px solid #333333;
-	padding: 3px 6px;
-	cursor: pointer;
-	border-radius: 3px;
-	display: inline-flex;
-	align-items: center;
-	transition: background-color 0.2s ease;
-}
-
-header .lang-btn:hover {
-	background: #ffffff;
-}
-
 /* Iconos de las banderas */
-header .flag-icon {
+.flag-icon {
 	width: 24px;
 	height: 16px;
 	display: block;
-}
-
-/* Boton hamburguesa de Bootstrap adaptado a los colores */
-header .navbar-toggler {
-	background-color: rgba(255, 255, 255, 0.85);
-	border: 1px solid #333333;
-	padding: 4px 8px;
-	border-radius: 4px;
-	box-shadow: none;
-}
-
-header .navbar-toggler:focus {
-	box-shadow: 0 0 0 2px #E58C24;
-}
-
-/* Menu alineado a la derecha */
-header nav {
-	display: flex;
-	justify-content: flex-end;
-}
-
-/* Lista de pestañas sin borde inferior de Bootstrap */
-header .nav-tabs {
-	border-bottom: none;
-}
-
-header .nav-tabs .nav-item {
-	margin-bottom: 0;
-}
-
-/* Enlaces con forma de pestana */
-header .nav-link,
-header nav li a {
-	display: block;
-	text-decoration: none;
-	font-family: Arial, sans-serif;
-	font-size: 13px;
-	font-weight: bold;
-	color: #333333 !important;
-	background-color: #f3f8e8;
-	padding: 8px 16px !important;
-	border-radius: 6px 6px 0 0 !important;
-	border: 1px solid #bddb8f !important;
-	border-bottom: none !important;
-	transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-
-/* Pestana activa en color naranja */
-header .nav-link.activo,
-header .nav-link.active,
-header nav li a.activo {
-	background-color: #E58C24 !important;
-	color: #ffffff !important;
-	border-color: #E58C24 !important;
-}
-
-/* Cambio de color de fondo al pasar el raton */
-header .nav-link:hover,
-header nav li a:hover {
-	background-color: #E58C24 !important;
-	color: #ffffff !important;
-	border-color: #E58C24 !important;
 }
 
 /* CONTENIDO PRINCIPAL */
@@ -268,50 +132,8 @@ section {
 
 /* Pantallas medianas y tablets */
 @media (max-width: 960px) {
-	header.header-custom,
-	header {
-		/* Quitamos el ancho fijo para adaptarse a la pantalla */
-		max-width: 100%;
-		width: auto;
-		box-sizing: border-box;
-		margin: 0;
-		border-radius: 0;
-		padding: 15px 15px 0 15px;
-	}
-
 	main {
 		/* Reduce los márgenes laterales del contenido en móvil. */
 		padding: 20px 16px;
-	}
-}
-
-/* Pantallas moviles (< 768px - colapso responsive de Bootstrap) */
-@media (max-width: 767.98px) {
-	header .navbar-collapse {
-		background: rgba(255, 255, 255, 0.95);
-		border-radius: 6px;
-		padding: 12px;
-		margin-top: 8px;
-		margin-bottom: 10px;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-	}
-
-	header .nav-tabs {
-		flex-direction: column;
-		width: 100%;
-		gap: 6px;
-	}
-
-	header .nav-tabs .nav-item {
-		width: 100%;
-		text-align: center;
-	}
-
-	header .nav-link,
-	header nav li a {
-		border-radius: 4px !important;
-		border: 1px solid #bddb8f !important;
-		width: 100%;
-		text-align: center;
 	}
 }

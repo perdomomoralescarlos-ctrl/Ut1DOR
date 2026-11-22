@@ -13,65 +13,62 @@
 
 </head>
 <body>
-	<!-- Cabecera de la web adaptada con Bootstrap -->
-	<header id="inicio" class="header-custom">
-		<div class="header-container">
-			<!-- Fila superior: Logo y Selector de idioma con utilidades flex de Bootstrap -->
-			<div class="header-top d-flex justify-content-between align-items-start">
-				<!-- Logo y nombre de la panadería -->
-				<div class="logo">
-					<h1>Migas Amigas</h1>
-					<p>www.migasamigas.es</p>
-				</div>
+	<!-- Cabecera de la web construida 100% con componentes y utilidades nativas de Bootstrap 5 -->
+	<header id="inicio" class="container bg-success bg-gradient text-white rounded-top shadow-sm p-3">
+		<div class="d-flex justify-content-between align-items-start mb-2">
+			<!-- Logo y nombre de la panadería -->
+			<a class="navbar-brand text-white fw-bold d-flex flex-column text-decoration-none" href="index.html">
+				<span class="fs-2 lh-1">Migas Amigas</span>
+				<span class="fs-6 fw-normal text-white-50 mt-1">www.migasamigas.es</span>
+			</a>
 
-				<!-- Selector de idioma (es / pt) -->
-				<div class="lang-selector d-flex gap-2">
-					<button type="button" class="lang-btn" data-lang="es" aria-label="Español" aria-pressed="true" title="Español">
-						<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
-							<rect width="30" height="20" fill="#AA151B" />
-							<rect y="5" width="30" height="10" fill="#F1BF00" />
-						</svg>
-					</button>
-					<button type="button" class="lang-btn" data-lang="pt" aria-label="Português" aria-pressed="false" title="Português">
-						<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
-							<rect width="12" height="20" fill="#66382E" />
-							<rect x="12" width="18" height="20" fill="#66382E" />
-							<circle cx="12" cy="10" r="3.5" fill="#FFCC00" />
-							<circle cx="12" cy="10" r="2.1" fill="#FFFFFF" />
-						</svg>
-					</button>
-				</div>
-			</div>
-
-			<!-- Menú de navegación con componente Navbar de Bootstrap -->
-			<nav class="navbar navbar-expand-md p-0" aria-label="Navegación principal">
-				<!-- Botón hamburguesa visible solo en dispositivos móviles (< 768px) -->
-				<button class="navbar-toggler ms-auto my-2" type="button" data-bs-toggle="collapse" data-bs-target="#navPrincipal" aria-controls="navPrincipal" aria-expanded="false" aria-label="Abrir menú de navegación">
-					<span class="navbar-toggler-icon"></span>
+			<!-- Selector de idioma (es / pt) -->
+			<div class="lang-selector d-flex gap-2">
+				<button type="button" class="btn btn-sm btn-outline-light p-1" data-lang="es" aria-label="Español" aria-pressed="true" title="Español">
+					<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
+						<rect width="30" height="20" fill="#AA151B" />
+						<rect y="5" width="30" height="10" fill="#F1BF00" />
+					</svg>
 				</button>
-
-				<!-- Menú colapsable con pestañas de navegación -->
-				<div class="collapse navbar-collapse justify-content-end" id="navPrincipal">
-					<ul class="navbar-nav nav-tabs border-0 gap-1">
-						<li class="nav-item">
-							<a href="#inicio" class="nav-link activo" data-i18n="navInicio">Inicio</a>
-						</li>
-						<li class="nav-item">
-							<a href="#panaderia" class="nav-link" data-i18n="navPanaderia">Panadería</a>
-						</li>
-						<li class="nav-item">
-							<a href="#dulceria" class="nav-link" data-i18n="navPasteleria">Dulcería</a>
-						</li>
-						<li class="nav-item">
-							<a href="#empanadas" class="nav-link" data-i18n="navEmpanadas">Empanadas</a>
-						</li>
-						<li class="nav-item">
-							<a href="#contacto" class="nav-link" data-i18n="navContacto">Contacto</a>
-						</li>
-					</ul>
-				</div>
-			</nav>
+				<button type="button" class="btn btn-sm btn-outline-light p-1" data-lang="pt" aria-label="Português" aria-pressed="false" title="Português">
+					<svg class="flag-icon" viewBox="0 0 30 20" role="img" aria-hidden="true">
+						<rect width="12" height="20" fill="#66382E" />
+						<rect x="12" width="18" height="20" fill="#66382E" />
+						<circle cx="12" cy="10" r="3.5" fill="#FFCC00" />
+						<circle cx="12" cy="10" r="2.1" fill="#FFFFFF" />
+					</svg>
+				</button>
+			</div>
 		</div>
+
+		<!-- Menú de navegación con componente Navbar de Bootstrap -->
+		<nav class="navbar navbar-expand-md navbar-dark p-0">
+			<!-- Botón hamburguesa oficial de Bootstrap para pantallas móviles (< 768px) -->
+			<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navPrincipal" aria-controls="navPrincipal" aria-expanded="false" aria-label="Abrir menú de navegación">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<!-- Menú de navegación colapsable -->
+			<div class="collapse navbar-collapse justify-content-end" id="navPrincipal">
+				<ul class="navbar-nav nav-pills gap-1 mt-3 mt-md-0">
+					<li class="nav-item">
+						<a href="#inicio" class="nav-link active bg-warning text-dark fw-bold" data-i18n="navInicio">Inicio</a>
+					</li>
+					<li class="nav-item">
+						<a href="#panaderia" class="nav-link text-white fw-semibold" data-i18n="navPanaderia">Panadería</a>
+					</li>
+					<li class="nav-item">
+						<a href="#dulceria" class="nav-link text-white fw-semibold" data-i18n="navPasteleria">Dulcería</a>
+					</li>
+					<li class="nav-item">
+						<a href="#empanadas" class="nav-link text-white fw-semibold" data-i18n="navEmpanadas">Empanadas</a>
+					</li>
+					<li class="nav-item">
+						<a href="#contacto" class="nav-link text-white fw-semibold" data-i18n="navContacto">Contacto</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
 	</header>
 
 <main>
